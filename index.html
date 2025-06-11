@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manoj Pasunoori | Software Development Engineer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; background: #f9f9f9; }
-        header { background: #1e3a8a; color: #fff; padding: 2rem 1rem; text-align: center; }
+        header { background: #1e3a8a; color: #fff; padding: 2rem 1rem; text-align: center; position: relative; }
         header h1 { margin: 0; font-size: 2.5rem; }
-        header p { font-size: 1.2rem; margin-top: 0.5rem; }
+        header p, .typing-text { font-size: 1.2rem; margin-top: 0.5rem; }
+        .typing-text { border-right: 2px solid #fff; white-space: nowrap; overflow: hidden; width: 0; animation: typing 4s steps(40, end) forwards, blink 1s step-end infinite; margin-top: 0.5rem; }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { 50% { border-color: transparent } }
+        header img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-top: 1rem; border: 4px solid #fff; }
         section { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
         h2 { color: #1e3a8a; border-bottom: 2px solid #ccc; padding-bottom: 0.3rem; }
         ul { list-style: none; padding: 0; }
@@ -17,17 +22,29 @@
         .project a { color: #1e3a8a; text-decoration: none; }
         .project a:hover { text-decoration: underline; }
         footer { text-align: center; padding: 1rem; background: #1e3a8a; color: #fff; margin-top: 2rem; }
+        .highlight { background: #eef2ff; padding: 1rem; border-left: 5px solid #1e3a8a; margin-bottom: 2rem; }
+        .icon-row { font-size: 1.8rem; display: flex; flex-wrap: wrap; gap: 15px; margin-top: 1rem; }
+        .icon-row i { color: #1e3a8a; }
     </style>
 </head>
 <body>
     <header>
         <h1>Manoj Pasunoori</h1>
-        <p>Machine Learning Engineer | Python Developer | MLOps Enthusiast</p>
+        <p class="typing-text">Software Development Engineer | Python | MLOps </p>
+        <img src="f0659c93-9001-46d4-bdd2-c01d1b6f309f.png" alt="Manoj Pasunoori">
     </header>
 
     <section>
         <h2>About Me</h2>
         <p>I'm a Machine Learning Engineer with 4+ years of experience in software engineering and a Master’s in Information Systems. I specialize in data analytics, end-to-end ML pipelines, model deployment, and cloud infrastructure. I'm passionate about building scalable AI solutions that make real-world impact.</p>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="highlight">
+            <p><strong>University of Texas at Arlington, USA</strong> – Master of Science in Information Systems (2023–2025)</p>
+            <p><strong>JNTU Hyderabad, India</strong> – Bachelor of Technology (2016–2020)</p>
+        </div>
     </section>
 
     <section>
@@ -53,6 +70,15 @@
         <p><strong>Languages:</strong> Python, Java, C++, SQL, Bash</p>
         <p><strong>Frameworks:</strong> TensorFlow, PyTorch, Sklearn, FastAPI, Streamlit</p>
         <p><strong>Cloud & Tools:</strong> AWS, Docker, Kubernetes, Jenkins, Terraform, GitHub Actions</p>
+        <div class="icon-row">
+            <i class="fab fa-python" title="Python"></i>
+            <i class="fab fa-java" title="Java"></i>
+            <i class="fab fa-git" title="Git"></i>
+            <i class="fab fa-aws" title="AWS"></i>
+            <i class="fab fa-docker" title="Docker"></i>
+            <i class="fab fa-linux" title="Linux"></i>
+            <i class="fas fa-database" title="SQL"></i>
+        </div>
     </section>
 
     <section>
