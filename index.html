@@ -4,91 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manoj Pasunoori | Software Development Engineer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; background: #f9f9f9; }
-        header { background: #1e3a8a; color: #fff; padding: 2rem 1rem; text-align: center; position: relative; }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p, .typing-text { font-size: 1.2rem; margin-top: 0.5rem; }
-        .typing-text { border-right: 2px solid #fff; white-space: nowrap; overflow: hidden; width: 0; animation: typing 4s steps(40, end) forwards, blink 1s step-end infinite; margin-top: 0.5rem; }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink { 50% { border-color: transparent } }
-        header img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-top: 1rem; border: 4px solid #fff; }
-        section { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-        h2 { color: #1e3a8a; border-bottom: 2px solid #ccc; padding-bottom: 0.3rem; }
-        ul { list-style: none; padding: 0; }
-        ul li { margin-bottom: 0.8rem; }
-        .project a { color: #1e3a8a; text-decoration: none; }
-        .project a:hover { text-decoration: underline; }
-        footer { text-align: center; padding: 1rem; background: #1e3a8a; color: #fff; margin-top: 2rem; }
-        .highlight { background: #eef2ff; padding: 1rem; border-left: 5px solid #1e3a8a; margin-bottom: 2rem; }
-        .icon-row { font-size: 1.8rem; display: flex; flex-wrap: wrap; gap: 15px; margin-top: 1rem; }
-        .icon-row i { color: #1e3a8a; }
+        /* Custom styles to override or enhance Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50 text-gray-800 leading-relaxed;
+        }
+
+        /* Custom typing animation for the header text */
+        .typing-text {
+            border-right: 2px solid; /* Use current text color for cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(40, end) forwards, blink 1s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+
+        /* Ensure smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Manoj Pasunoori</h1>
-        <p class="typing-text">Software Development Engineer | Python | MLOps </p>
-        <img src="ManojPhoto.jpeg" alt="Manoj Pasunoori">
+<body class="selection:bg-blue-200 selection:text-blue-900">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-16 px-4 text-center relative shadow-xl">
+        <div class="container mx-auto">
+            <!-- Profile Image -->
+            <img src="ManojPhoto.jpeg" alt="Manoj Pasunoori"
+                 class="w-40 h-40 rounded-xl object-cover mx-auto mb-6 border-6 border-white shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                 onerror="this.onerror=null; this.src='https://placehold.co/160x160/cccccc/333333?text=Profile';"
+            >
+            <!-- Main Title -->
+            <h1 class="text-5xl font-bold mb-2">Manoj Pasunoori</h1>
+            <!-- Dynamic Subtitle with Typing Animation -->
+            <p class="text-2xl font-semibold typing-text mx-auto max-w-lg overflow-hidden">
+                Software Development Engineer | Python | MLOps
+            </p>
+            <!-- Navigation Menu -->
+            <nav class="mt-8">
+                <ul class="flex justify-center space-x-6 text-xl">
+                    <li><a href="#about" class="hover:underline transition-all duration-300">About</a></li>
+                    <li><a href="#education" class="hover:underline transition-all duration-300">Education</a></li>
+                    <li><a href="#projects" class="hover:underline transition-all duration-300">Projects</a></li>
+                    <li><a href="#skills" class="hover:underline transition-all duration-300">Skills</a></li>
+                    <li><a href="#contact" class="hover:underline transition-all duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section>
-        <h2>About Me</h2>
-        <p>I'm a Machine Learning Engineer with 4+ years of experience in software engineering and a Master’s in Information Systems. I specialize in data analytics, end-to-end ML pipelines, model deployment, and cloud infrastructure. I'm passionate about building scalable AI solutions that make real-world impact.</p>
-    </section>
+    <!-- Main Content Sections -->
+    <main class="container mx-auto px-4 py-8">
 
-    <section>
-        <h2>Education</h2>
-        <div class="highlight">
-            <p><strong>University of Texas at Arlington, USA</strong> – Master of Science in Information Systems (2023–2025)</p>
-            <p><strong>JNTU Hyderabad, India</strong> – Bachelor of Technology (2016–2020)</p>
-        </div>
-    </section>
+        <!-- About Me Section -->
+        <section id="about" class="mb-12 py-16">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-6 pb-2 border-b-2 border-blue-200">About Me</h2>
+            <p class="text-lg leading-relaxed text-gray-700">
+                I'm a <strong class="font-semibold text-blue-600">Machine Learning Engineer</strong> with <strong class="font-semibold text-blue-600">4+ years of experience</strong> in software engineering and a Master’s in Information Systems. I specialize in <strong class="font-semibold text-blue-600">data analytics, end-to-end ML pipelines, model deployment, and cloud infrastructure</strong>. I'm passionate about building scalable AI solutions that make a real-world impact.
+            </p>
+        </section>
 
-    <section>
-        <h2>Projects</h2>
-        <ul class="project">
-            <li>
-                <strong>Accident Severity Prediction</strong> &mdash; <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank">GitHub</a><br>
-                MLOps pipeline to predict accident severity using weather/location data. Integrated SHAP, MLflow, Docker, FastAPI.
-            </li>
-            <li>
-                <strong>Fake Job Posting Prediction</strong> &mdash; <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank">GitHub</a><br>
-                NLP + classification to detect fraudulent job postings using TF-IDF, SMOTE, and XGBoost.
-            </li>
-            <li>
-                <strong>Superstore Data Analysis</strong> &mdash; <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank">GitHub</a><br>
-                Sales and profitability insights using EDA and ML for a retail dataset.
-            </li>
-        </ul>
-    </section>
+        <!-- Education Section -->
+        <section id="education" class="mb-12 py-16">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-6 pb-2 border-b-2 border-blue-200">Education</h2>
+            <div class="bg-white shadow-lg rounded-xl p-8 transition-transform duration-300 hover:scale-[1.01] hover:shadow-2xl">
+                <p class="text-xl font-semibold text-gray-900 mb-2">
+                    <strong class="text-blue-600">University of Texas at Arlington, USA</strong>
+                </p>
+                <p class="text-lg text-gray-700">Master of Science in Information Systems (2023–2025)</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-xl p-8 mt-6 transition-transform duration-300 hover:scale-[1.01] hover:shadow-2xl">
+                <p class="text-xl font-semibold text-gray-900 mb-2">
+                    <strong class="text-blue-600">JNTU Hyderabad, India</strong>
+                </p>
+                <p class="text-lg text-gray-700">Bachelor of Technology (2016–2020)</p>
+            </div>
+        </section>
 
-    <section>
-        <h2>Skills</h2>
-        <p><strong>Languages:</strong> Python, Java, C++, SQL, Bash</p>
-        <p><strong>Frameworks:</strong> TensorFlow, PyTorch, Sklearn, FastAPI, Streamlit</p>
-        <p><strong>Cloud & Tools:</strong> AWS, Docker, Kubernetes, Jenkins, Terraform, GitHub Actions</p>
-        <div class="icon-row">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fab fa-java" title="Java"></i>
-            <i class="fab fa-git" title="Git"></i>
-            <i class="fab fa-aws" title="AWS"></i>
-            <i class="fab fa-docker" title="Docker"></i>
-            <i class="fab fa-linux" title="Linux"></i>
-            <i class="fas fa-database" title="SQL"></i>
-        </div>
-    </section>
+        <!-- Projects Section -->
+        <section id="projects" class="mb-12 py-16">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-8 pb-2 border-b-2 border-blue-200">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Accident Severity Prediction -->
+                <article class="bg-white shadow-lg rounded-xl p-6 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Accident Severity Prediction</h3>
+                        <p class="text-gray-700 mb-4">
+                            Developed an MLOps pipeline to predict accident severity using weather/location data.
+                            Integrated <span class="font-medium text-blue-600">SHAP, MLflow, Docker, and FastAPI</span> for robust deployment and interpretability.
+                            <!-- Add quantifiable impact here -->
+                        </p>
+                    </div>
+                    <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank"
+                       class="inline-flex items-center justify-center text-blue-600 hover:text-blue-800 hover:underline font-semibold mt-4">
+                        View on GitHub
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </article>
 
-    <section>
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:manojp0299@gmail.com">manojp0299@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank">manoj-pasunoori</a></p>
-        <p>GitHub: <a href="https://github.com/manojpasunoori" target="_blank">@manojpasunoori</a></p>
-    </section>
+                <!-- Project 2: Fake Job Posting Prediction -->
+                <article class="bg-white shadow-lg rounded-xl p-6 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Fake Job Posting Prediction</h3>
+                        <p class="text-gray-700 mb-4">
+                            Built an NLP + classification model to detect fraudulent job postings.
+                            Utilized <span class="font-medium text-blue-600">TF-IDF, SMOTE, and XGBoost</span> for feature engineering and model training.
+                            <!-- Add quantifiable impact here -->
+                        </p>
+                    </div>
+                    <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank"
+                       class="inline-flex items-center justify-center text-blue-600 hover:text-blue-800 hover:underline font-semibold mt-4">
+                        View on GitHub
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </article>
 
-    <footer>
+                <!-- Project 3: Superstore Data Analysis -->
+                <article class="bg-white shadow-lg rounded-xl p-6 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Superstore Data Analysis</h3>
+                        <p class="text-gray-700 mb-4">
+                            Conducted comprehensive sales and profitability insights using <span class="font-medium text-blue-600">Exploratory Data Analysis (EDA) and Machine Learning</span> techniques for a retail dataset.
+                            <!-- Add quantifiable impact here -->
+                        </p>
+                    </div>
+                    <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank"
+                       class="inline-flex items-center justify-center text-blue-600 hover:text-blue-800 hover:underline font-semibold mt-4">
+                        View on GitHub
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-12 py-16">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-8 pb-2 border-b-2 border-blue-200">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3">Languages</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>C++</li>
+                        <li>SQL</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+                <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3">Frameworks & Libraries</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>TensorFlow</li>
+                        <li>PyTorch</li>
+                        <li>Scikit-learn</li>
+                        <li>FastAPI</li>
+                        <li>Streamlit</li>
+                    </ul>
+                </div>
+                <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3">Cloud & Tools</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>AWS</li>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Jenkins</li>
+                        <li>Terraform</li>
+                        <li>GitHub Actions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Skill Icons Section -->
+            <div class="bg-white shadow-lg rounded-xl p-8 mt-12">
+                <h3 class="text-2xl font-bold text-blue-700 mb-6 text-center">Tech Stack Highlights</h3>
+                <div class="flex flex-wrap justify-center items-center gap-8 text-5xl">
+                    <i class="fab fa-python text-blue-600 hover:text-blue-800 transition-colors duration-200" title="Python"></i>
+                    <i class="fab fa-java text-red-600 hover:text-red-800 transition-colors duration-200" title="Java"></i>
+                    <i class="fab fa-git-alt text-orange-600 hover:text-orange-800 transition-colors duration-200" title="Git"></i>
+                    <i class="fab fa-aws text-yellow-600 hover:text-yellow-800 transition-colors duration-200" title="AWS"></i>
+                    <i class="fab fa-docker text-blue-500 hover:text-blue-700 transition-colors duration-200" title="Docker"></i>
+                    <i class="fab fa-linux text-gray-700 hover:text-black transition-colors duration-200" title="Linux"></i>
+                    <i class="fas fa-database text-green-600 hover:text-green-800 transition-colors duration-200" title="SQL"></i>
+                    <!-- Add more icons with specific colors -->
+                    <i class="fas fa-brain text-purple-600 hover:text-purple-800 transition-colors duration-200" title="Machine Learning"></i>
+                    <i class="fas fa-cloud text-teal-600 hover:text-teal-800 transition-colors duration-200" title="Cloud Computing"></i>
+                    <i class="fas fa-cogs text-gray-600 hover:text-gray-800 transition-colors duration-200" title="MLOps"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-12 py-16">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-6 pb-2 border-b-2 border-blue-200">Contact</h2>
+            <div class="bg-white shadow-lg rounded-xl p-8">
+                <p class="text-lg mb-4">Feel free to reach out to me via:</p>
+                <ul class="space-y-3 text-lg">
+                    <li>
+                        <i class="fas fa-envelope text-blue-600 mr-3"></i>
+                        Email: <a href="mailto:manojp0299@gmail.com" class="text-blue-600 hover:underline hover:text-blue-800 transition-colors duration-200">manojp0299@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-linkedin text-blue-600 mr-3"></i>
+                        LinkedIn: <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition-colors duration-200">manoj-pasunoori</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-github text-blue-600 mr-3"></i>
+                        GitHub: <a href="https://github.com/manojpasunoori" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition-colors duration-200">@manojpasunoori</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8 text-center text-lg shadow-inner">
         <p>&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
     </footer>
 </body>
