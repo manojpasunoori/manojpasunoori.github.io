@@ -6,8 +6,20 @@
   <title>Manoj Pasunoori | ML Engineer & Software Developer</title>
   <meta name="description" content="The portfolio of Manoj Pasunoori, a Machine Learning and MLOps Engineer specializing in building end-to-end AI solutions and scalable cloud infrastructure.">
 
-  <!-- Favicon -->
-  <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml">
+  <!-- Tailwind with custom accents -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accentPrimary: '#38bdf8',   /* sky-400 */
+            accentSecondary: '#f472b6', /* rose-400 */
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,37 +27,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root {
-      --accent1: theme('colors.sky.400');
-      --accent2: #4ade80; /* lime-400 */
-    }
     body {
-      @apply bg-slate-950 text-gray-200 leading-relaxed font-inter;
+      @apply bg-slate-950 text-gray-100 font-inter leading-wide;
     }
-    h1, h2, h3, h4, h5, h6 {
-      @apply text-white font-poppins;
+    h1, h2 {
+      @apply tracking-tight;
     }
-    .hero-bg {
-      background: url('./assets/images/background.png') center 30%/cover no-repeat;
+    h3 {
       position: relative;
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      @apply text-white tracking-tight;
     }
-    .hero-overlay {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-      z-index: 0;
-    }
-    .section-heading::after {
+    h3::after {
       content: '';
-      display: block;
-      width: 100px; height: 4px;
-      background: var(--accent1);
-      margin: 1rem auto 0;
-      border-radius: 2px;
+      position: absolute;
+      left: 0; bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #f472b6;
+      transition: width 0.3s ease;
+    }
+    h3:hover::after {
+      width: 100%;
     }
     .nav-link {
       position: relative;
@@ -54,8 +60,8 @@
       content: '';
       position: absolute; bottom: -4px; left: 50%;
       width: 0; height: 2px;
-      background: var(--accent1);
-      transition: width .3s ease, left .3s ease;
+      background-color: #38bdf8;
+      transition: width 0.3s ease, left 0.3s ease;
     }
     .nav-link:hover::after,
     .nav-link.active::after {
@@ -64,9 +70,9 @@
   </style>
 </head>
 
-<body class="selection:bg-sky-300 selection:text-gray-900">
+<body class="selection:bg-accentPrimary/30 selection:text-gray-900">
 
-  <!-- Sticky Top Navigation -->
+  <!-- Sticky Navigation -->
   <nav class="sticky top-0 bg-slate-900/80 backdrop-blur-sm z-50 shadow-md">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
       <a href="#" class="text-2xl font-bold text-white">Manoj.</a>
@@ -82,305 +88,265 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero-bg min-h-screen flex items-center justify-center text-center px-4 relative shadow-md">
-    <div class="hero-overlay"></div>
+  <!-- Hero -->
+  <header class="relative hero-bg min-h-screen flex items-center justify-center text-center px-4" style="background: url('./assets/images/background.png') center 30%/cover no-repeat;">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
     <div class="relative z-10 max-w-3xl mx-auto">
       <p class="text-2xl font-light mb-4 leading-snug">Hello, I am</p>
       <h1 class="text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">Manoj Pasunoori</h1>
-      <p class="text-xl lg:text-2xl font-medium mb-12 leading-relaxed">
-        MLOps &amp; Software Development Engineer | Artificial Intelligence Specialist
+      <p class="text-xl lg:text-2xl font-medium mb-12 leading-snug">
+        <span class="bg-gradient-to-r from-accentPrimary to-accentSecondary bg-clip-text text-transparent">MLOps</span> &amp; Software Development Engineer | Artificial Intelligence Specialist
       </p>
       <div class="flex flex-wrap justify-center gap-6">
         <a href="#projects"
-           class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xl px-8 py-4 rounded-2xl shadow-lg transition transform hover:scale-105 ring-2 ring-sky-400">
+           class="inline-block bg-gradient-to-r from-accentPrimary to-accentSecondary text-white font-semibold text-xl px-8 py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accentPrimary/30">
           View My Work <i class="fas fa-arrow-right ml-3"></i>
         </a>
         <a href="#contact"
-           class="inline-block border-2 border-emerald-400 hover:bg-emerald-600 hover:border-emerald-600 text-white font-semibold text-xl px-8 py-4 rounded-2xl shadow-lg transition transform hover:scale-105">
+           class="inline-block border-2 border-accentSecondary hover:bg-accentSecondary/20 text-white font-semibold text-xl px-8 py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-1 hover:shadow-lg hover:shadow-accentPrimary/30">
           Contact Me <i class="fas fa-envelope ml-3"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-16">
+  <main class="max-w-6xl mx-auto px-4 py-16 tracking-wide">
 
     <!-- About -->
-    <section id="about" class="mb-20 py-12" data-aos="fade-up">
-      <div class="bg-slate-900 shadow-md rounded-3xl p-8">
-        <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">About Me</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          <div class="md:col-span-1 flex justify-center">
-            <img src="./assets/images/Manoj.png"
-                 alt="Manoj Pasunoori"
-                 loading="lazy"
-                 class="w-56 h-56 rounded-full object-cover border-2 border-white drop-shadow-lg ring-2 ring-white transform transition hover:rotate-3 hover:scale-105">
-          </div>
-          <div class="md:col-span-2">
-            <p class="text-xl leading-loose text-gray-300 mb-4">
-              I'm a <strong class="font-bold text-sky-400">Machine Learning Engineer</strong> with <strong class="font-bold text-sky-400">4+ years of experience</strong> and a Master’s in Information Systems. My expertise lies in architecting <strong class="font-bold text-sky-400">end-to-end ML pipelines, model deployment, and scalable cloud infrastructure</strong>.
-            </p>
-            <p class="text-xl leading-loose text-gray-300">
-              I am passionate about translating complex data into actionable insights and building robust AI solutions that drive real-world impact. Let's build something amazing together.
-            </p>
-          </div>
+    <section id="about" class="mb-20 py-12 bg-slate-900 shadow-md rounded-3xl p-8" data-aos="fade-up">
+      <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">About Me</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div class="flex justify-center">
+          <img src="./assets/images/Manoj.png" loading="lazy" alt="Manoj Pasunoori"
+               class="w-56 h-56 rounded-full border-2 border-white drop-shadow-lg ring-2 ring-white transform transition hover:rotate-3 hover:scale-105">
+        </div>
+        <div class="md:col-span-2 space-y-4">
+          <p>
+            I'm a <strong class="text-accentPrimary">Machine Learning Engineer</strong> with <strong class="text-accentPrimary">4+ years of experience</strong> and a Master’s in Information Systems. My expertise lies in architecting <strong class="text-accentPrimary">end-to-end ML pipelines, model deployment, and scalable cloud infrastructure</strong>.
+          </p>
+          <p>
+            I am passionate about translating complex data into actionable insights and building robust AI solutions that drive real-world impact. Let's build something amazing together.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="mb-20 py-12" data-aos="fade-up">
-      <div class="bg-slate-700 shadow-md rounded-3xl p-8">
-        <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Experience</h2>
-        <div class="border-l-4 border-sky-500 pl-8 space-y-12">
-          <div class="relative">
-            <span class="absolute -left-10 w-6 h-6 bg-sky-500 rounded-full border-4 border-slate-700"></span>
-            <img src="./assets/images/tcslogo.png"
-                 loading="lazy"
-                 alt="TCS Logo"
-                 class="w-16 h-16 object-contain rounded-lg mb-4 bg-white p-1">
-            <h3 class="text-3xl font-semibold">Systems Engineer</h3>
-            <p class="text-xl text-gray-300 mb-1">Tata Consultancy Services – Hyderabad, IN</p>
-            <p class="text-lg text-gray-400">Nov 2020 – Present</p>
-            <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2 text-lg">
-              <li><strong class="text-sky-400">Led</strong> feature development for Ericsson’s COM platform, focusing on data-driven diagnostics in <strong>FCAPS modules</strong>.</li>
-              <li><strong class="text-sky-400">Automated</strong> large-scale data workflows with <strong>Python &amp; SQL</strong>, cutting manual effort by 40%.</li>
-              <li><strong class="text-sky-400">Designed &amp; deployed</strong> scalable <strong>CI/CD pipelines</strong> using Jenkins &amp; Azure DevOps.</li>
-              <li><strong class="text-sky-400">Built &amp; validated</strong> anomaly-detection models with <strong>SHAP</strong> for full transparency.</li>
-            </ul>
-          </div>
+    <section id="experience" class="mb-20 py-12 bg-slate-800 shadow-md rounded-3xl p-8" data-aos="fade-up">
+      <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Experience</h2>
+      <div class="border-l-4 border-accentPrimary pl-8 space-y-12">
+        <div class="relative">
+          <span class="absolute -left-10 w-6 h-6 bg-accentPrimary rounded-full border-4 border-slate-800"></span>
+          <img src="./assets/images/tcslogo.png" loading="lazy" alt="TCS Logo"
+               class="w-16 h-16 object-contain rounded-lg mb-4 bg-white p-1">
+          <h3>Systems Engineer</h3>
+          <p class="text-gray-300">Tata Consultancy Services – Hyderabad, IN</p>
+          <p class="text-gray-400 mb-4">Nov 2020 – Present</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong class="text-accentPrimary">Led</strong> feature development for Ericsson’s COM platform, focusing on data-driven diagnostics in <strong>FCAPS modules</strong>.</li>
+            <li><strong class="text-accentPrimary">Automated</strong> large-scale data workflows with <strong>Python &amp; SQL</strong>, cutting manual effort by 40%.</li>
+            <li><strong class="text-accentPrimary">Designed &amp; deployed</strong> scalable <strong>CI/CD pipelines</strong> using Jenkins &amp; Azure DevOps.</li>
+            <li><strong class="text-accentPrimary">Built &amp; validated</strong> anomaly-detection models with <strong>SHAP</strong> for full transparency.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- Education -->
-    <section id="education" class="mb-20 py-12" data-aos="fade-up">
-      <div class="bg-slate-800 shadow-md rounded-3xl p-8">
-        <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Education</h2>
-        <div class="border-l-4 border-sky-500 pl-8 space-y-12">
-          <div class="relative">
-            <span class="absolute -left-10 w-6 h-6 bg-sky-500 rounded-full border-4 border-slate-800"></span>
-            <h3 class="text-3xl font-semibold">M.S. in Information Systems</h3>
-            <p class="text-xl text-gray-300 mb-1">University of Texas at Arlington, TX</p>
-            <p class="text-lg text-gray-400">2023 – 2025</p>
-          </div>
-          <div class="relative">
-            <span class="absolute -left-10 w-6 h-6 bg-sky-500 rounded-full border-4 border-slate-800"></span>
-            <h3 class="text-3xl font-semibold">Bachelor of Technology</h3>
-            <p class="text-xl text-gray-300 mb-1">JNTU Hyderabad, India</p>
-            <p class="text-lg text-gray-400">2016 – 2020</p>
-          </div>
+    <section id="education" class="mb-20 py-12 bg-slate-700 shadow-md rounded-3xl p-8" data-aos="fade-up">
+      <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Education</h2>
+      <div class="border-l-4 border-accentPrimary pl-8 space-y-12">
+        <div class="relative">
+          <span class="absolute -left-10 w-6 h-6 bg-accentPrimary rounded-full border-4 border-slate-700"></span>
+          <h3>Master of Science in Information Systems</h3>
+          <p class="text-gray-300">University of Texas at Arlington, TX</p>
+          <p class="text-gray-400">2023 – 2025</p>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-10 w-6 h-6 bg-accentPrimary rounded-full border-4 border-slate-700"></span>
+          <h3>Bachelor of Technology</h3>
+          <p class="text-gray-300">JNTU Hyderabad, India</p>
+          <p class="text-gray-400">2016 – 2020</p>
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="mb-20 py-12" data-aos="fade-up">
-      <div class="bg-slate-700 shadow-md rounded-3xl p-8">
-        <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <!-- Accident Severity Prediction -->
-          <article class="group bg-slate-800 rounded-3xl overflow-hidden shadow-md transform transition hover:scale-105">
-            <div class="relative">
-              <img src="./assets/images/Project1.png"
-                   loading="lazy"
-                   alt="Accident Severity Prediction"
-                   class="w-full h-48 object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+    <section id="projects" class="mb-20 py-12 bg-slate-800 shadow-md rounded-3xl p-8" data-aos="fade-up">
+      <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Accident Severity Prediction -->
+        <article class="group bg-slate-900 rounded-3xl overflow-hidden shadow-md transform transition hover:-translate-y-1 hover:shadow-lg hover:shadow-accentPrimary/30">
+          <div class="relative">
+            <img src="./assets/images/Project1.png" loading="lazy" alt="Accident Severity Prediction" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-accentPrimary/60 to-accentSecondary/10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+          </div>
+          <div class="p-6 flex flex-col">
+            <h3>Accident Severity Prediction</h3>
+            <p class="flex-grow text-gray-300 mb-4">
+              Engineered an MLOps pipeline to predict accident severity, achieving 92% accuracy and 30% latency reduction.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-accentPrimary/10 text-accentPrimary px-2 py-1 rounded-full text-xs">SHAP</span>
+              <span class="bg-accentPrimary/10 text-accentPrimary px-2 py-1 rounded-full text-xs">MLflow</span>
+              <span class="bg-accentPrimary/10 text-accentPrimary px-2 py-1 rounded-full text-xs">FastAPI</span>
+              <span class="bg-accentPrimary/10 text-accentPrimary px-2 py-1 rounded-full text-xs">Docker</span>
             </div>
-            <div class="p-6 flex flex-col">
-              <h3 class="text-2xl font-bold mb-2">Accident Severity Prediction</h3>
-              <p class="text-gray-300 mb-4 flex-grow">
-                Engineered an MLOps pipeline to predict accident severity, achieving 92% accuracy and 30% latency reduction.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-sky-900 text-sky-300 px-2 py-1 rounded-full text-xs">SHAP</span>
-                <span class="bg-sky-900 text-sky-300 px-2 py-1 rounded-full text-xs">MLflow</span>
-                <span class="bg-sky-900 text-sky-300 px-2 py-1 rounded-full text-xs">FastAPI</span>
-                <span class="bg-sky-900 text-sky-300 px-2 py-1 rounded-full text-xs">Docker</span>
-              </div>
-              <div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank" title="View Code">
-                  <i class="fab fa-github text-2xl text-gray-300 hover:text-sky-400"></i>
-                </a>
-                <a href="#" target="_blank" title="Live Demo">
-                  <i class="fas fa-external-link-alt text-2xl text-gray-300 hover:text-sky-400"></i>
-                </a>
-              </div>
+            <div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank">
+                <i class="fab fa-github text-2xl text-gray-300 hover:text-accentPrimary transition-colors"></i>
+              </a>
+              <a href="#" target="_blank">
+                <i class="fas fa-external-link-alt text-2xl text-gray-300 hover:text-accentPrimary transition-colors"></i>
+              </a>
             </div>
-          </article>
-          <!-- Fake Job Posting Detector -->
-          <article class="group bg-slate-800 rounded-3xl overflow-hidden shadow-md transform transition hover:scale-105">
-            <div class="relative">
-              <img src="./assets/images/Project2.png"
-                   loading="lazy"
-                   alt="Fake Job Posting Detector"
-                   class="w-full h-48 object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+          </div>
+        </article>
+        <!-- Fake Job Posting Detector -->
+        <article class="group bg-slate-900 rounded-3xl overflow-hidden shadow-md transform transition hover:-translate-y-1 hover:shadow-lg hover:shadow-accentPrimary/30">
+          <div class="relative">
+            <img src="./assets/images/Project2.png" loading="lazy" alt="Fake Job Posting Detector" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-accentPrimary/60 to-accentSecondary/10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+          </div>
+          <div class="p-6 flex flex-col">
+            <h3>Fake Job Posting Detector</h3>
+            <p class="flex-grow text-gray-300 mb-4">
+              Developed an NLP model to identify fraudulent job postings, reducing false positives by 25%.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-accentSecondary/10 text-accentSecondary px-2 py-1 rounded-full text-xs">NLP</span>
+              <span class="bg-accentSecondary/10 text-accentSecondary px-2 py-1 rounded-full text-xs">XGBoost</span>
+              <span class="bg-accentSecondary/10 text-accentSecondary px-2 py-1 rounded-full text-xs">SMOTE</span>
+              <span class="bg-accentSecondary/10 text-accentSecondary px-2 py-1 rounded-full text-xs">TF-IDF</span>
             </div>
-            <div class="p-6 flex flex-col">
-              <h3 class="text-2xl font-bold mb-2">Fake Job Posting Detector</h3>
-              <p class="text-gray-300 mb-4 flex-grow">
-                Developed an NLP model to identify fraudulent job postings, reducing false positives by 25%.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-green-900 text-green-300 px-2 py-1 rounded-full text-xs">NLP</span>
-                <span class="bg-green-900 text-green-300 px-2 py-1 rounded-full text-xs">XGBoost</span>
-                <span class="bg-green-900 text-green-300 px-2 py-1 rounded-full text-xs">SMOTE</span>
-                <span class="bg-green-900 text-green-300 px-2 py-1 rounded-full text-xs">TF-IDF</span>
-              </div>
-              <div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank" title="View Code">
-                  <i class="fab fa-github text-2xl text-gray-300 hover:text-sky-400"></i>
-                </a>
-                <a href="#" target="_blank" title="Live Demo">
-                  <i class="fas fa-external-link-alt text-2xl text-gray-300 hover:text-sky-400"></i>
-                </a>
-              </div>
+            <div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank">
+                <i class="fab fa-github text-2xl text-gray-300 hover:text-accentPrimary transition-colors"></i>
+              </a>
+              <a href="#" target="_blank">
+                <i class="fas fa-external-link-alt text-2xl text-gray-300 hover:text-accentPrimary transition-colors"></i>
+              </a>
             </div>
-          </article>
-          <!-- Superstore Profit Optimization -->
-          <article class="group bg-slate-800 rounded-3xl overflow-hidden shadow-md transform transition hover:scale-105">
-            <div class="relative">
-              <img src="./assets/images/Project3.png"
-                   loading="lazy"
-                   alt="Superstore Profit Optimization"
-                   class="w-full h-48 object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+          </div>
+        </article>
+        <!-- Superstore Profit Optimization -->
+        <article class="group bg-slate-900 rounded-3xl overflow-hidden shadow-md transform transition hover:-translate-y-1 hover:shadow-lg hover:shadow-accentPrimary/30">
+          <div class="relative">
+            <img src="./assets/images/Project3.png" loading="lazy" alt="Superstore Profit Optimization" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-accentPrimary/60 to-accentSecondary/10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+          </div>
+          <div class="p-6 flex flex-col">
+            <h3>Superstore Profit Optimization</h3>
+            <p class="flex-grow text-gray-300 mb-4">
+              Conducted in-depth EDA to identify key profit drivers, projecting a potential 15% annual increase.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-yellow-900/10 text-yellow-300 px-2 py-1 rounded-full text-xs">EDA</span>
+              <span class="bg-yellow-900/10 text-yellow-300 px-2 py-1 rounded-full text-xs">Pandas</span>
+              <span class="bg-yellow-900/10 text-yellow-300 px-2 py-1 rounded-full text-xs">Seaborn</span>
+              <span class="bg-yellow-900/10 text-yellow-300 px-2 py-1 rounded-full text-xs">Tableau</span>
             </div>
-            <div class="p-6 flex flex-col">
-              <h3 class="text-2xl font-bold mb-2">Superstore Profit Optimization</h3>
-              <p class="text-gray-300 mb-4 flex-grow">
-                Conducted in-depth EDA to identify key profit drivers, projecting a potential 15% annual increase.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="bg-yellow-900 text-yellow-300 px-2 py-1 rounded-full text-xs">EDA</span>
-                <span class="bg-yellow-900 text-yellow-300 px-2 py-1 rounded-full text-xs">Pandas</span>
-                <span class="bg-yellow-900 text-yellow-300 px-2 py-1 rounded-full text-xs">Seaborn</span>
-                <span class="bg-yellow-900 text-yellow-300 px-2 py-1 rounded-full text-xs">Tableau</span>
-              </div>
-              <div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank" title="View Code">
-                  <i class="fab fa-github text-2xl text-gray-300 hover:text-sky-400"></i>
-                </a>
-                <a href="#" target="_blank" title="Live Demo">
-                  <i class="fas fa-external-link-alt text-2xl text-gray-300 hover:text-sky-400"></i>
-                </a>
-              </div>
+            <div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank">
+                <i class="fab fa-github text-2xl text-gray-300 hover:text-accentPrimary transition-colors"></i>
+              </a>
+              <a href="#" target="_blank">
+                <i class="fas fa-external-link-alt text-2xl text-gray-300 hover:text-accentPrimary transition-colors"></i>
+              </a>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="mb-20 py-12" data-aos="fade-up">
-      <div class="bg-slate-900 shadow-md rounded-3xl p-8">
-        <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Skills</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Languages -->
-          <div data-aos="fade-up" data-aos-delay="100">
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              <i class="fas fa-code text-sky-400 mr-2"></i>Languages
-            </h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Python</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Java</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">C++</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">SQL</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">HTML</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Bash/Shell</span>
-            </div>
+    <section id="skills" class="mb-20 py-12 bg-slate-900 shadow-md rounded-3xl p-8" data-aos="fade-up">
+      <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3><i class="fas fa-code text-accentPrimary mr-2"></i>Languages</h3>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <span class="badge">Python</span>
+            <span class="badge">Java</span>
+            <span class="badge">C++</span>
+            <span class="badge">SQL</span>
+            <span class="badge">HTML</span>
+            <span class="badge">Bash/Shell</span>
           </div>
-          <!-- ML & Data Science -->
-          <div data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              <i class="fas fa-database text-sky-400 mr-2"></i>ML & Data Science
-            </h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Scikit-learn</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">TensorFlow</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">PyTorch</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Pandas</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">NumPy</span>
-            </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3><i class="fas fa-database text-accentPrimary mr-2"></i>ML & Data Science</h3>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <span class="badge">Scikit-learn</span>
+            <span class="badge">TensorFlow</span>
+            <span class="badge">PyTorch</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">NumPy</span>
           </div>
-          <!-- MLOps & DevOps -->
-          <div data-aos="fade-up" data-aos-delay="300">
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              <i class="fas fa-tools text-sky-400 mr-2"></i>MLOps & DevOps
-            </h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Docker</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Kubernetes</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Jenkins</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Git</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">MLflow</span>
-            </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h3><i class="fas fa-tools text-accentPrimary mr-2"></i>MLOps & DevOps</h3>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <span class="badge">Docker</span>
+            <span class="badge">Kubernetes</span>
+            <span class="badge">Jenkins</span>
+            <span class="badge">Git</span>
+            <span class="badge">MLflow</span>
           </div>
-          <!-- Cloud Platforms -->
-          <div data-aos="fade-up" data-aos-delay="400">
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              <i class="fas fa-cloud text-sky-400 mr-2"></i>Cloud Platforms
-            </h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">AWS</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">GCP</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">OpenStack</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Terraform</span>
-            </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <h3><i class="fas fa-cloud text-accentPrimary mr-2"></i>Cloud Platforms</h3>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <span class="badge">AWS</span>
+            <span class="badge">GCP</span>
+            <span class="badge">OpenStack</span>
+            <span class="badge">Terraform</span>
           </div>
-          <!-- Concepts & Methodologies -->
-          <div data-aos="fade-up" data-aos-delay="500">
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              <i class="fas fa-cogs text-sky-400 mr-2"></i>Concepts & Methodologies
-            </h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Agile</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">DevOps</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Machine Learning</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Deep Learning</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">CI/CD</span>
-              <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition hover:bg-sky-600 hover:-translate-y-1">Automated Testing</span>
-            </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="500">
+          <h3><i class="fas fa-cogs text-accentPrimary mr-2"></i>Concepts & Methodologies</h3>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <span class="badge">Agile</span>
+            <span class="badge">DevOps</span>
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Deep Learning</span>
+            <span class="badge">CI/CD</span>
+            <span class="badge">Automated Testing</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-12" data-aos="fade-up">
-      <div class="bg-slate-700 shadow-md rounded-3xl p-8">
-        <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Get In Touch</h2>
-        <p class="text-xl text-gray-300 text-center mb-10 max-w-3xl mx-auto">
-          I'm currently seeking new opportunities and open to collaboration. My inbox is always open!
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-lg mb-10">
-          <div class="flex items-center justify-center text-gray-300 hover:text-sky-400 transition">
-            <i class="fas fa-map-marker-alt text-2xl text-sky-500 mr-3"></i>
-            <span>Arlington, TX, USA</span>
-          </div>
-          <a href="mailto:manojp0299@gmail.com" class="flex items-center justify-center text-gray-300 hover:text-sky-400 transition">
-            <i class="fas fa-envelope text-2xl text-sky-500 mr-3"></i>
-            <span>manojp0299@gmail.com</span>
-          </a>
-          <div class="flex items-center justify-center text-gray-300">
-            <i class="fas fa-phone text-2xl text-sky-500 mr-3"></i>
-            <span>+1 (682) 405-5556</span>
-          </div>
+    <section id="contact" class="py-12 bg-slate-700 shadow-md rounded-3xl p-8" data-aos="fade-up">
+      <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Get In Touch</h2>
+      <p class="text-xl text-gray-300 text-center mb-10 max-w-3xl mx-auto">
+        I’m currently seeking new opportunities and open to collaboration. My inbox is always open!
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-lg mb-10">
+        <div class="flex items-center justify-center text-gray-300 hover:text-accentPrimary transition-colors">
+          <i class="fas fa-map-marker-alt text-2xl text-accentPrimary mr-3"></i>
+          <span>Arlington, TX, USA</span>
         </div>
-        <div class="flex justify-center space-x-8 text-4xl text-gray-400">
-          <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="hover:text-sky-400">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/manojpasunoori" target="_blank" class="hover:text-sky-400">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="mailto:manojp0299@gmail.com" class="hover:text-sky-400">
-            <i class="fas fa-envelope"></i>
-          </a>
+        <a href="mailto:manojp0299@gmail.com" class="flex items-center justify-center text-gray-300 hover:text-accentPrimary transition-colors">
+          <i class="fas fa-envelope text-2xl text-accentPrimary mr-3"></i>
+          <span>manojp0299@gmail.com</span>
+        </a>
+        <div class="flex items-center justify-center text-gray-300 hover:text-accentPrimary transition-colors">
+          <i class="fas fa-phone text-2xl text-accentPrimary mr-3"></i>
+          <span>+1 (682) 405-5556</span>
         </div>
+      </div>
+      <div class="flex justify-center space-x-8 text-4xl text-gray-400">
+        <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="hover:text-accentPrimary transition-colors">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/manojpasunoori" target="_blank" class="hover:text-accentPrimary transition-colors">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:manojp0299@gmail.com" class="hover:text-accentPrimary transition-colors">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
     </section>
 
@@ -391,25 +357,21 @@
     <p>&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
   </footer>
 
-  <!-- AOS & scripts -->
+  <!-- AOS & Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 700, once: true, easing: 'ease-in-out' });
-    // Active nav-link highlight
     const sections = document.querySelectorAll('section[id]');
-    const navLinks  = document.querySelectorAll('nav ul li a');
+    const navLinks = document.querySelectorAll('nav ul li a');
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(sec => {
-        if (pageYOffset >= sec.offsetTop - 150) {
-          current = sec.getAttribute('id');
-        }
+        if (pageYOffset >= sec.offsetTop - 150) current = sec.getAttribute('id');
       });
       navLinks.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
       });
     });
   </script>
-
 </body>
 </html>
