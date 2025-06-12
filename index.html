@@ -1,532 +1,370 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoj Pasunoori | ML Engineer & Software Developer</title>
-    <!-- Favicon - Simple M Logo -->
-    <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml">
-    <!-- Google Fonts - Poppins (for headings, similar to DevFolio) & Inter (for body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom styles to override or enhance Tailwind for DevFolio feel */
-        body {
-            font-family: 'Inter', sans-serif; /* Poppins for headings, Inter for body */
-            /* Updated background to a softer dark slate */
-            @apply bg-slate-950 text-gray-200 leading-relaxed; 
-        }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            @apply text-white; /* Ensure headings are white against dark backgrounds */
-        }
+  <title>Manoj Pasunoori - Portfolio</title>
+  <meta content="Portfolio of Manoj Pasunoori, a full-stack developer with expertise in cloud and AI technologies." name="description">
+  <meta content="full-stack, developer, portfolio, python, nodejs, aws" name="keywords">
 
-        /* Hero section specific styling for background overlay and text */
-        .hero-bg {
-            /* IMPORTANT: 
-               For visual brilliance, replace the current 'background.png' in your assets/images/ folder
-               with a high-quality, abstract, subtle, and dark background image.
-               A plain color will not achieve the desired aesthetic impact.
-            */
-            background-image: url('./assets/images/background.png');
-            background-size: cover;
-            /* Adjusted background position to pull image downwards (top) or center it for wider screens */
-            background-position: center 30%; /* Adjusted to shift background image down by 30% */
-            position: relative;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Enhanced gradient for more depth, inspired by DevFolio's overlays */
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%);
-            z-index: 0;
-        }
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-        /* No more typing animation, text will display instantly */
-        /* .typing-text styles removed for static display */
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-        /* Section heading divider */
-        .section-heading::after {
-            content: '';
-            display: block;
-            width: 100px; /* Width of the underline */
-            height: 4px;
-            /* Changed accent underline color to sky-500 */
-            background: theme('colors.sky.500'); 
-            margin: 1rem auto 0; /* Center the underline */
-            border-radius: 2px;
-        }
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #2d3748; /* Darker track */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a5568; /* Slightly lighter thumb */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #606f8c; /* Hover state for thumb */
-        }
-
-        /* Global shadow and transition for interactive cards */
-        .card-hover-effect {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Text shadow for main hero text for better contrast */
-        .hero-title-shadow {
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
-        }
-    </style>
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
-<body class="selection:bg-sky-300 selection:text-gray-900">
-    <!-- Header Section - Inspired by DevFolio's full-width hero -->
-    <header class="hero-bg min-h-screen flex items-center justify-center text-white px-4 text-center relative shadow-2xl">
-        <div class="hero-overlay"></div>
-        <div class="container mx-auto relative z-10">
-            <p class="text-2xl font-light mb-4 hero-title-shadow">Hello, I am</p>
-            <!-- Main Title -->
-            <h1 class="text-7xl lg:text-8xl font-extrabold mb-6 hero-title-shadow">Manoj Pasunoori</h1>
-            <!-- Dynamic Subtitle with no animation -->
-            <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mx-auto max-w-full lg:max-w-3xl hero-title-shadow">
-                MLOps & Software Development Engineer | Artificial Intelligence Specialist
-            </p>
-            <!-- Call to Action in Hero -->
-            <div class="mt-12 flex flex-wrap justify-center gap-6"> <!-- Added flex-wrap and gap-6 for button alignment -->
-                <a href="#projects" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 ring-2 ring-sky-400">
-                    View My Work <i class="fas fa-arrow-right ml-3"></i>
-                </a>
-                <a href="#contact" class="inline-block border-2 border-white hover:border-sky-400 hover:bg-sky-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-                    Contact Me <i class="fas fa-envelope ml-3"></i>
-                </a>
-            </div>
-            <!-- Navigation Menu - Sticky version usually on top -->
-            <nav class="absolute bottom-0 left-0 right-0 py-4 bg-slate-900 bg-opacity-70 backdrop-blur-sm shadow-xl hidden lg:block">
-                <ul class="flex flex-wrap justify-center space-x-8 text-xl font-medium">
-                    <li><a href="#about" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">About</a></li>
-                    <li><a href="#experience" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Experience</a></li>
-                    <li><a href="#education" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Education</a></li>
-                    <li><a href="#projects" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Projects</a></li>
-                    <li><a href="#skills" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Skills</a></li>
-                    <li><a href="#contact" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Contact</a></li>
-                </ul>
-            </nav>
+
+<body>
+
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Manoj Pasunoori</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/manojpasunoori/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
-    </header>
+      </div>
 
-    <!-- Main Content Sections -->
-    <main class="container mx-auto px-4 py-16 max-w-6xl">
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Skills</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav></div>
+  </header><section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Manoj Pasunoori</h1>
+      <p>I'm a <span class="typed" data-typed-items="Full-Stack Developer, Cloud Engineer, AI Enthusiast"></span></p>
+    </div>
+  </section><main id="main">
 
-        <!-- About Me Section -->
-        <section id="about" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
-            <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
-                About Me
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="flex justify-center md:justify-start">
-                    <!-- IMPORTANT: Ensure 'Manoj.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
-                    <img src="./assets/images/Manoj.png" alt="Manoj Pasunoori"
-                         class="w-56 h-56 rounded-xl object-cover border-8 border-sky-700 shadow-xl transform hover:scale-105 transition-transform duration-300 ring-4 ring-sky-400 ring-offset-4 ring-offset-slate-800"
-                         onerror="this.onerror=null; this.src='https://placehold.co/224x224/0a1a44/ffffff/png?text=Your+Photo';"
-                    >
-                </div>
-                <div>
-                    <p class="text-xl leading-loose text-gray-300 mb-4">
-                        I'm a <strong class="font-bold text-sky-400">Machine Learning Engineer</strong> with <strong class="font-bold text-sky-400">4+ years of experience</strong> in software engineering and a Master’s in Information Systems. My expertise lies in architecting <strong class="font-bold text-sky-400">end-to-end ML pipelines, model deployment, and scalable cloud infrastructure</strong>.
-                    </p>
-                    <p class="text-xl leading-loose text-gray-300">
-                        I am passionate about translating complex data into actionable insights and building robust, deployable AI solutions that drive real-world impact. I thrive in challenging environments, constantly seeking to learn and apply cutting-edge techniques to foster innovation and deliver measurable value. Let's build something impactful together.
-                    </p>
-                </div>
-            </div>
-        </section>
+    <section id="about" class="about">
+      <div class="container">
 
-        <!-- Experience Section -->
-        <section id="experience" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
-            <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
-                Experience
-            </h2>
-            <div class="grid grid-cols-1 gap-10">
-                <!-- Experience Item: Tata Consultancy Services -->
-                <div class="bg-slate-700 shadow-lg rounded-xl p-8 border-l-4 border-sky-500 hover:shadow-2xl hover:border-sky-400 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        <!-- IMPORTANT: Ensure 'tcslogo.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
-                        <img src="./assets/images/tcslogo.png" alt="TCS Logo" class="w-16 h-16 object-contain rounded-lg mr-4"
-                             onerror="this.onerror=null; this.src='https://placehold.co/64x64/0a1a44/ffffff/png?text=TCS';"
-                        >
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white mb-1">Systems Engineer</h3>
-                            <p class="text-xl text-gray-300">Tata Consultancy Services – Hyderabad, IN</p>
-                            <p class="text-lg text-gray-400">November 2020 – Present</p>
-                        </div>
-                    </div>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2 text-base">
-                        <li>Led feature development and system optimization for Ericsson’s COM platform (Product Development), focusing on data-driven diagnostics and performance analytics across <strong class="font-bold text-sky-400">FCAPS modules</strong>. (C++, Java Development, FT, UT, Integration and Performance Testing)</li>
-                        <li>Automated large-scale data collection, preprocessing, and reporting workflows using <strong class="font-bold text-sky-400">Python and SQL</strong>, improving data accuracy and reducing manual efforts by <strong class="font-bold text-sky-400">40%</strong>.</li>
-                        <li>Designed and deployed scalable test frameworks and <strong class="font-bold text-sky-400">CI/CD pipelines</strong> using <strong class="font-bold text-sky-400">Jenkins and Azure DevOps</strong>, enabling rapid and reliable integration of analytics modules.</li>
-                        <li>Built and validated predictive models for anomaly detection and network performance analysis using internal datasets; integrated explainable AI (<strong class="font-bold text-sky-400">XAI</strong>) techniques such as <strong class="font-bold text-sky-400">SHAP</strong> to enhance model transparency.</li>
-                        <li>Performed system-level data analysis and real-time metric monitoring using <strong class="font-bold text-sky-400">Pandas, NumPy</strong>, and custom <strong class="font-bold text-sky-400">ETL pipelines</strong>, helping resolve runtime failures and drive model-based diagnostics.</li>
-                        <li>Over 4 years of experience in <strong class="font-bold text-sky-400">Python development</strong> with expertise in <strong class="font-bold text-sky-400">API/ETL design</strong> and <strong class="font-bold text-sky-400">AWS Terraform infrastructure</strong>.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <div class="section-title">
+          <h2>About Me</h2>
+          <p>Driven by a fascination for creating impactful digital solutions, I embarked on my development journey to build applications that are not only functional but also scalable and efficient. I thrive as a full-stack developer, where I leverage my skills in modern web technologies and cloud platforms to bring ideas to life. My growing interest in AI/ML pushes me to continuously learn and explore how intelligent systems can solve complex problems.</p>
+        </div>
 
-        <!-- Education Section -->
-        <section id="education" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
-            <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
-                Education
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-700 shadow-lg rounded-xl p-8 border-l-4 border-sky-500 hover:shadow-2xl hover:border-sky-400 transition-all duration-300">
-                    <p class="text-2xl font-semibold text-white mb-2">
-                        <strong class="text-sky-400">University of Texas at Arlington, USA</strong>
-                    </p>
-                    <p class="text-xl text-gray-300">Master of Science in Information Systems</p>
-                    <p class="text-lg text-gray-400 mt-2">2023–2025</p>
-                </div>
-                <div class="bg-slate-700 shadow-lg rounded-xl p-8 border-l-4 border-sky-500 hover:shadow-2xl hover:border-sky-400 transition-all duration-300">
-                    <p class="text-2xl font-semibold text-white mb-2">
-                        <strong class="text-sky-400">JNTU Hyderabad, India</strong>
-                    </p>
-                    <p class="text-xl text-gray-300">Bachelor of Technology</p>
-                    <p class="text-lg text-gray-400 mt-2">2016–2020</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8">
-            <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
-                Projects
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch"> <!-- Added items-stretch for consistent card height -->
-                <!-- Project 1: Accident Severity Prediction -->
-                <article class="relative group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between">
-                    <!-- IMPORTANT: Ensure 'Project1.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
-                    <img src="./assets/images/Project1.png" alt="Accident Severity Prediction Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+1+Image';"
-                    >
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Accident Severity Prediction MLOps</h3>
-                        <p class="text-gray-300 mb-4 text-base">
-                            Engineered a robust, end-to-end MLOps pipeline to predict accident severity by integrating diverse weather and location data.
-                            Key achievements:
-                            <ul class="list-disc list-inside ml-4 mt-2 text-sm text-gray-400">
-                                <li>Utilized SHAP for interpretability, MLflow for tracking.</li>
-                                <li>Containerized with Docker, deployed with FastAPI.</li>
-                                <li>Achieved <strong class="text-sky-400">92% accuracy</strong> & <strong class="text-sky-400">30% latency reduction</strong>.</li>
-                            </ul>
-                        </p>
-                    </div>
-                    <!-- Overlay for links on hover -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank"
-                               class="bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="#" target="_blank"
-                               class="bg-gray-200 text-gray-800 hover:bg-gray-300 font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="Live Demo">
-                                <i class="fas fa-external-link-alt text-xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: Fake Job Posting Prediction -->
-                <article class="relative group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between">
-                    <!-- IMPORTANT: Ensure 'Project2.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
-                    <img src="./assets/images/Project2.png" alt="Fake Job Posting Prediction Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+2+Image';"
-                    >
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Fake Job Posting Detector</h3>
-                        <p class="text-gray-300 mb-4 text-base">
-                            Developed an advanced NLP-powered classification model to identify fraudulent job postings, significantly improving recruitment platform security.
-                            Key achievements:
-                            <ul class="list-disc list-inside ml-4 mt-2 text-sm text-gray-400">
-                                <li>Employed TF-IDF for text vectorization & SMOTE for imbalanced data.</li>
-                                <li>Leveraged XGBoost for robust classification.</li>
-                                <li>Successfully <strong class="text-sky-400">reduced false positives by 25%</strong>, streamlining workflows.</li>
-                            </ul>
-                        </p>
-                    </div>
-                    <!-- Overlay for links on hover -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank"
-                               class="bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="#" target="_blank"
-                               class="bg-gray-200 text-gray-800 hover:bg-gray-300 font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="Live Demo">
-                                <i class="fas fa-external-link-alt text-xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Superstore Data Analysis -->
-                <article class="relative group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between">
-                    <!-- IMPORTANT: Ensure 'Project3.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
-                    <img src="./assets/images/Project3.png" alt="Superstore Data Analysis Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+3+Image';"
-                    >
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Superstore Profit Optimization</h3>
-                        <p class="text-gray-300 mb-4 text-base">
-                            Conducted in-depth sales and profitability analysis using <span class="font-medium text-sky-400">Exploratory Data Analysis (EDA)</span> and foundational ML techniques on a large retail dataset.
-                            Key achievements:
-                            <ul class="list-disc list-inside ml-4 mt-2 text-sm text-gray-400">
-                                <li>Identified crucial performance drivers for inventory & pricing.</li>
-                                <li>Projected profit increases of <strong class="text-sky-400">up to 15% ($1.2M annually)</strong>.</li>
-                                <li>Developed interactive dashboards for stakeholders.</li>
-                            </ul>
-                        </p>
-                    </div>
-                    <!-- Overlay for links on hover -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank"
-                               class="bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                            <a href="#" target="_blank"
-                               class="bg-gray-200 text-gray-800 hover:bg-gray-300 font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="Live Demo">
-                                <i class="fas fa-external-link-alt text-xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
-            <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
-                Skills
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-green-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">Programming Languages</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Python</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Java</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">C++</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Oracle SQL</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Bash</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Shell</span>
-                    </div>
-                </div>
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">ML & Data Science Libraries</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">pandas</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">numpy</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">scikit-learn</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">XGBoost</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">PyTorch</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">TensorFlow</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">SMOTE</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">SHAP</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">PCA</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">matplotlib</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">seaborn</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">NLTK</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">OpenCV</span>
-                    </div>
-                </div>
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-cyan-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">MLOps & DevOps Tools</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Docker</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">FastAPI</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Git</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">DVC</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">MLflow</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Jenkins</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Terraform</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">GitHub Actions</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Gerrit</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Streamlit</span>
-                    </div>
-                </div>
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-yellow-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">Cloud Platforms & Services</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">AWS (EC2, S3, SageMaker, Lambda)</span>
-                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">Heroku</span>
-                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">Google Cloud (GCP)</span>
-                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">OpenStack</span>
-                    </div>
-                </div>
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-red-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">Databases & Big Data</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-red-800 text-red-100 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span>
-                        <span class="bg-red-800 text-red-100 text-sm font-medium px-3 py-1 rounded-full">MongoDB</span>
-                        <span class="bg-red-800 text-red-100 text-sm font-medium px-3 py-1 rounded-full">Hive</span>
-                        <span class="bg-red-800 text-red-100 text-sm font-medium px-3 py-1 rounded-full">Spark</span>
-                        <span class="bg-red-800 text-red-100 text-sm font-medium px-3 py-1 rounded-full">Cassandra</span>
-                    </div>
-                </div>
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-sky-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">Web Technologies</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">HTML</span>
-                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">CSS3</span>
-                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">React (Basic)</span>
-                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">Flask</span>
-                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">RESTful APIs</span>
-                    </div>
-                </div>
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-teal-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">Concepts & Methodologies</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Machine Learning (Supervised/Unsupervised)</span>
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Performance Optimization</span>
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Cloud Computing</span>
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">DevOps</span>
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Agile</span>
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Compiler Design</span>
-                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">FCAPS</span>
-                    </div>
-                </div>
-                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-pink-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">Project Management & Collaboration</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">Jira</span>
-                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">Confluence</span>
-                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">MS Project</span>
-                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">MS Office</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skill Icons Section (Core Tech Stack) -->
-            <div class="bg-slate-700 shadow-lg rounded-2xl p-10 mt-16 border-t-4 border-sky-500">
-                <h3 class="text-3xl font-extrabold text-center mb-8">Core Tech Stack</h3>
-                <div class="flex flex-wrap justify-center items-center gap-10 text-6xl">
-                    <i class="fab fa-python text-sky-400 hover:text-sky-300 transition-colors duration-200 transform hover:scale-110" title="Python"></i>
-                    <i class="fab fa-java text-red-500 hover:text-red-400 transition-colors duration-200 transform hover:scale-110" title="Java"></i>
-                    <i class="fab fa-git-alt text-orange-500 hover:text-orange-400 transition-colors duration-200 transform hover:scale-110" title="Git"></i>
-                    <i class="fab fa-aws text-yellow-500 hover:text-yellow-400 transition-colors duration-200 transform hover:scale-110" title="AWS"></i>
-                    <i class="fab fa-docker text-sky-500 hover:text-sky-400 transition-colors duration-200 transform hover:scale-110" title="Docker"></i>
-                    <i class="fab fa-linux text-gray-400 hover:text-white transition-colors duration-200 transform hover:scale-110" title="Linux"></i>
-                    <i class="fas fa-database text-green-500 hover:text-green-400 transition-colors duration-200 transform hover:scale-110" title="SQL"></i>
-                    <i class="fas fa-brain text-purple-500 hover:text-purple-400 transition-colors duration-200 transform hover:scale-110" title="Machine Learning"></i>
-                    <i class="fas fa-cloud text-teal-500 hover:text-teal-400 transition-colors duration-200 transform hover:scale-110" title="Cloud Computing"></i>
-                    <i class="fas fa-chart-line text-pink-500 hover:text-pink-400 transition-colors duration-200 transform hover:scale-110" title="Data Analytics"></i>
-                    <i class="fas fa-server text-sky-500 hover:text-sky-400 transition-colors duration-200 transform hover:scale-110" title="Deployment"></i>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action Section -->
-        <section class="mb-20 py-16 bg-gradient-to-br from-sky-700 to-cyan-800 text-white rounded-2xl text-center shadow-2xl transform hover:scale-[1.01] transition-transform duration-300">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Let's Build Something Amazing Together!</h2>
-            <p class="text-xl md:text-2xl mb-10 opacity-90 leading-relaxed">
-                I'm always eager to take on new challenges and contribute to impactful projects. Reach out to discuss potential collaborations.
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Full-Stack Developer &amp; Cloud Engineer.</h3>
+            <p class="fst-italic">
+              Here are a few key details about me.
             </p>
-            <a href="#contact" class="inline-block bg-white text-sky-700 font-bold text-xl px-10 py-5 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 ring-2 ring-white ring-offset-2 ring-offset-sky-700">
-                Get in Touch <i class="fas fa-arrow-right ml-3"></i>
-            </a>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
-            <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
-                Contact
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
-                <!-- Contact Info Column -->
-                <div>
-                    <h3 class="text-3xl font-semibold text-white mb-6">Connect with Me</h3>
-                    <p class="text-gray-300 mb-6 leading-loose">
-                        Whether you have a project idea, a question, or just want to connect, feel free to reach out. I'm always open to discussing new opportunities and collaborating on innovative solutions.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
-                            <i class="fas fa-map-marker-alt text-sky-500 mr-4 text-2xl"></i>
-                            <span class="ml-2">Arlington, TX, USA</span>
-                        </div>
-                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
-                            <i class="fas fa-envelope text-sky-500 mr-4 text-2xl"></i>
-                            Email: <a href="mailto:manojp0299@gmail.com" class="ml-2 font-medium hover:underline">manojp0299@gmail.com</a>
-                        </div>
-                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
-                            <i class="fab fa-linkedin text-sky-500 mr-4 text-2xl"></i>
-                            LinkedIn: <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="ml-2 font-medium hover:underline">manoj-pasunoori</a>
-                        </div>
-                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
-                            <i class="fab fa-github text-sky-500 mr-4 text-2xl"></i>
-                            GitHub: <a href="https://github.com/manojpasunoori" target="_blank" class="ml-2 font-medium hover:underline">@manojpasunoori</a>
-                        </div>
-                    </div>
-                    <div class="flex justify-start space-x-6 text-3xl mt-8">
-                        <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="text-gray-400 hover:text-sky-400 transition-colors duration-200" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/manojpasunoori" target="_blank" class="text-gray-400 hover:text-sky-400 transition-colors duration-200" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="mailto:manojp0299@gmail.com" class="text-gray-400 hover:text-sky-400 transition-colors duration-200" title="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <!-- Simple Contact Form Placeholder -->
-                <div>
-                    <h3 class="text-3xl font-semibold text-white mb-6">Send Me a Message</h3>
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="John Doe">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="john.doe@example.com">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-gray-300 text-sm font-bold mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="Project Inquiry">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="Your message here..."></textarea>
-                        </div>
-                        <div class="flex justify-center">
-                            <button type="submit" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-200 shadow-lg transform hover:scale-105">
-                                Send Message <i class="fas fa-paper-plane ml-2"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>manojpasunoori.github.io</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+1 123 456 7890</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Arlington, Texas, USA</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Masters</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>[your-email@example.com]</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                </ul>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
 
-    </main>
+      </div>
+    </section><section id="skills" class="skills section-bg">
+      <div class="container">
 
-    <!-- Footer Section -->
-    <footer class="bg-slate-950 text-white py-10 text-center text-lg shadow-inner">
-        <p class="mb-4">&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
-        <p class="text-sm text-gray-400">Design inspired by <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/" target="_blank" class="hover:underline text-sky-400">DevFolio by BootstrapMade</a></p>
-    </footer>
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Here is a breakdown of my technical skills, grouped by area of expertise. I am always learning and expanding this toolkit.</p>
+        </div>
+
+        <div class="row skills-content" data-aos="fade-up">
+
+          <div class="col-lg-6">
+            <h4>Frontend</h4>
+            <div class="progress">
+              <span class="skill">HTML &amp; CSS <i class="val">95%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+            <div class="progress">
+              <span class="skill">JavaScript &amp; TypeScript <i class="val">85%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+            <div class="progress">
+              <span class="skill">React <i class="val">80%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <h4>Backend</h4>
+            <div class="progress">
+              <span class="skill">Python (Django, Flask) <i class="val">90%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+            <div class="progress">
+              <span class="skill">Node.js (Express) <i class="val">85%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+             <div class="progress">
+              <span class="skill">RESTful APIs <i class="val">95%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+              <h4>Databases</h4>
+              <div class="progress">
+                <span class="skill">MySQL &amp; PostgreSQL <i class="val">80%</i></span>
+                <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> </div>
+              </div>
+              <div class="progress">
+                <span class="skill">MongoDB <i class="val">75%</i></span>
+                <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div> </div>
+              </div>
+          </div>
+
+          <div class="col-lg-6">
+            <h4>Cloud & DevOps</h4>
+            <div class="progress">
+              <span class="skill">AWS <i class="val">80%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+            <div class="progress">
+              <span class="skill">Docker <i class="val">70%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+            <div class="progress">
+              <span class="skill">Git &amp; CI/CD <i class="val">90%</i></span>
+              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div> </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>Here is a summary of my professional experience and education. For more details, feel free to <a href="assets/Manoj_Pasunoori_Resume.pdf" target="_blank">download my full resume</a>.</p>
+          </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>Manoj Pasunoori</h4>
+              <p><em>Innovative and deadline-driven Full-Stack Developer with 2+ years of experience designing and developing user-centered applications from initial concept to final, polished deliverable.</em></p>
+              <ul>
+                <li>Arlington, Texas, USA</li>
+                <li>(123) 456-7890</li>
+                <li>[your-email@example.com]</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Master of Science in Computer Science</h4>
+              <h5>2021 - 2023</h5>
+              <p><em>University of Texas at Arlington, Arlington, TX</em></p>
+              <ul>
+                <li>Relevant Coursework: Advanced Algorithms, Database Systems, Cloud Computing.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+                <h4>Bachelor of Technology</h4>
+                <h5>2017 - 2021</h5>
+                <p><em>[Your Undergraduate University], [City, Country]</em></p>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Full Stack Developer</h4>
+              <h5>2023 - Present</h5>
+              <p><em>Persistent Systems, [City, State]</em></p>
+              <ul>
+                <li>Developed and maintained backend services using Python and Node.js, improving API response times by 15%.</li>
+                <li>Built and deployed responsive user interfaces with React, enhancing user experience and engagement.</li>
+                <li>Managed cloud infrastructure on AWS, responsible for deployment, monitoring, and scaling of applications.</li>
+                <li>Collaborated in an agile team to define, design, and ship new features for key client projects.</li>
+              </ul>
+            </div>
+            </div>
+        </div>
+
+      </div>
+    </section><section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Here are some of the projects I've worked on. Each project presented its own unique challenges and learning opportunities. More projects can be found on my <a href="https://github.com/manojpasunoori" target="_blank">GitHub</a>.</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="Project 1 Thumbnail">
+              <div class="portfolio-info">
+                <h4>[Project Title 1]</h4>
+                <p>[A brief, 1-2 sentence description of what the project is and what problem it solves.]</p>
+                <div class="portfolio-links">
+                  <a href="[Link to Live Demo]" title="Live Demo" target="_blank"><i class="bx bx-link"></i></a>
+                  <a href="[Link to GitHub Repo]" title="Source Code" target="_blank"><i class="bx bxl-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+             <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="Project 2 Thumbnail">
+               <div class="portfolio-info">
+                <h4>[Project Title 2]</h4>
+                <p>[A brief, 1-2 sentence description of what the project is and what problem it solves.]</p>
+                <div class="portfolio-links">
+                  <a href="[Link to Live Demo]" title="Live Demo" target="_blank"><i class="bx bx-link"></i></a>
+                  <a href="[Link to GitHub Repo]" title="Source Code" target="_blank"><i class="bx bxl-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="Project 3 Thumbnail">
+               <div class="portfolio-info">
+                <h4>[Project Title 3]</h4>
+                <p>[A brief, 1-2 sentence description of what the project is and what problem it solves.]</p>
+                <div class="portfolio-links">
+                  <a href="[Link to Live Demo]" title="Live Demo" target="_blank"><i class="bx bx-link"></i></a>
+                  <a href="[Link to GitHub Repo]" title="Source Code" target="_blank"><i class="bx bxl-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>I'm currently open to new opportunities. If you have a question or just want to say hi, feel free to reach out. My inbox is always open!</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Arlington, Texas, USA</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>[your-email@example.com]</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 123 456 7890</p>
+              </div>
+              
+              </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section></main><footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>
