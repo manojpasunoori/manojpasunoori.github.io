@@ -1,370 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Pasunoori | ML Engineer & Software Developer</title>
+    <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml">
 
-  <title>Manoj Pasunoori - Portfolio</title>
-  <meta content="Portfolio of Manoj Pasunoori, a full-stack developer with expertise in cloud and AI technologies." name="description">
-  <meta content="full-stack, developer, portfolio, python, nodejs, aws" name="keywords">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom styles for a more polished feel */
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-slate-950 text-gray-200 leading-relaxed; 
+        }
 
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            @apply text-white;
+        }
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        .hero-bg {
+            background-image: url('./assets/images/background.png');
+            background-size: cover;
+            background-position: center 30%;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: 0;
+        }
 
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <link href="assets/css/style.css" rel="stylesheet">
+        .section-heading::after {
+            content: ''; display: block; width: 100px; height: 4px;
+            background: theme('colors.sky.500'); 
+            margin: 1rem auto 0; border-radius: 2px;
+        }
+        
+        /* ✨ NEW: Style for the active navigation link */
+        .active-nav {
+            @apply text-sky-400 scale-110;
+        }
+    </style>
 </head>
+<body class="selection:bg-sky-300 selection:text-gray-900">
 
-<body>
-
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Manoj Pasunoori</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/manojpasunoori/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Skills</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav></div>
-  </header><section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Manoj Pasunoori</h1>
-      <p>I'm a <span class="typed" data-typed-items="Full-Stack Developer, Cloud Engineer, AI Enthusiast"></span></p>
-    </div>
-  </section><main id="main">
-
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About Me</h2>
-          <p>Driven by a fascination for creating impactful digital solutions, I embarked on my development journey to build applications that are not only functional but also scalable and efficient. I thrive as a full-stack developer, where I leverage my skills in modern web technologies and cloud platforms to bring ideas to life. My growing interest in AI/ML pushes me to continuously learn and explore how intelligent systems can solve complex problems.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Full-Stack Developer &amp; Cloud Engineer.</h3>
-            <p class="fst-italic">
-              Here are a few key details about me.
+    <header class="hero-bg min-h-screen flex items-center justify-center text-white px-4 text-center relative shadow-2xl">
+        <div class="hero-overlay"></div>
+        <div class="container mx-auto relative z-10">
+            <p class="text-2xl font-light mb-4">Hello, I am</p>
+            <h1 class="text-7xl lg:text-8xl font-extrabold mb-6">Manoj Pasunoori</h1>
+            <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mx-auto max-w-full lg:max-w-3xl">
+                MLOps & Software Development Engineer | Artificial Intelligence Specialist
             </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>manojpasunoori.github.io</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+1 123 456 7890</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Arlington, Texas, USA</span></li>
+            <div class="mt-12 flex flex-wrap justify-center gap-6">
+                <a href="#projects" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 ring-2 ring-sky-400">
+                    View My Work <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+                <a href="#contact" class="inline-block border-2 border-white hover:border-sky-400 hover:bg-sky-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Contact Me <i class="fas fa-envelope ml-3"></i>
+                </a>
+            </div>
+            
+            <nav id="main-nav" class="absolute bottom-0 left-0 right-0 py-4 bg-slate-900 bg-opacity-70 backdrop-blur-sm shadow-xl hidden lg:block">
+                <ul class="flex flex-wrap justify-center space-x-8 text-xl font-medium">
+                    <li><a href="#about" class="px-4 py-2 hover:text-sky-400 transition-all duration-200">About</a></li>
+                    <li><a href="#experience" class="px-4 py-2 hover:text-sky-400 transition-all duration-200">Experience</a></li>
+                    <li><a href="#projects" class="px-4 py-2 hover:text-sky-400 transition-all duration-200">Projects</a></li>
+                    <li><a href="#skills" class="px-4 py-2 hover:text-sky-400 transition-all duration-200">Skills</a></li>
+                    <li><a href="#contact" class="px-4 py-2 hover:text-sky-400 transition-all duration-200">Contact</a></li>
                 </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Masters</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>[your-email@example.com]</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            </nav>
         </div>
+    </header>
 
-      </div>
-    </section><section id="skills" class="skills section-bg">
-      <div class="container">
+    <main class="container mx-auto px-4 py-16 max-w-6xl">
 
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>Here is a breakdown of my technical skills, grouped by area of expertise. I am always learning and expanding this toolkit.</p>
-        </div>
-
-        <div class="row skills-content" data-aos="fade-up">
-
-          <div class="col-lg-6">
-            <h4>Frontend</h4>
-            <div class="progress">
-              <span class="skill">HTML &amp; CSS <i class="val">95%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-            <div class="progress">
-              <span class="skill">JavaScript &amp; TypeScript <i class="val">85%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-            <div class="progress">
-              <span class="skill">React <i class="val">80%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <h4>Backend</h4>
-            <div class="progress">
-              <span class="skill">Python (Django, Flask) <i class="val">90%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-            <div class="progress">
-              <span class="skill">Node.js (Express) <i class="val">85%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-             <div class="progress">
-              <span class="skill">RESTful APIs <i class="val">95%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-              <h4>Databases</h4>
-              <div class="progress">
-                <span class="skill">MySQL &amp; PostgreSQL <i class="val">80%</i></span>
-                <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> </div>
-              </div>
-              <div class="progress">
-                <span class="skill">MongoDB <i class="val">75%</i></span>
-                <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div> </div>
-              </div>
-          </div>
-
-          <div class="col-lg-6">
-            <h4>Cloud & DevOps</h4>
-            <div class="progress">
-              <span class="skill">AWS <i class="val">80%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-            <div class="progress">
-              <span class="skill">Docker <i class="val">70%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-            <div class="progress">
-              <span class="skill">Git &amp; CI/CD <i class="val">90%</i></span>
-              <div class="progress-bar-wrap"> <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div> </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>Here is a summary of my professional experience and education. For more details, feel free to <a href="assets/Manoj_Pasunoori_Resume.pdf" target="_blank">download my full resume</a>.</p>
-          </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Manoj Pasunoori</h4>
-              <p><em>Innovative and deadline-driven Full-Stack Developer with 2+ years of experience designing and developing user-centered applications from initial concept to final, polished deliverable.</em></p>
-              <ul>
-                <li>Arlington, Texas, USA</li>
-                <li>(123) 456-7890</li>
-                <li>[your-email@example.com]</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master of Science in Computer Science</h4>
-              <h5>2021 - 2023</h5>
-              <p><em>University of Texas at Arlington, Arlington, TX</em></p>
-              <ul>
-                <li>Relevant Coursework: Advanced Algorithms, Database Systems, Cloud Computing.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-                <h4>Bachelor of Technology</h4>
-                <h5>2017 - 2021</h5>
-                <p><em>[Your Undergraduate University], [City, Country]</em></p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Full Stack Developer</h4>
-              <h5>2023 - Present</h5>
-              <p><em>Persistent Systems, [City, State]</em></p>
-              <ul>
-                <li>Developed and maintained backend services using Python and Node.js, improving API response times by 15%.</li>
-                <li>Built and deployed responsive user interfaces with React, enhancing user experience and engagement.</li>
-                <li>Managed cloud infrastructure on AWS, responsible for deployment, monitoring, and scaling of applications.</li>
-                <li>Collaborated in an agile team to define, design, and ship new features for key client projects.</li>
-              </ul>
-            </div>
-            </div>
-        </div>
-
-      </div>
-    </section><section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Here are some of the projects I've worked on. Each project presented its own unique challenges and learning opportunities. More projects can be found on my <a href="https://github.com/manojpasunoori" target="_blank">GitHub</a>.</p>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="Project 1 Thumbnail">
-              <div class="portfolio-info">
-                <h4>[Project Title 1]</h4>
-                <p>[A brief, 1-2 sentence description of what the project is and what problem it solves.]</p>
-                <div class="portfolio-links">
-                  <a href="[Link to Live Demo]" title="Live Demo" target="_blank"><i class="bx bx-link"></i></a>
-                  <a href="[Link to GitHub Repo]" title="Source Code" target="_blank"><i class="bx bxl-github"></i></a>
+        <section id="about" class="mb-20 py-12" data-aos="fade-up">
+            <div class="bg-slate-800 shadow-xl rounded-2xl p-8">
+                <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">About Me</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                         <img src="./assets/images/Manoj.png" alt="Manoj Pasunoori" class="w-56 h-56 rounded-full object-cover border-8 border-sky-700 shadow-xl ring-4 ring-sky-400 ring-offset-4 ring-offset-slate-800">
+                    </div>
+                    <div class="md:col-span-2">
+                        <p class="text-xl leading-loose text-gray-300 mb-4">
+                            I'm a <strong class="font-bold text-sky-400">Machine Learning Engineer</strong> with <strong class="font-bold text-sky-400">4+ years of experience</strong> and a Master’s in Information Systems. My expertise lies in architecting <strong class="font-bold text-sky-400">end-to-end ML pipelines, model deployment, and scalable cloud infrastructure</strong>.
+                        </p>
+                        <p class="text-xl leading-loose text-gray-300">
+                            I am passionate about translating complex data into actionable insights and building robust AI solutions that drive real-world impact. Let's build something amazing together.
+                        </p>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </section>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="Project 2 Thumbnail">
-               <div class="portfolio-info">
-                <h4>[Project Title 2]</h4>
-                <p>[A brief, 1-2 sentence description of what the project is and what problem it solves.]</p>
-                <div class="portfolio-links">
-                  <a href="[Link to Live Demo]" title="Live Demo" target="_blank"><i class="bx bx-link"></i></a>
-                  <a href="[Link to GitHub Repo]" title="Source Code" target="_blank"><i class="bx bxl-github"></i></a>
-                </div>
-              </div>
+        <section id="experience" class="mb-20 py-12" data-aos="fade-up">
+            <div class="bg-slate-800 shadow-xl rounded-2xl p-8">
+                <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Experience</h2>
+                <div class="border-l-4 border-sky-500 pl-8 relative">
+                    <div class="mb-12 relative">
+                        <div class="absolute -left-10 w-6 h-6 bg-sky-500 rounded-full border-4 border-slate-800"></div>
+                        <img src="./assets/images/tcslogo.png" alt="TCS Logo" class="w-16 h-16 object-contain rounded-lg mb-4 bg-white p-1">
+                        <h3 class="text-3xl font-semibold text-white">Systems Engineer</h3>
+                        <p class="text-xl text-gray-300 mb-2">Tata Consultancy Services – Hyderabad, IN</p>
+                        <p class="text-lg text-gray-400">November 2020 – Present</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-3 mt-4 text-lg">
+                            <li><strong class="text-sky-400">Led</strong> feature development for Ericsson’s COM platform, focusing on data-driven diagnostics in <strong class="font-semibold text-white">FCAPS modules</strong>.</li>
+                            <li><strong class="text-sky-400">Automated</strong> large-scale data workflows with <strong class="font-semibold text-white">Python and SQL</strong>, reducing manual efforts by <strong class="font-semibold text-white">40%</strong>.</li>
+                            <li><strong class="text-sky-400">Designed and deployed</strong> scalable <strong class="font-semibold text-white">CI/CD pipelines</strong> using Jenkins and Azure DevOps.</li>
+                            <li><strong class="text-sky-400">Built and validated</strong> predictive models for anomaly detection, integrating <strong class="font-semibold text-white">SHAP</strong> for model transparency.</li>
+                        </ul>
+                    </div>
+                     </div>
             </div>
-          </div>
-          
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="Project 3 Thumbnail">
-               <div class="portfolio-info">
-                <h4>[Project Title 3]</h4>
-                <p>[A brief, 1-2 sentence description of what the project is and what problem it solves.]</p>
-                <div class="portfolio-links">
-                  <a href="[Link to Live Demo]" title="Live Demo" target="_blank"><i class="bx bx-link"></i></a>
-                  <a href="[Link to GitHub Repo]" title="Source Code" target="_blank"><i class="bx bxl-github"></i></a>
+        </section>
+
+        <section id="projects" class="mb-20 py-12" data-aos="fade-up">
+            <div class="bg-slate-800 shadow-xl rounded-2xl p-8">
+                <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                    <article data-aos="fade-up" data-aos-delay="100" class="group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/20 hover:-translate-y-2 flex flex-col">
+                        <img src="./assets/images/Project1.png" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-2">Accident Severity Prediction</h3>
+                            <p class="text-gray-300 mb-4 text-base flex-grow">Engineered an MLOps pipeline to predict accident severity, achieving 92% accuracy and 30% latency reduction.</p>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-sky-900 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">SHAP</span>
+                                <span class="bg-sky-900 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">MLflow</span>
+                                <span class="bg-sky-900 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">FastAPI</span>
+                                <span class="bg-sky-900 text-sky-300 text-xs font-semibold px-2.5 py-1 rounded-full">Docker</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-700/50 flex justify-end gap-4">
+                            <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank" class="text-gray-300 hover:text-sky-400 transition-colors" title="View Code"><i class="fab fa-github text-2xl"></i></a>
+                            <a href="#" target="_blank" class="text-gray-500 cursor-not-allowed" title="Live Demo Coming Soon"><i class="fas fa-external-link-alt text-2xl"></i></a>
+                        </div>
+                    </article>
+
+                    <article data-aos="fade-up" data-aos-delay="200" class="group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/20 hover:-translate-y-2 flex flex-col">
+                        <img src="./assets/images/Project2.png" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-2">Fake Job Posting Detector</h3>
+                            <p class="text-gray-300 mb-4 text-base flex-grow">Developed an NLP model to identify fraudulent job postings, reducing false positives by 25%.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-green-900 text-green-300 text-xs font-semibold px-2.5 py-1 rounded-full">NLP</span>
+                                <span class="bg-green-900 text-green-300 text-xs font-semibold px-2.5 py-1 rounded-full">XGBoost</span>
+                                <span class="bg-green-900 text-green-300 text-xs font-semibold px-2.5 py-1 rounded-full">SMOTE</span>
+                                <span class="bg-green-900 text-green-300 text-xs font-semibold px-2.5 py-1 rounded-full">TF-IDF</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-700/50 flex justify-end gap-4">
+                            <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank" class="text-gray-300 hover:text-sky-400 transition-colors" title="View Code"><i class="fab fa-github text-2xl"></i></a>
+                            <a href="#" target="_blank" class="text-gray-500 cursor-not-allowed" title="Live Demo Coming Soon"><i class="fas fa-external-link-alt text-2xl"></i></a>
+                        </div>
+                    </article>
+
+                    <article data-aos="fade-up" data-aos-delay="300" class="group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/20 hover:-translate-y-2 flex flex-col">
+                        <img src="./assets/images/Project3.png" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-2">Superstore Profit Optimization</h3>
+                            <p class="text-gray-300 mb-4 text-base flex-grow">Conducted in-depth EDA to identify key profit drivers, projecting a potential 15% annual increase.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                               <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-2.5 py-1 rounded-full">EDA</span>
+                               <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-2.5 py-1 rounded-full">Pandas</span>
+                               <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-2.5 py-1 rounded-full">Seaborn</span>
+                               <span class="bg-yellow-900 text-yellow-300 text-xs font-semibold px-2.5 py-1 rounded-full">Tableau</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-700/50 flex justify-end gap-4">
+                            <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank" class="text-gray-300 hover:text-sky-400 transition-colors" title="View Code"><i class="fab fa-github text-2xl"></i></a>
+                            <a href="#" target="_blank" class="text-gray-500 cursor-not-allowed" title="Live Demo Coming Soon"><i class="fas fa-external-link-alt text-2xl"></i></a>
+                        </div>
+                    </article>
+
                 </div>
-              </div>
             </div>
-          </div>
+        </section>
 
-        </div>
 
-      </div>
-    </section><section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>I'm currently open to new opportunities. If you have a question or just want to say hi, feel free to reach out. My inbox is always open!</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Arlington, Texas, USA</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>[your-email@example.com]</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 123 456 7890</p>
-              </div>
-              
-              </div>
-
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+        <section id="skills" class="mb-20 py-12" data-aos="fade-up">
+            <div class="bg-slate-800 shadow-xl rounded-2xl p-8">
+                <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Skills</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Languages</h3>
+                        <div class="flex flex-wrap gap-3">
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Python</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Java</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">C++</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">SQL</span>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-semibold text-white mb-4">ML & Data Science</h3>
+                        <div class="flex flex-wrap gap-3">
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Scikit-learn</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">PyTorch</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Pandas</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">NumPy</span>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-2xl font-semibold text-white mb-4">MLOps & DevOps</h3>
+                        <div class="flex flex-wrap gap-3">
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Docker</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Kubernetes</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Jenkins</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Git</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">MLflow</span>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Cloud Platforms</h3>
+                        <div class="flex flex-wrap gap-3">
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">AWS</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">GCP</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Heroku</span>
+                             <span class="bg-slate-600 text-gray-200 text-base font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-sky-600 hover:-translate-y-1">Terraform</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+        </section>
+
+        <section id="contact" class="py-12" data-aos="fade-up">
+            <div class="bg-slate-800 shadow-xl rounded-2xl p-8">
+                <h2 class="text-5xl font-extrabold text-center mb-12 pb-4 section-heading">Get In Touch</h2>
+                <div class="text-center max-w-3xl mx-auto">
+                    <p class="text-xl text-gray-300 mb-8">
+                        I'm currently seeking new opportunities and am open to collaboration. Whether you have a question or just want to connect, my inbox is always open.
+                    </p>
+                    <a href="mailto:manojp0299@gmail.com" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-bold text-xl px-10 py-5 rounded-full shadow-lg hover:scale-105 transition-all duration-300">
+                        Say Hello <i class="fas fa-paper-plane ml-3"></i>
+                    </a>
+                    <div class="flex justify-center space-x-8 text-4xl mt-10 text-gray-400">
+                        <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="hover:text-sky-400 transition-colors duration-200" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/manojpasunoori" target="_blank" class="hover:text-sky-400 transition-colors duration-200" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
+            </div>
+        </section>
 
-        </div>
+    </main>
 
-      </div>
-    </section></main><footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>iPortfolio</span></strong>
-      </div>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <footer class="bg-slate-950 text-white py-8 text-center text-base shadow-inner mt-16">
+        <p>&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
+    </footer>
 
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+    </script>
+    
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('#main-nav ul li a');
 
-  <script src="assets/js/main.js"></script>
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active-nav');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active-nav');
+                }
+            });
+        });
+    </script>
 
 </body>
-
 </html>
