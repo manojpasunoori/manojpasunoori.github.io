@@ -26,14 +26,8 @@
 
         /* Hero section specific styling for background overlay and text */
         .hero-bg {
-            /* IMPORTANT: 
-               Replace the Base64 string below with the Base64 encoding of your 
-               'image_97513b.png' if you wish for that specific image to be the background.
-               If the image contains text, it will overlap with the dynamic text.
-               
-               Current Base64 is for a plain black 1x1 image as a placeholder.
-            */
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAACy0lEQVR42mNgAAIAAAoGAePIsS8AAAAASUVORK5CYII=');
+            /* Using background.png as requested. Ensure this file is in ./assets/images/ */
+            background-image: url('./assets/images/background.png');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -159,27 +153,25 @@
                 Experience
             </h2>
             <div class="grid grid-cols-1 gap-10">
-                <!-- Experience Item 1 -->
+                <!-- Experience Item: Tata Consultancy Services -->
                 <div class="bg-gray-700 shadow-lg rounded-xl p-8 border-l-4 border-indigo-500 hover:shadow-2xl hover:border-indigo-400 transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-2">Software Engineer</h3>
-                    <p class="text-xl text-gray-300 mb-1">ABC Tech Solutions</p>
-                    <p class="text-lg text-gray-400 mb-4">January 2021 – Present</p>
+                    <div class="flex items-center mb-4">
+                        <img src="./assets/images/tcslogo.png" alt="TCS Logo" class="w-16 h-16 object-contain rounded-lg mr-4"
+                             onerror="this.onerror=null; this.src='https://placehold.co/64x64/0a1a44/ffffff/png?text=TCS';"
+                        >
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white mb-1">Systems Engineer</h3>
+                            <p class="text-xl text-gray-300">Tata Consultancy Services – Hyderabad, IN</p>
+                            <p class="text-lg text-gray-400">November 2020 – Present</p>
+                        </div>
+                    </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-2 text-base">
-                        <li>Developed and maintained <strong class="font-bold text-indigo-400">scalable backend services</strong> using Python and Java, improving system efficiency by <strong class="font-bold text-indigo-400">20%</strong>.</li>
-                        <li>Implemented <strong class="font-bold text-indigo-400">CI/CD pipelines</strong> with Jenkins and GitHub Actions, reducing deployment time by <strong class="font-bold text-indigo-400">30%</strong>.</li>
-                        <li>Contributed to the design and implementation of <strong class="font-bold text-indigo-400">data processing workflows</strong>, handling over 1TB of daily data.</li>
-                        <li>Collaborated with cross-functional teams to deliver high-quality software solutions on tight deadlines.</li>
-                    </ul>
-                </div>
-                <!-- Experience Item 2 -->
-                 <div class="bg-gray-700 shadow-lg rounded-xl p-8 border-l-4 border-indigo-500 hover:shadow-2xl hover:border-indigo-400 transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-2">Junior Software Developer</h3>
-                    <p class="text-xl text-gray-300 mb-1">XYZ Innovations</p>
-                    <p class="text-lg text-gray-400 mb-4">June 2019 – December 2020</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2 text-base">
-                        <li>Assisted in the development of <strong class="font-bold text-indigo-400">web applications</strong> using Flask, contributing to front-end and back-end features.</li>
-                        <li>Participated in code reviews and debugging efforts, enhancing code quality and application stability.</li>
-                        <li>Gained foundational experience in database management and API integration.</li>
+                        <li>Led feature development and system optimization for Ericsson’s COM platform (Product Development), focusing on data-driven diagnostics and performance analytics across <strong class="font-bold text-indigo-400">FCAPS modules</strong>. (C++, Java Development, FT, UT, Integration and Performance Testing)</li>
+                        <li>Automated large-scale data collection, preprocessing, and reporting workflows using <strong class="font-bold text-indigo-400">Python and SQL</strong>, improving data accuracy and reducing manual efforts by <strong class="font-bold text-indigo-400">40%</strong>.</li>
+                        <li>Designed and deployed scalable test frameworks and <strong class="font-bold text-indigo-400">CI/CD pipelines</strong> using <strong class="font-bold text-indigo-400">Jenkins and Azure DevOps</strong>, enabling rapid and reliable integration of analytics modules.</li>
+                        <li>Built and validated predictive models for anomaly detection and network performance analysis using internal datasets; integrated explainable AI (<strong class="font-bold text-indigo-400">XAI</strong>) techniques such as <strong class="font-bold text-indigo-400">SHAP</strong> to enhance model transparency.</li>
+                        <li>Performed system-level data analysis and real-time metric monitoring using <strong class="font-bold text-indigo-400">Pandas, NumPy</strong>, and custom <strong class="font-bold text-indigo-400">ETL pipelines</strong>, helping resolve runtime failures and drive model-based diagnostics.</li>
+                        <li>Over 4 years of experience in <strong class="font-bold text-indigo-400">Python development</strong> with expertise in <strong class="font-bold text-indigo-400">API/ETL design</strong> and <strong class="font-bold text-indigo-400">AWS Terraform infrastructure</strong>.</li>
                     </ul>
                 </div>
             </div>
@@ -281,7 +273,7 @@
                 <!-- Project 3: Superstore Data Analysis -->
                 <article class="relative group bg-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
                     <img src="./assets/images/project3.png" alt="Superstore Data Analysis Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+3+Image';"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=project+3+Image';"
                     >
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Superstore Profit Optimization</h3>
