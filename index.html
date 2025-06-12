@@ -35,7 +35,7 @@
             background-image: url('./assets/images/background.png');
             background-size: cover;
             /* Adjusted background position to pull image downwards (top) or center it for wider screens */
-            background-position: center top; 
+            background-position: center 30%; /* Adjusted to shift background image down by 30% */
             position: relative;
         }
         .hero-overlay {
@@ -49,23 +49,8 @@
             z-index: 0;
         }
 
-        /* Custom typing animation for the header text */
-        .typing-text {
-            /* Changed accent border color to sky-400 */
-            border-right: 2px solid theme('colors.sky.400'); 
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            /* Adjusted steps for the new, complete designation */
-            animation: typing 4s steps(59, end) forwards, blink 1s step-end infinite; 
-        }
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        @keyframes blink {
-            50% { border-color: transparent }
-        }
+        /* No more typing animation, text will display instantly */
+        /* .typing-text styles removed for static display */
 
         /* Section heading divider */
         .section-heading::after {
@@ -119,8 +104,8 @@
             <p class="text-2xl font-light mb-4 hero-title-shadow">Hello, I am</p>
             <!-- Main Title -->
             <h1 class="text-7xl lg:text-8xl font-extrabold mb-6 hero-title-shadow">Manoj Pasunoori</h1>
-            <!-- Dynamic Subtitle with Typing Animation -->
-            <p class="text-3xl lg:text-4xl font-semibold typing-text mx-auto max-w-3xl overflow-hidden hero-title-shadow">
+            <!-- Dynamic Subtitle with no animation -->
+            <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mx-auto max-w-full lg:max-w-3xl hero-title-shadow">
                 MLOps & Software Development Engineer | Artificial Intelligence Specialist
             </p>
             <!-- Call to Action in Hero -->
