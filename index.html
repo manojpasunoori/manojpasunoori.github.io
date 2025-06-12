@@ -26,8 +26,14 @@
 
         /* Hero section specific styling for background overlay and text */
         .hero-bg {
-            /* IMPORTANT: Replace this with your actual background image URL in assets/images/ */
-            background-image: url('./assets/images/hero_background.jpg');
+            /* IMPORTANT: 
+               Replace the Base64 string below with the Base64 encoding of your 
+               'image_97513b.png' if you wish for that specific image to be the background.
+               If the image contains text, it will overlap with the dynamic text.
+               
+               Current Base64 is for a plain black 1x1 image as a placeholder.
+            */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAACy0lEQVR42mNgAAIAAAoGAePIsS8AAAAASUVORK5CYII=');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -48,7 +54,7 @@
             white-space: nowrap;
             overflow: hidden;
             width: 0;
-            animation: typing 4s steps(48, end) forwards, blink 1s step-end infinite; /* Adjusted steps for new text length */
+            animation: typing 4s steps(66, end) forwards, blink 1s step-end infinite; /* Adjusted steps for new designation length */
         }
         @keyframes typing {
             from { width: 0 }
@@ -96,7 +102,7 @@
             <h1 class="text-7xl lg:text-8xl font-extrabold mb-6">Manoj Pasunoori</h1>
             <!-- Dynamic Subtitle with Typing Animation -->
             <p class="text-3xl lg:text-4xl font-semibold typing-text mx-auto max-w-3xl overflow-hidden">
-                Machine Learning Engineer | Software Developer | MLOps Specialist
+                Machine Learning Engineer | Software Development Engineer | MLOps Specialist
             </p>
             <!-- Call to Action in Hero -->
             <div class="mt-12 flex justify-center space-x-6">
@@ -315,37 +321,55 @@
                 <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-green-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Programming Languages</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Python (Advanced)</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Java (Intermediate)</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">C++ (Basic)</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">SQL (Expert)</span>
-                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Bash/Shell (Intermediate)</span>
+                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Java</span>
+                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">C++</span>
+                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Oracle SQL</span>
+                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Bash</span>
+                        <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Shell</span>
                     </div>
                 </div>
                 <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-orange-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">ML & Data Science</h3>
+                    <h3 class="text-xl font-semibold text-white mb-4">ML & Data Science Libraries</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">TensorFlow</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">pandas</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">numpy</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">scikit-learn</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">XGBoost</span>
                         <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">PyTorch</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">Scikit-learn</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">Pandas/NumPy</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">Keras</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">TensorFlow</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">SMOTE</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">SHAP</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">PCA</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">matplotlib</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">seaborn</span>
+                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">NLTK</span>
                         <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">OpenCV</span>
-                        <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">NLTK/SpaCy</span>
                     </div>
                 </div>
                 <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-cyan-500">
-                    <h3 class="text-xl font-semibold text-white mb-4">Cloud & MLOps Tools</h3>
+                    <h3 class="text-xl font-semibold text-white mb-4">MLOps & DevOps Tools</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">AWS (EC2, S3, SageMaker, Lambda)</span>
                         <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Docker</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Jenkins</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Terraform</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">MLflow</span>
                         <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">FastAPI</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Git</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">DVC</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">MLflow</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Jenkins</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Terraform</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">GitHub Actions</span>
+                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Gerrit</span>
                         <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Streamlit</span>
-                        <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Git & GitHub Actions</span>
+                    </div>
+                </div>
+                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-white mb-4">Cloud Platforms & Services</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">AWS (EC2, S3, SageMaker, Lambda)</span>
+                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">Heroku</span>
+                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">Google Cloud (GCP)</span>
+                        <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">OpenStack</span>
                     </div>
                 </div>
                 <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-red-500">
@@ -361,12 +385,34 @@
                 <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Web Technologies</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">HTML5</span>
+                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">HTML</span>
                         <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">CSS3</span>
                         <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">JavaScript</span>
                         <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">React (Basic)</span>
                         <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">Flask</span>
                         <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">RESTful APIs</span>
+                    </div>
+                </div>
+                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-white mb-4">Concepts & Methodologies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Machine Learning (Supervised/Unsupervised)</span>
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Performance Optimization</span>
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Cloud Computing</span>
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">DevOps</span>
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Agile</span>
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Compiler Design</span>
+                        <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">FCAPS</span>
+                    </div>
+                </div>
+                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-pink-500">
+                    <h3 class="text-xl font-semibold text-white mb-4">Project Management & Collaboration</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">Jira</span>
+                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">Confluence</span>
+                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">MS Project</span>
+                        <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">MS Office</span>
                     </div>
                 </div>
             </div>
