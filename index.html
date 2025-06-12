@@ -2,316 +2,405 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manoj Pasunoori | ML Engineer & Software Developer</title>
   <meta name="description" content="The portfolio of Manoj Pasunoori, a Machine Learning and MLOps Engineer specializing in building end-to-end AI solutions and scalable cloud infrastructure.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Tailwind + Custom Theme -->
-  <script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* Custom Tailwind Config & Base Styles */
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            accentPrimary: '#38bdf8',   /* sky-400 */
-            accentSecondary: '#f472b6', /* rose-400 */
-            accentTertiary: '#fde047',  /* yellow-300 */
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+            'display': ['Poppins', 'sans-serif'],
           },
-          fontSize: {
-            base: ['1rem',{lineHeight:'1.75rem'}],
-            lg: ['1.125rem',{lineHeight:'2rem'}],
-            xl: ['1.25rem',{lineHeight:'2.25rem'}],
-            '2xl':['1.5rem',{lineHeight:'2.5rem'}],
-          }
+          colors: {
+            'brand-dark': '#0a0f19',    /* Deep navy background */
+            'brand-card': '#111827',    /* Slightly lighter card background */
+            'brand-text': '#d1d5db',     /* Light gray for body text */
+            'brand-heading': '#f9fafb', /* White for main headings */
+            'accentPrimary': '#38bdf8', /* sky-400 */
+            'accentSecondary': '#f472b6',/* rose-400 */
+          },
         }
       }
     }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <style>
-    :root {
-      --max-text: 40rem;
-    }
     body {
-      @apply bg-slate-900 text-gray-200 font-inter leading-relaxed;
+      @apply bg-brand-dark text-brand-text font-sans leading-relaxed;
     }
-    h1, h2 {
-      @apply font-extrabold tracking-tight text-white;
+
+    h1, h2, h3, h4, h5, h6 {
+      @apply font-display tracking-tight text-brand-heading;
     }
-    h2 {
-      @apply text-5xl mb-8;
+    
+    .section-heading {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.75rem; /* 12px */
     }
-    .section {
-      @apply py-16 px-6 md:px-0;
-    }
-    .badge {
-      @apply inline-block px-4 py-1 bg-accentPrimary/20 text-accentPrimary rounded-full font-medium text-sm transition transform hover:scale-105;
-    }
-    .badge-secondary {
-      @apply inline-block px-4 py-1 bg-accentSecondary/20 text-accentSecondary rounded-full font-medium text-sm transition transform hover:scale-105;
-    }
-    .timeline-dot {
-      @apply absolute -left-12 w-6 h-6 bg-accentPrimary rounded-full ring-4 ring-slate-900;
-    }
-    .nav-link {
-      @apply relative text-lg font-medium text-gray-300 transition;
-    }
-    .nav-link::after {
+
+    .section-heading::after {
       content: '';
-      @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-accentPrimary transition-all;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 3px;
+      background: linear-gradient(to right, #38bdf8, #f472b6);
+      border-radius: 999px;
     }
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      @apply w-2/5 left-3/10;
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
     }
-    .hero-bg {
-      background: url('./assets/images/background.png') center 30% / cover no-repeat;
+    
+    /* Desktop nav link underline */
+    .nav-link-desktop::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #38bdf8;
+      transition: width 0.3s ease;
     }
+    .nav-link-desktop:hover,
+    .nav-link-desktop.active {
+      @apply text-accentPrimary;
+    }
+    .nav-link-desktop:hover::after,
+    .nav-link-desktop.active::after {
+      width: 100%;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.8rem; /* Adjust based on pl-8 = 2rem and desired position */
+      top: 0.25rem;
+      width: 1.25rem; /* w-5 */
+      height: 1.25rem; /* h-5 */
+      background-color: #38bdf8;
+      border-radius: 9999px;
+      border: 4px solid #1f2937; /* Match card background */
+    }
+    
+    .badge {
+        @apply bg-sky-900/50 text-sky-300 text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 hover:bg-sky-900/80 hover:text-white;
+    }
+
   </style>
 </head>
-<body>
 
-  <!-- NAVIGATION -->
-  <nav class="sticky top-0 bg-slate-800/90 backdrop-blur-sm z-50 shadow">
-    <div class="max-w-6xl mx-auto flex items-center justify-between h-16 px-4">
-      <a href="#" class="text-2xl font-bold text-white">Manoj.</a>
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <button class="md:hidden text-gray-300"><i class="fas fa-bars text-2xl"></i></button>
+<body class="selection:bg-accentPrimary/40 selection:text-white">
+
+  <nav class="sticky top-0 bg-brand-dark/70 backdrop-blur-lg z-50 shadow-lg shadow-black/20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between h-20">
+            <a href="#" class="text-3xl font-bold text-white transition hover:text-accentPrimary">M.</a>
+
+            <div class="hidden md:block">
+                <ul class="flex items-center space-x-8 text-lg font-medium text-brand-text">
+                    <li><a href="#about" class="nav-link nav-link-desktop">About</a></li>
+                    <li><a href="#experience" class="nav-link nav-link-desktop">Experience</a></li>
+                    <li><a href="#education" class="nav-link nav-link-desktop">Education</a></li>
+                    <li><a href="#projects" class="nav-link nav-link-desktop">Projects</a></li>
+                    <li><a href="#skills" class="nav-link nav-link-desktop">Skills</a></li>
+                    <li><a href="#contact" class="nav-link nav-link-desktop">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="px-4 pt-2 pb-4 space-y-2">
+            <li><a href="#about" class="nav-link block text-center text-white bg-brand-card hover:bg-slate-700 p-3 rounded-lg transition-colors">About</a></li>
+            <li><a href="#experience" class="nav-link block text-center text-white bg-brand-card hover:bg-slate-700 p-3 rounded-lg transition-colors">Experience</a></li>
+            <li><a href="#education" class="nav-link block text-center text-white bg-brand-card hover:bg-slate-700 p-3 rounded-lg transition-colors">Education</a></li>
+            <li><a href="#projects" class="nav-link block text-center text-white bg-brand-card hover:bg-slate-700 p-3 rounded-lg transition-colors">Projects</a></li>
+            <li><a href="#skills" class="nav-link block text-center text-white bg-brand-card hover:bg-slate-700 p-3 rounded-lg transition-colors">Skills</a></li>
+            <li><a href="#contact" class="nav-link block text-center text-white bg-brand-card hover:bg-slate-700 p-3 rounded-lg transition-colors">Contact</a></li>
+        </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="relative hero-bg min-h-screen flex items-center justify-center text-center">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-    <div class="relative z-10 px-4">
-      <p class="text-xl font-light mb-2">Hello, I am</p>
-      <h1 class="text-6xl md:text-7xl mb-4">Manoj Pasunoori</h1>
-      <p class="text-xl md:text-2xl font-medium max-w-[var(--max-text)] mx-auto mb-8">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-accentPrimary to-accentSecondary">
-          MLOps &amp; Software Development Engineer
-        </span>
-      </p>
-      <div class="flex flex-wrap justify-center gap-6">
-        <a href="#projects" class="px-8 py-4 rounded-2xl font-semibold text-xl bg-gradient-to-r from-accentPrimary to-accentSecondary shadow-lg transform transition hover:-translate-y-1 hover:shadow-accentPrimary/30">
-          View My Work <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-        <a href="#contact" class="px-8 py-4 rounded-2xl font-semibold text-xl border-2 border-accentSecondary hover:bg-accentSecondary/20 transition">
-          Contact Me <i class="fas fa-envelope ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </header>
+  <main class="max-w-7xl mx-auto px-6 py-8">
 
-  <main class="max-w-6xl mx-auto">
-
-    <!-- ABOUT -->
-    <section id="about" class="section bg-slate-800 rounded-2xl mx-4 md:mx-0 shadow-lg" data-aos="fade-up">
-      <h2 class="text-center">About Me</h2>
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        <div class="flex justify-center">
-          <img src="./assets/images/Manoj.png" alt="Manoj Pasunoori"
-               class="w-56 h-56 rounded-full border-4 border-white shadow-lg transition-transform hover:scale-105 hover:rotate-3">
-        </div>
-        <div class="md:col-span-2 space-y-6 max-w-[var(--max-text)] mx-auto">
-          <p>
-            I'm a <strong class="text-accentPrimary">Machine Learning Engineer</strong> with <strong class="text-accentPrimary">4+ years of experience</strong>
-            and a Master’s in Information Systems. My expertise is in architecting <strong class="text-accentPrimary">end-to-end ML pipelines</strong>,
-            scalable cloud infrastructure, and production-grade deployments.
-          </p>
-          <p>
-            Passionate about translating complex data into actionable insights and building robust AI solutions that drive real-world impact.
-            Let’s build something amazing together.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section bg-slate-700 rounded-2xl mx-4 md:mx-0 shadow-lg" data-aos="fade-up">
-      <h2 class="text-center">Experience</h2>
-      <div class="mt-12 relative border-l-4 border-accentPrimary pl-10 space-y-16">
-        <div class="relative">
-          <div class="timeline-dot"></div>
-          <img src="./assets/images/tcslogo.png" alt="TCS Logo"
-               class="w-16 h-16 bg-white p-1 rounded-lg shadow-md mb-4">
-          <h3 class="text-2xl font-semibold text-white mb-1">Systems Engineer</h3>
-          <p class="text-gray-300">Tata Consultancy Services – Hyderabad, IN</p>
-          <p class="text-gray-400 mb-4">Nov 2020 – Present</p>
-          <ul class="space-y-3 list-disc list-inside text-gray-200">
-            <li><strong class="text-accentPrimary">Led</strong> feature development for Ericsson’s COM platform, focusing on diagnostics in <strong>FCAPS modules</strong>.</li>
-            <li><strong class="text-accentPrimary">Automated</strong> large-scale data workflows with <strong>Python &amp; SQL</strong>, reducing manual effort by 40%.</li>
-            <li><strong class="text-accentPrimary">Designed &amp; Deployed</strong> scalable <strong>CI/CD pipelines</strong> with Jenkins &amp; Azure DevOps.</li>
-            <li><strong class="text-accentPrimary">Built &amp; Validated</strong> anomaly-detection models with <strong>SHAP</strong> for full explainability.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section bg-slate-800 rounded-2xl mx-4 md:mx-0 shadow-lg" data-aos="fade-up">
-      <h2 class="text-center">Education</h2>
-      <div class="mt-12 relative border-l-4 border-accentPrimary pl-10 space-y-12">
-        <div class="relative">
-          <div class="timeline-dot"></div>
-          <h3 class="text-2xl font-semibold text-white mb-1">M.S. in Information Systems</h3>
-          <p class="text-gray-300">University of Texas at Arlington, TX</p>
-          <p class="text-gray-400">2023 – 2025</p>
-        </div>
-        <div class="relative">
-          <div class="timeline-dot"></div>
-          <h3 class="text-2xl font-semibold text-white mb-1">B.Tech</h3>
-          <p class="text-gray-300">JNTU Hyderabad, India</p>
-          <p class="text-gray-400">2016 – 2020</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section bg-slate-700 rounded-2xl mx-4 md:mx-0 shadow-lg" data-aos="fade-up">
-      <h2 class="text-center">Projects</h2>
-      <div class="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Project Card Example -->
-        <article class="group bg-slate-900 rounded-2xl overflow-hidden shadow-md transform transition hover:-translate-y-2 hover:shadow-accentPrimary/30">
-          <div class="relative">
-            <img src="./assets/images/Project1.png" alt="Accident Severity Prediction" class="w-full h-48 object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-accentPrimary/70 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
-          </div>
-          <div class="p-6 flex flex-col">
-            <h3 class="text-xl font-semibold text-white mb-2">Accident Severity Prediction</h3>
-            <p class="flex-grow text-gray-300 mb-4">
-              Engineered an MLOps pipeline to predict accident severity with 92% accuracy and 30% latency reduction.
+    <header id="home" class="min-h-[calc(100vh-5rem)] flex items-center">
+        <div class="max-w-4xl">
+            <p class="text-xl md:text-2xl font-bold italic text-accentPrimary mb-2" data-aos="fade-right">Hello, I am</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-brand-heading mb-4" data-aos="fade-right" data-aos-delay="100">Manoj Pasunoori</h1>
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-text mb-8" data-aos="fade-right" data-aos-delay="200">
+                <span class="bg-gradient-to-r from-accentPrimary to-accentSecondary bg-clip-text text-transparent">MLOps</span> &amp; Software Development Engineer
+            </h2>
+            <p class="text-lg max-w-2xl mb-12 text-gray-400" data-aos="fade-right" data-aos-delay="300">
+                I specialize in building end-to-end AI solutions, architecting scalable cloud infrastructure, and turning complex data into impactful, real-world results.
             </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="badge">SHAP</span>
-              <span class="badge">MLflow</span>
-              <span class="badge">FastAPI</span>
-              <span class="badge">Docker</span>
+            <div class="flex flex-wrap justify-start gap-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="#projects" class="inline-block bg-gradient-to-r from-accentPrimary to-blue-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-accentPrimary/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-accentPrimary/30">
+                    View My Work <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+                <a href="./assets/Manoj_Pasunoori_Resume.pdf" target="_blank" class="inline-block border-2 border-accentSecondary text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-accentSecondary/20 transition-all duration-300 transform hover:-translate-y-1 hover:bg-accentSecondary/20 hover:shadow-2xl hover:shadow-accentSecondary/30">
+                    Download CV <i class="fas fa-download ml-2"></i>
+                </a>
             </div>
-            <div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition">
-              <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank">
-                <i class="fab fa-github text-2xl hover:text-accentPrimary"></i>
-              </a>
+        </div>
+    </header>
+
+    <section id="about" class="py-24" data-aos="fade-up">
+      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">About Me</h2>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-4 flex justify-center">
+          <div class="relative w-64 h-64">
+            <div class="absolute inset-0 bg-gradient-to-br from-accentPrimary to-accentSecondary rounded-full blur-xl opacity-50"></div>
+            <img src="./assets/images/Manoj.png" loading="lazy" alt="Manoj Pasunoori" class="relative w-full h-full object-cover rounded-full border-4 border-slate-700 shadow-2xl">
+          </div>
+        </div>
+        <div class="md:col-span-8 space-y-5 text-lg text-brand-text">
+          <p>
+            I'm a <strong class="text-accentPrimary font-semibold">Machine Learning Engineer</strong> with over <strong class="text-accentPrimary font-semibold">4 years of hands-on experience</strong>, currently advancing my knowledge by pursuing a Master’s degree in Information Systems.
+          </p>
+          <p>
+            My expertise is in architecting robust <strong class="text-accentPrimary font-semibold">end-to-end ML pipelines</strong>, deploying models into production, and managing <strong class="text-accentPrimary font-semibold">scalable cloud infrastructure</strong>. I thrive on transforming complex datasets into actionable insights and building intelligent AI solutions that deliver tangible, real-world impact.
+          </p>
+          <p>Let's connect and build something amazing together.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-24" data-aos="fade-up">
+      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Experience</h2>
+      <div class="max-w-3xl mx-auto">
+        <div class="relative border-l-2 border-slate-700 pl-8 space-y-16">
+          <div class="timeline-item relative bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700 hover:border-accentPrimary transition-colors duration-300">
+             <div class="flex items-center gap-4 mb-3">
+                 <div class="bg-white p-2 rounded-lg shadow-md w-16 h-16 flex items-center justify-center">
+                    <i class="fa-solid fa-briefcase text-3xl text-brand-dark"></i> </div>
+                 <div>
+                    <h3 class="text-xl font-bold text-brand-heading">Systems Engineer</h3>
+                    <p class="text-gray-400 font-medium">Tata Consultancy Services – Hyderabad, IN</p>
+                    <p class="text-gray-500 text-sm">Nov 2020 – Aug 2023</p>
+                 </div>
+             </div>
+            <ul class="list-disc list-outside space-y-3 pl-5 text-brand-text">
+              <li><strong class="text-accentPrimary">Led</strong> feature development for Ericsson’s COM platform, focusing on data-driven diagnostics in <strong>FCAPS modules</strong>.</li>
+              <li><strong class="text-accentPrimary">Automated</strong> large-scale data workflows with <strong>Python & SQL</strong>, cutting manual effort by 40%.</li>
+              <li><strong class="text-accentPrimary">Designed & deployed</strong> scalable <strong>CI/CD pipelines</strong> using Jenkins & Azure DevOps.</li>
+              <li><strong class="text-accentPrimary">Built & validated</strong> anomaly-detection models with <strong>SHAP</strong> for full transparency.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="py-24" data-aos="fade-up">
+      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Education</h2>
+      <div class="max-w-3xl mx-auto">
+        <div class="relative border-l-2 border-slate-700 pl-8 space-y-16">
+          <div class="timeline-item relative bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700 hover:border-accentPrimary transition-colors duration-300">
+            <h3 class="text-xl font-bold text-brand-heading">Master of Science in Information Systems</h3>
+            <p class="text-gray-400 font-medium">University of Texas at Arlington, TX</p>
+            <p class="text-gray-500 text-sm">2023 – 2025</p>
+          </div>
+          <div class="timeline-item relative bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700 hover:border-accentPrimary transition-colors duration-300">
+            <h3 class="text-xl font-bold text-brand-heading">Bachelor of Technology</h3>
+            <p class="text-gray-400 font-medium">JNTU Hyderabad, India</p>
+            <p class="text-gray-500 text-sm">2016 – 2020</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-24" data-aos="fade-up">
+      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <article class="group bg-brand-card rounded-2xl overflow-hidden shadow-lg border border-slate-700 hover:border-accentPrimary transition-all duration-300 transform hover:-translate-y-2">
+          <img src="https://images.unsplash.com/photo-1576432759833-81a17e79344b?q=80&w=2070&auto=format&fit=crop" loading="lazy" alt="Accident Severity Prediction" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Accident Severity Prediction</h3>
+            <p class="text-brand-text mb-4 min-h-[4.5rem]">Engineered an MLOps pipeline to predict accident severity, achieving 92% accuracy and 30% latency reduction.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-slate-700 text-accentPrimary text-xs font-semibold px-3 py-1 rounded-full">SHAP</span>
+              <span class="bg-slate-700 text-accentPrimary text-xs font-semibold px-3 py-1 rounded-full">MLflow</span>
+              <span class="bg-slate-700 text-accentPrimary text-xs font-semibold px-3 py-1 rounded-full">FastAPI</span>
+              <span class="bg-slate-700 text-accentPrimary text-xs font-semibold px-3 py-1 rounded-full">Docker</span>
+            </div>
+            <div class="flex justify-end gap-4 text-gray-400">
+              <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="GitHub for Accident Severity Prediction"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="Live demo for Accident Severity Prediction"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
         </article>
-        <!-- Add other project cards similarly... -->
+
+        <article class="group bg-brand-card rounded-2xl overflow-hidden shadow-lg border border-slate-700 hover:border-accentPrimary transition-all duration-300 transform hover:-translate-y-2">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" loading="lazy" alt="Fake Job Posting Detector" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Fake Job Posting Detector</h3>
+            <p class="text-brand-text mb-4 min-h-[4.5rem]">Developed an NLP model to identify fraudulent job postings, leveraging SMOTE and TF-IDF to reduce false positives by 25%.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-slate-700 text-accentSecondary text-xs font-semibold px-3 py-1 rounded-full">NLP</span>
+              <span class="bg-slate-700 text-accentSecondary text-xs font-semibold px-3 py-1 rounded-full">XGBoost</span>
+              <span class="bg-slate-700 text-accentSecondary text-xs font-semibold px-3 py-1 rounded-full">SMOTE</span>
+            </div>
+            <div class="flex justify-end gap-4 text-gray-400">
+              <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="GitHub for Fake Job Posting Detector"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="Live demo for Fake Job Posting Detector"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="group bg-brand-card rounded-2xl overflow-hidden shadow-lg border border-slate-700 hover:border-accentPrimary transition-all duration-300 transform hover:-translate-y-2">
+          <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=2070&auto=format&fit=crop" loading="lazy" alt="Superstore Profit Optimization" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Superstore Profit Optimization</h3>
+            <p class="text-brand-text mb-4 min-h-[4.5rem]">Conducted in-depth EDA to identify key profit drivers and weak areas, providing insights projected to boost annual profit by 15%.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-slate-700 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full">EDA</span>
+              <span class="bg-slate-700 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full">Pandas</span>
+              <span class="bg-slate-700 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full">Tableau</span>
+            </div>
+            <div class="flex justify-end gap-4 text-gray-400">
+              <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="GitHub for Superstore Profit Optimization"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="Live demo for Superstore Profit Optimization"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section bg-slate-800 rounded-2xl mx-4 md:mx-0 shadow-lg" data-aos="fade-up">
-      <h2 class="text-center">Skills</h2>
-      <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div>
-          <h3 class="flex items-center text-xl font-semibold"><i class="fas fa-code text-accentPrimary mr-2"></i>Languages</h3>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <span class="badge">Python</span>
-            <span class="badge">Java</span>
-            <span class="badge">C++</span>
-            <span class="badge">SQL</span>
-            <span class="badge">HTML</span>
-            <span class="badge">Bash/Shell</span>
-          </div>
+    <section id="skills" class="py-24" data-aos="fade-up">
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Technical Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700">
+                <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-code text-accentPrimary mr-3"></i>Languages</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="badge">Python</span><span class="badge">Java</span><span class="badge">C++</span><span class="badge">SQL</span><span class="badge">Bash/Shell</span>
+                </div>
+            </div>
+            <div class="bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700">
+                <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-database text-accentPrimary mr-3"></i>ML & Data Science</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="badge">Scikit-learn</span><span class="badge">TensorFlow</span><span class="badge">PyTorch</span><span class="badge">Pandas</span><span class="badge">NumPy</span>
+                </div>
+            </div>
+            <div class="bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700">
+                <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-tools text-accentPrimary mr-3"></i>MLOps & DevOps</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="badge">Docker</span><span class="badge">Kubernetes</span><span class="badge">Jenkins</span><span class="badge">Git</span><span class="badge">MLflow</span>
+                </div>
+            </div>
+            <div class="bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700">
+                <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-cloud text-accentPrimary mr-3"></i>Cloud Platforms</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="badge">AWS</span><span class="badge">GCP</span><span class="badge">OpenStack</span><span class="badge">Terraform</span>
+                </div>
+            </div>
+            <div class="bg-brand-card p-6 rounded-2xl shadow-lg border border-slate-700 col-span-1 md:col-span-2 lg:col-span-2">
+                <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-cogs text-accentPrimary mr-3"></i>Concepts & Methodologies</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="badge">Agile</span><span class="badge">DevOps</span><span class="badge">Machine Learning</span><span class="badge">Deep Learning</span><span class="badge">CI/CD</span><span class="badge">Automated Testing</span>
+                </div>
+            </div>
         </div>
-        <div>
-          <h3 class="flex items-center text-xl font-semibold"><i class="fas fa-database text-accentPrimary mr-2"></i>ML & Data Science</h3>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <span class="badge">Scikit-learn</span>
-            <span class="badge">TensorFlow</span>
-            <span class="badge">PyTorch</span>
-            <span class="badge">Pandas</span>
-            <span class="badge">NumPy</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="flex items-center text-xl font-semibold"><i class="fas fa-tools text-accentPrimary mr-2"></i>MLOps & DevOps</h3>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <span class="badge">Docker</span>
-            <span class="badge">Kubernetes</span>
-            <span class="badge">Jenkins</span>
-            <span class="badge">Git</span>
-            <span class="badge">MLflow</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="flex items-center text-xl font-semibold"><i class="fas fa-cloud text-accentPrimary mr-2"></i>Cloud Platforms</h3>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <span class="badge">AWS</span>
-            <span class="badge">GCP</span>
-            <span class="badge">OpenStack</span>
-            <span class="badge">Terraform</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="flex items-center text-xl font-semibold"><i class="fas fa-cogs text-accentPrimary mr-2"></i>Concepts & Methodologies</h3>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <span class="badge-secondary">Agile</span>
-            <span class="badge-secondary">DevOps</span>
-            <span class="badge-secondary">ML</span>
-            <span class="badge-secondary">Deep Learning</span>
-            <span class="badge-secondary">CI/CD</span>
-            <span class="badge-secondary">Automated Testing</span>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section bg-slate-700 rounded-2xl mx-4 md:mx-0 shadow-lg text-center" data-aos="fade-up">
-      <h2>Get In Touch</h2>
-      <p class="mt-6 text-lg text-gray-300 max-w-[var(--max-text)] mx-auto">
-        I’m actively seeking new opportunities and open to collaboration. My inbox is always open—let’s connect!
-      </p>
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
-        <div class="flex items-center justify-center">
-          <i class="fas fa-map-marker-alt text-2xl text-accentPrimary mr-3"></i>
-          Arlington, TX, USA
+
+    <section id="contact" class="py-24" data-aos="fade-up">
+        <div class="text-center bg-brand-card p-8 md:p-12 rounded-2xl shadow-lg border border-slate-700">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-6 section-heading">Get In Touch</h2>
+            <p class="text-lg text-brand-text max-w-2xl mx-auto mb-10">
+                I’m actively seeking new opportunities and enjoy collaborating on innovative projects. My inbox is always open, so please feel free to reach out. Let's connect!
+            </p>
+            <a href="mailto:manojp0299@gmail.com" class="inline-block bg-gradient-to-r from-accentPrimary to-blue-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-accentPrimary/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-accentPrimary/30 mb-12">
+                Say Hello <i class="fas fa-paper-plane ml-2"></i>
+            </a>
+            <div class="flex justify-center space-x-8 text-4xl text-gray-400">
+                <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="hover:text-accentPrimary transition-colors duration-300 transform hover:-translate-y-1" aria-label="LinkedIn Profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/manojpasunoori" target="_blank" class="hover:text-accentPrimary transition-colors duration-300 transform hover:-translate-y-1" aria-label="GitHub Profile">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:manojp0299@gmail.com" class="hover:text-accentPrimary transition-colors duration-300 transform hover:-translate-y-1" aria-label="Email Me">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
-        <a href="mailto:manojp0299@gmail.com" class="flex items-center justify-center hover:text-accentPrimary transition">
-          <i class="fas fa-envelope text-2xl text-accentPrimary mr-3"></i>
-          manojp0299@gmail.com
-        </a>
-        <div class="flex items-center justify-center">
-          <i class="fas fa-phone text-2xl text-accentPrimary mr-3"></i>
-          +1 (682) 405-5556
-        </div>
-      </div>
-      <div class="mt-8 flex justify-center gap-8 text-3xl text-gray-400">
-        <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="hover:text-accentPrimary"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/manojpasunoori" target="_blank" class="hover:text-accentPrimary"><i class="fab fa-github"></i></a>
-      </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-gray-500 py-8 text-center">
+  <footer class="bg-brand-dark border-t border-slate-800 text-gray-500 py-6 text-center">
     <p>&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
   </footer>
 
-  <!-- AOS & Scroll-Spy -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
   <script>
-    AOS.init({ duration: 700, once: true, easing: 'ease-in-out' });
+    // Initialize Animate on Scroll
+    AOS.init({ 
+      duration: 800, 
+      once: true, 
+      easing: 'ease-in-out',
+      offset: 100 
+    });
+
+    // Mobile Menu Toggle
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Active nav link scrolling for Desktop
     const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('nav ul li a');
+    const navLinksDesktop = document.querySelectorAll('.nav-link-desktop');
     window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (pageYOffset >= s.offsetTop - 150) current = s.id;
+      let current = 'home';
+      sections.forEach(sec => {
+        const sectionTop = sec.offsetTop;
+        if (pageYOffset >= sectionTop - 150) {
+          current = sec.getAttribute('id');
+        }
       });
-      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
+
+      navLinksDesktop.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Close mobile menu when a link is clicked
+    const mobileNavLinks = document.querySelectorAll('#mobile-menu .nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
     });
   </script>
 </body>
