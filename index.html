@@ -26,7 +26,11 @@
 
         /* Hero section specific styling for background overlay and text */
         .hero-bg {
-            /* Using background.png as requested. Ensure this file is in ./assets/images/ */
+            /* IMPORTANT: 
+               Replace the current 'background.png' in your assets/images/ folder
+               with a more abstract, subtle, and dark image (e.g., blurred lights, geometric pattern).
+               A plain black image will not give the desired aesthetic impact.
+            */
             background-image: url('./assets/images/background.png');
             background-size: cover;
             background-position: center;
@@ -38,7 +42,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            /* Added a radial gradient to darken corners/edges and make text pop more */
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 80%); 
             z-index: 0;
         }
 
@@ -272,8 +277,8 @@
 
                 <!-- Project 3: Superstore Data Analysis -->
                 <article class="relative group bg-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
-                    <img src="./assets/images/project3.png" alt="Superstore Data Analysis Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=project+3+Image';"
+                    <img src="./assets/images/Project3.png" alt="Superstore Data Analysis Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+3+Image';"
                     >
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Superstore Profit Optimization</h3>
