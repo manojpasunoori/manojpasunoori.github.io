@@ -16,7 +16,8 @@
         /* Custom styles to override or enhance Tailwind for DevFolio feel */
         body {
             font-family: 'Inter', sans-serif; /* Poppins for headings, Inter for body */
-            @apply bg-gray-900 text-gray-200 leading-relaxed;
+            /* Updated background to a softer dark slate */
+            @apply bg-slate-950 text-gray-200 leading-relaxed; 
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -27,9 +28,9 @@
         /* Hero section specific styling for background overlay and text */
         .hero-bg {
             /* IMPORTANT: 
-               Replace the current 'background.png' in your assets/images/ folder
-               with a more abstract, subtle, and dark image (e.g., blurred lights, geometric pattern).
-               A plain black image will not give the desired aesthetic impact.
+               For visual brilliance, replace the current 'background.png' in your assets/images/ folder
+               with a high-quality, abstract, subtle, and dark background image.
+               A plain color will not achieve the desired aesthetic impact.
             */
             background-image: url('./assets/images/background.png');
             background-size: cover;
@@ -42,18 +43,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Added a radial gradient to darken corners/edges and make text pop more */
-            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 80%); 
+            /* Enhanced gradient for more depth, inspired by DevFolio's overlays */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%);
             z-index: 0;
         }
 
         /* Custom typing animation for the header text */
         .typing-text {
-            border-right: 2px solid theme('colors.indigo.400'); /* Use accent color for cursor */
+            /* Changed accent border color to sky-400 */
+            border-right: 2px solid theme('colors.sky.400'); 
             white-space: nowrap;
             overflow: hidden;
             width: 0;
-            animation: typing 4s steps(66, end) forwards, blink 1s step-end infinite; /* Adjusted steps for new designation length */
+            /* Adjusted steps for the new, shorter designation */
+            animation: typing 4s steps(50, end) forwards, blink 1s step-end infinite; 
         }
         @keyframes typing {
             from { width: 0 }
@@ -69,7 +72,8 @@
             display: block;
             width: 100px; /* Width of the underline */
             height: 4px;
-            background: theme('colors.indigo.500'); /* Accent color for underline */
+            /* Changed accent underline color to sky-500 */
+            background: theme('colors.sky.500'); 
             margin: 1rem auto 0; /* Center the underline */
             border-radius: 2px;
         }
@@ -89,38 +93,53 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #606f8c; /* Hover state for thumb */
         }
+
+        /* Global shadow and transition for interactive cards */
+        .card-hover-effect {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Text shadow for main hero text for better contrast */
+        .hero-title-shadow {
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+        }
     </style>
 </head>
-<body class="selection:bg-indigo-300 selection:text-gray-900">
+<body class="selection:bg-sky-300 selection:text-gray-900">
     <!-- Header Section - Inspired by DevFolio's full-width hero -->
     <header class="hero-bg min-h-screen flex items-center justify-center text-white px-4 text-center relative shadow-2xl">
         <div class="hero-overlay"></div>
         <div class="container mx-auto relative z-10">
-            <p class="text-2xl font-light mb-4">Hello, I am</p>
+            <p class="text-2xl font-light mb-4 hero-title-shadow">Hello, I am</p>
             <!-- Main Title -->
-            <h1 class="text-7xl lg:text-8xl font-extrabold mb-6">Manoj Pasunoori</h1>
+            <h1 class="text-7xl lg:text-8xl font-extrabold mb-6 hero-title-shadow">Manoj Pasunoori</h1>
             <!-- Dynamic Subtitle with Typing Animation -->
-            <p class="text-3xl lg:text-4xl font-semibold typing-text mx-auto max-w-3xl overflow-hidden">
-                Machine Learning Engineer | Software Development Engineer | MLOps Specialist
+            <p class="text-3xl lg:text-4xl font-semibold typing-text mx-auto max-w-3xl overflow-hidden hero-title-shadow">
+                MLOps & Software Development Engineer | AI Specialist
             </p>
             <!-- Call to Action in Hero -->
-            <div class="mt-12 flex justify-center space-x-6">
-                <a href="#projects" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 ring-2 ring-indigo-400">
+            <div class="mt-12 flex flex-wrap justify-center gap-6"> <!-- Added flex-wrap and gap-6 for button alignment -->
+                <a href="#projects" class="inline-block bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 ring-2 ring-sky-400">
                     View My Work <i class="fas fa-arrow-right ml-3"></i>
                 </a>
-                <a href="#contact" class="inline-block border-2 border-white hover:border-indigo-400 hover:bg-indigo-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                <a href="#contact" class="inline-block border-2 border-white hover:border-sky-400 hover:bg-sky-700 text-white font-semibold text-xl px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
                     Contact Me <i class="fas fa-envelope ml-3"></i>
                 </a>
             </div>
             <!-- Navigation Menu - Sticky version usually on top -->
-            <nav class="absolute bottom-0 left-0 right-0 py-4 bg-gray-900 bg-opacity-70 backdrop-blur-sm shadow-xl hidden lg:block">
+            <nav class="absolute bottom-0 left-0 right-0 py-4 bg-slate-900 bg-opacity-70 backdrop-blur-sm shadow-xl hidden lg:block">
                 <ul class="flex flex-wrap justify-center space-x-8 text-xl font-medium">
-                    <li><a href="#about" class="px-4 py-2 hover:text-indigo-400 transition-colors duration-200">About</a></li>
-                    <li><a href="#experience" class="px-4 py-2 hover:text-indigo-400 transition-colors duration-200">Experience</a></li>
-                    <li><a href="#education" class="px-4 py-2 hover:text-indigo-400 transition-colors duration-200">Education</a></li>
-                    <li><a href="#projects" class="px-4 py-2 hover:text-indigo-400 transition-colors duration-200">Projects</a></li>
-                    <li><a href="#skills" class="px-4 py-2 hover:text-indigo-400 transition-colors duration-200">Skills</a></li>
-                    <li><a href="#contact" class="px-4 py-2 hover:text-indigo-400 transition-colors duration-200">Contact</a></li>
+                    <li><a href="#about" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">About</a></li>
+                    <li><a href="#experience" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Experience</a></li>
+                    <li><a href="#education" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Education</a></li>
+                    <li><a href="#projects" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Projects</a></li>
+                    <li><a href="#skills" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Skills</a></li>
+                    <li><a href="#contact" class="px-4 py-2 hover:text-sky-400 transition-colors duration-200">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -130,20 +149,21 @@
     <main class="container mx-auto px-4 py-16 max-w-6xl">
 
         <!-- About Me Section -->
-        <section id="about" class="mb-20 py-12 bg-gray-800 shadow-xl rounded-2xl p-8 transform hover:translate-y-[-5px] transition-transform duration-300">
+        <section id="about" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
             <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
                 About Me
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div class="flex justify-center md:justify-start">
+                    <!-- IMPORTANT: Ensure 'Manoj.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
                     <img src="./assets/images/Manoj.png" alt="Manoj Pasunoori"
-                         class="w-56 h-56 rounded-xl object-cover border-8 border-indigo-700 shadow-xl transform hover:scale-105 transition-transform duration-300 ring-4 ring-indigo-400 ring-offset-4 ring-offset-gray-800"
+                         class="w-56 h-56 rounded-xl object-cover border-8 border-sky-700 shadow-xl transform hover:scale-105 transition-transform duration-300 ring-4 ring-sky-400 ring-offset-4 ring-offset-slate-800"
                          onerror="this.onerror=null; this.src='https://placehold.co/224x224/0a1a44/ffffff/png?text=Your+Photo';"
                     >
                 </div>
                 <div>
                     <p class="text-xl leading-loose text-gray-300 mb-4">
-                        I'm a <strong class="font-bold text-indigo-400">Machine Learning Engineer</strong> with <strong class="font-bold text-indigo-400">4+ years of experience</strong> in software engineering and a Master’s in Information Systems. My expertise lies in architecting <strong class="font-bold text-indigo-400">end-to-end ML pipelines, model deployment, and scalable cloud infrastructure</strong>.
+                        I'm a <strong class="font-bold text-sky-400">Machine Learning Engineer</strong> with <strong class="font-bold text-sky-400">4+ years of experience</strong> in software engineering and a Master’s in Information Systems. My expertise lies in architecting <strong class="font-bold text-sky-400">end-to-end ML pipelines, model deployment, and scalable cloud infrastructure</strong>.
                     </p>
                     <p class="text-xl leading-loose text-gray-300">
                         I am passionate about translating complex data into actionable insights and building robust, deployable AI solutions that drive real-world impact. I thrive in challenging environments, constantly seeking to learn and apply cutting-edge techniques to foster innovation and deliver measurable value. Let's build something impactful together.
@@ -153,14 +173,15 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="mb-20 py-12 bg-gray-800 shadow-xl rounded-2xl p-8 transform hover:translate-y-[-5px] transition-transform duration-300">
+        <section id="experience" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
             <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
                 Experience
             </h2>
             <div class="grid grid-cols-1 gap-10">
                 <!-- Experience Item: Tata Consultancy Services -->
-                <div class="bg-gray-700 shadow-lg rounded-xl p-8 border-l-4 border-indigo-500 hover:shadow-2xl hover:border-indigo-400 transition-all duration-300">
+                <div class="bg-slate-700 shadow-lg rounded-xl p-8 border-l-4 border-sky-500 hover:shadow-2xl hover:border-sky-400 transition-all duration-300">
                     <div class="flex items-center mb-4">
+                        <!-- IMPORTANT: Ensure 'tcslogo.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
                         <img src="./assets/images/tcslogo.png" alt="TCS Logo" class="w-16 h-16 object-contain rounded-lg mr-4"
                              onerror="this.onerror=null; this.src='https://placehold.co/64x64/0a1a44/ffffff/png?text=TCS';"
                         >
@@ -171,33 +192,33 @@
                         </div>
                     </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-2 text-base">
-                        <li>Led feature development and system optimization for Ericsson’s COM platform (Product Development), focusing on data-driven diagnostics and performance analytics across <strong class="font-bold text-indigo-400">FCAPS modules</strong>. (C++, Java Development, FT, UT, Integration and Performance Testing)</li>
-                        <li>Automated large-scale data collection, preprocessing, and reporting workflows using <strong class="font-bold text-indigo-400">Python and SQL</strong>, improving data accuracy and reducing manual efforts by <strong class="font-bold text-indigo-400">40%</strong>.</li>
-                        <li>Designed and deployed scalable test frameworks and <strong class="font-bold text-indigo-400">CI/CD pipelines</strong> using <strong class="font-bold text-indigo-400">Jenkins and Azure DevOps</strong>, enabling rapid and reliable integration of analytics modules.</li>
-                        <li>Built and validated predictive models for anomaly detection and network performance analysis using internal datasets; integrated explainable AI (<strong class="font-bold text-indigo-400">XAI</strong>) techniques such as <strong class="font-bold text-indigo-400">SHAP</strong> to enhance model transparency.</li>
-                        <li>Performed system-level data analysis and real-time metric monitoring using <strong class="font-bold text-indigo-400">Pandas, NumPy</strong>, and custom <strong class="font-bold text-indigo-400">ETL pipelines</strong>, helping resolve runtime failures and drive model-based diagnostics.</li>
-                        <li>Over 4 years of experience in <strong class="font-bold text-indigo-400">Python development</strong> with expertise in <strong class="font-bold text-indigo-400">API/ETL design</strong> and <strong class="font-bold text-indigo-400">AWS Terraform infrastructure</strong>.</li>
+                        <li>Led feature development and system optimization for Ericsson’s COM platform (Product Development), focusing on data-driven diagnostics and performance analytics across <strong class="font-bold text-sky-400">FCAPS modules</strong>. (C++, Java Development, FT, UT, Integration and Performance Testing)</li>
+                        <li>Automated large-scale data collection, preprocessing, and reporting workflows using <strong class="font-bold text-sky-400">Python and SQL</strong>, improving data accuracy and reducing manual efforts by <strong class="font-bold text-sky-400">40%</strong>.</li>
+                        <li>Designed and deployed scalable test frameworks and <strong class="font-bold text-sky-400">CI/CD pipelines</strong> using <strong class="font-bold text-sky-400">Jenkins and Azure DevOps</strong>, enabling rapid and reliable integration of analytics modules.</li>
+                        <li>Built and validated predictive models for anomaly detection and network performance analysis using internal datasets; integrated explainable AI (<strong class="font-bold text-sky-400">XAI</strong>) techniques such as <strong class="font-bold text-sky-400">SHAP</strong> to enhance model transparency.</li>
+                        <li>Performed system-level data analysis and real-time metric monitoring using <strong class="font-bold text-sky-400">Pandas, NumPy</strong>, and custom <strong class="font-bold text-sky-400">ETL pipelines</strong>, helping resolve runtime failures and drive model-based diagnostics.</li>
+                        <li>Over 4 years of experience in <strong class="font-bold text-sky-400">Python development</strong> with expertise in <strong class="font-bold text-sky-400">API/ETL design</strong> and <strong class="font-bold text-sky-400">AWS Terraform infrastructure</strong>.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="mb-20 py-12 bg-gray-800 shadow-xl rounded-2xl p-8 transform hover:translate-y-[-5px] transition-transform duration-300">
+        <section id="education" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
             <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
                 Education
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-700 shadow-lg rounded-xl p-8 border-l-4 border-indigo-500 hover:shadow-2xl hover:border-indigo-400 transition-all duration-300">
+                <div class="bg-slate-700 shadow-lg rounded-xl p-8 border-l-4 border-sky-500 hover:shadow-2xl hover:border-sky-400 transition-all duration-300">
                     <p class="text-2xl font-semibold text-white mb-2">
-                        <strong class="text-indigo-400">University of Texas at Arlington, USA</strong>
+                        <strong class="text-sky-400">University of Texas at Arlington, USA</strong>
                     </p>
                     <p class="text-xl text-gray-300">Master of Science in Information Systems</p>
                     <p class="text-lg text-gray-400 mt-2">2023–2025</p>
                 </div>
-                <div class="bg-gray-700 shadow-lg rounded-xl p-8 border-l-4 border-indigo-500 hover:shadow-2xl hover:border-indigo-400 transition-all duration-300">
+                <div class="bg-slate-700 shadow-lg rounded-xl p-8 border-l-4 border-sky-500 hover:shadow-2xl hover:border-sky-400 transition-all duration-300">
                     <p class="text-2xl font-semibold text-white mb-2">
-                        <strong class="text-indigo-400">JNTU Hyderabad, India</strong>
+                        <strong class="text-sky-400">JNTU Hyderabad, India</strong>
                     </p>
                     <p class="text-xl text-gray-300">Bachelor of Technology</p>
                     <p class="text-lg text-gray-400 mt-2">2016–2020</p>
@@ -206,13 +227,14 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="mb-20 py-12 bg-gray-800 shadow-xl rounded-2xl p-8">
+        <section id="projects" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8">
             <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
                 Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Project 1: Accident Severity Prediction -->
-                <article class="relative group bg-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
+                <article class="relative group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
+                    <!-- IMPORTANT: Ensure 'Project1.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
                     <img src="./assets/images/Project1.png" alt="Accident Severity Prediction Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
                          onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+1+Image';"
                     >
@@ -224,15 +246,15 @@
                             <ul class="list-disc list-inside ml-4 mt-2 text-sm text-gray-400">
                                 <li>Utilized SHAP for interpretability, MLflow for tracking.</li>
                                 <li>Containerized with Docker, deployed with FastAPI.</li>
-                                <li>Achieved <strong class="text-indigo-400">92% accuracy</strong> & <strong class="text-indigo-400">30% latency reduction</strong>.</li>
+                                <li>Achieved <strong class="text-sky-400">92% accuracy</strong> & <strong class="text-sky-400">30% latency reduction</strong>.</li>
                             </ul>
                         </p>
                     </div>
                     <!-- Overlay for links on hover -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
                         <div class="flex space-x-4">
                             <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank"
-                               class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
+                               class="bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
                                 <i class="fab fa-github text-xl"></i>
                             </a>
                             <a href="#" target="_blank"
@@ -244,7 +266,8 @@
                 </article>
 
                 <!-- Project 2: Fake Job Posting Prediction -->
-                <article class="relative group bg-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
+                <article class="relative group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
+                    <!-- IMPORTANT: Ensure 'Project2.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
                     <img src="./assets/images/Project2.png" alt="Fake Job Posting Prediction Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
                          onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+2+Image';"
                     >
@@ -256,15 +279,15 @@
                             <ul class="list-disc list-inside ml-4 mt-2 text-sm text-gray-400">
                                 <li>Employed TF-IDF for text vectorization & SMOTE for imbalanced data.</li>
                                 <li>Leveraged XGBoost for robust classification.</li>
-                                <li>Successfully <strong class="text-indigo-400">reduced false positives by 25%</strong>, streamlining workflows.</li>
+                                <li>Successfully <strong class="text-sky-400">reduced false positives by 25%</strong>, streamlining workflows.</li>
                             </ul>
                         </p>
                     </div>
                     <!-- Overlay for links on hover -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
                         <div class="flex space-x-4">
                             <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank"
-                               class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
+                               class="bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
                                 <i class="fab fa-github text-xl"></i>
                             </a>
                             <a href="#" target="_blank"
@@ -276,27 +299,28 @@
                 </article>
 
                 <!-- Project 3: Superstore Data Analysis -->
-                <article class="relative group bg-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
+                <article class="relative group bg-slate-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl flex flex-col justify-between min-h-[580px]">
+                    <!-- IMPORTANT: Ensure 'Project3.png' exists in 'assets/images/' and matches case exactly on GitHub! -->
                     <img src="./assets/images/Project3.png" alt="Superstore Data Analysis Project Screenshot" class="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-70"
                          onerror="this.onerror=null; this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Project+3+Image';"
                     >
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Superstore Profit Optimization</h3>
                         <p class="text-gray-300 mb-4 text-base">
-                            Conducted in-depth sales and profitability analysis using <span class="font-medium text-indigo-400">Exploratory Data Analysis (EDA)</span> and foundational ML techniques on a large retail dataset.
+                            Conducted in-depth sales and profitability analysis using <span class="font-medium text-sky-400">Exploratory Data Analysis (EDA)</span> and foundational ML techniques on a large retail dataset.
                             Key achievements:
                             <ul class="list-disc list-inside ml-4 mt-2 text-sm text-gray-400">
                                 <li>Identified crucial performance drivers for inventory & pricing.</li>
-                                <li>Projected profit increases of <strong class="text-indigo-400">up to 15% ($1.2M annually)</strong>.</li>
+                                <li>Projected profit increases of <strong class="text-sky-400">up to 15% ($1.2M annually)</strong>.</li>
                                 <li>Developed interactive dashboards for stakeholders.</li>
                             </ul>
                         </p>
                     </div>
                     <!-- Overlay for links on hover -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
                         <div class="flex space-x-4">
                             <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank"
-                               class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
+                               class="bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-full p-3 transition-colors duration-200 shadow-lg" title="View Code">
                                 <i class="fab fa-github text-xl"></i>
                             </a>
                             <a href="#" target="_blank"
@@ -310,12 +334,12 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="mb-20 py-12 bg-gray-800 shadow-xl rounded-2xl p-8">
+        <section id="skills" class="mb-20 py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
             <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
                 Skills
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-green-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-green-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Programming Languages</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Python</span>
@@ -326,7 +350,7 @@
                         <span class="bg-purple-800 text-purple-100 text-sm font-medium px-3 py-1 rounded-full">Shell</span>
                     </div>
                 </div>
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-orange-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-orange-500">
                     <h3 class="text-xl font-semibold text-white mb-4">ML & Data Science Libraries</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">pandas</span>
@@ -344,7 +368,7 @@
                         <span class="bg-green-800 text-green-100 text-sm font-medium px-3 py-1 rounded-full">OpenCV</span>
                     </div>
                 </div>
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-cyan-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-cyan-500">
                     <h3 class="text-xl font-semibold text-white mb-4">MLOps & DevOps Tools</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Docker</span>
@@ -360,7 +384,7 @@
                         <span class="bg-blue-800 text-blue-100 text-sm font-medium px-3 py-1 rounded-full">Streamlit</span>
                     </div>
                 </div>
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-yellow-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-yellow-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Cloud Platforms & Services</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">AWS (EC2, S3, SageMaker, Lambda)</span>
@@ -369,7 +393,7 @@
                         <span class="bg-yellow-800 text-yellow-100 text-sm font-medium px-3 py-1 rounded-full">OpenStack</span>
                     </div>
                 </div>
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-red-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-red-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Databases & Big Data</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-red-800 text-red-100 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span>
@@ -379,18 +403,18 @@
                         <span class="bg-red-800 text-red-100 text-sm font-medium px-3 py-1 rounded-full">Cassandra</span>
                     </div>
                 </div>
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-indigo-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-sky-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Web Technologies</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">HTML</span>
-                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">CSS3</span>
-                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">React (Basic)</span>
-                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">Flask</span>
-                        <span class="bg-indigo-800 text-indigo-100 text-sm font-medium px-3 py-1 rounded-full">RESTful APIs</span>
+                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">HTML</span>
+                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">CSS3</span>
+                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">React (Basic)</span>
+                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">Flask</span>
+                        <span class="bg-sky-800 text-sky-100 text-sm font-medium px-3 py-1 rounded-full">RESTful APIs</span>
                     </div>
                 </div>
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-teal-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-teal-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Concepts & Methodologies</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">Machine Learning (Supervised/Unsupervised)</span>
@@ -403,7 +427,7 @@
                         <span class="bg-teal-800 text-teal-100 text-sm font-medium px-3 py-1 rounded-full">FCAPS</span>
                     </div>
                 </div>
-                <div class="bg-gray-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-pink-500">
+                <div class="bg-slate-700 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-pink-500">
                     <h3 class="text-xl font-semibold text-white mb-4">Project Management & Collaboration</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-pink-800 text-pink-100 text-sm font-medium px-3 py-1 rounded-full">Jira</span>
@@ -415,37 +439,37 @@
             </div>
 
             <!-- Skill Icons Section (Core Tech Stack) -->
-            <div class="bg-gray-700 shadow-lg rounded-2xl p-10 mt-16 border-t-4 border-indigo-500">
+            <div class="bg-slate-700 shadow-lg rounded-2xl p-10 mt-16 border-t-4 border-sky-500">
                 <h3 class="text-3xl font-extrabold text-center mb-8">Core Tech Stack</h3>
                 <div class="flex flex-wrap justify-center items-center gap-10 text-6xl">
-                    <i class="fab fa-python text-indigo-400 hover:text-indigo-300 transition-colors duration-200 transform hover:scale-110" title="Python"></i>
+                    <i class="fab fa-python text-sky-400 hover:text-sky-300 transition-colors duration-200 transform hover:scale-110" title="Python"></i>
                     <i class="fab fa-java text-red-500 hover:text-red-400 transition-colors duration-200 transform hover:scale-110" title="Java"></i>
                     <i class="fab fa-git-alt text-orange-500 hover:text-orange-400 transition-colors duration-200 transform hover:scale-110" title="Git"></i>
                     <i class="fab fa-aws text-yellow-500 hover:text-yellow-400 transition-colors duration-200 transform hover:scale-110" title="AWS"></i>
-                    <i class="fab fa-docker text-blue-500 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110" title="Docker"></i>
-                    <i class="fab fa-linux text-gray-400 hover:text-gray-300 transition-colors duration-200 transform hover:scale-110" title="Linux"></i>
+                    <i class="fab fa-docker text-sky-500 hover:text-sky-400 transition-colors duration-200 transform hover:scale-110" title="Docker"></i>
+                    <i class="fab fa-linux text-gray-400 hover:text-white transition-colors duration-200 transform hover:scale-110" title="Linux"></i>
                     <i class="fas fa-database text-green-500 hover:text-green-400 transition-colors duration-200 transform hover:scale-110" title="SQL"></i>
                     <i class="fas fa-brain text-purple-500 hover:text-purple-400 transition-colors duration-200 transform hover:scale-110" title="Machine Learning"></i>
                     <i class="fas fa-cloud text-teal-500 hover:text-teal-400 transition-colors duration-200 transform hover:scale-110" title="Cloud Computing"></i>
                     <i class="fas fa-chart-line text-pink-500 hover:text-pink-400 transition-colors duration-200 transform hover:scale-110" title="Data Analytics"></i>
-                    <i class="fas fa-server text-indigo-500 hover:text-indigo-400 transition-colors duration-200 transform hover:scale-110" title="Deployment"></i>
+                    <i class="fas fa-server text-sky-500 hover:text-sky-400 transition-colors duration-200 transform hover:scale-110" title="Deployment"></i>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action Section -->
-        <section class="mb-20 py-16 bg-gradient-to-br from-indigo-700 to-blue-800 text-white rounded-2xl text-center shadow-2xl transform hover:scale-[1.01] transition-transform duration-300">
+        <section class="mb-20 py-16 bg-gradient-to-br from-sky-700 to-cyan-800 text-white rounded-2xl text-center shadow-2xl transform hover:scale-[1.01] transition-transform duration-300">
             <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Let's Build Something Amazing Together!</h2>
             <p class="text-xl md:text-2xl mb-10 opacity-90 leading-relaxed">
                 I'm always eager to take on new challenges and contribute to impactful projects. Reach out to discuss potential collaborations.
             </p>
-            <a href="#contact" class="inline-block bg-white text-indigo-700 font-bold text-xl px-10 py-5 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 ring-2 ring-white ring-offset-2 ring-offset-indigo-700">
+            <a href="#contact" class="inline-block bg-white text-sky-700 font-bold text-xl px-10 py-5 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 ring-2 ring-white ring-offset-2 ring-offset-sky-700">
                 Get in Touch <i class="fas fa-arrow-right ml-3"></i>
             </a>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-12 bg-gray-800 shadow-xl rounded-2xl p-8">
+        <section id="contact" class="py-12 bg-slate-800 shadow-xl rounded-2xl p-8 card-hover-effect">
             <h2 class="text-5xl font-extrabold text-center mb-8 pb-4 section-heading">
                 Contact
             </h2>
@@ -457,27 +481,27 @@
                         Whether you have a project idea, a question, or just want to connect, feel free to reach out. I'm always open to discussing new opportunities and collaborating on innovative solutions.
                     </p>
                     <div class="space-y-4">
-                        <div class="flex items-center text-gray-300 hover:text-indigo-400 transition-colors duration-200">
-                            <i class="fas fa-map-marker-alt text-indigo-500 mr-4 text-2xl"></i>
+                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
+                            <i class="fas fa-map-marker-alt text-sky-500 mr-4 text-2xl"></i>
                             <span class="ml-2">Arlington, TX, USA</span>
                         </div>
-                        <div class="flex items-center text-gray-300 hover:text-indigo-400 transition-colors duration-200">
-                            <i class="fas fa-envelope text-indigo-500 mr-4 text-2xl"></i>
+                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
+                            <i class="fas fa-envelope text-sky-500 mr-4 text-2xl"></i>
                             Email: <a href="mailto:manojp0299@gmail.com" class="ml-2 font-medium hover:underline">manojp0299@gmail.com</a>
                         </div>
-                        <div class="flex items-center text-gray-300 hover:text-indigo-400 transition-colors duration-200">
-                            <i class="fab fa-linkedin text-indigo-500 mr-4 text-2xl"></i>
+                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
+                            <i class="fab fa-linkedin text-sky-500 mr-4 text-2xl"></i>
                             LinkedIn: <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="ml-2 font-medium hover:underline">manoj-pasunoori</a>
                         </div>
-                        <div class="flex items-center text-gray-300 hover:text-indigo-400 transition-colors duration-200">
-                            <i class="fab fa-github text-indigo-500 mr-4 text-2xl"></i>
+                        <div class="flex items-center text-gray-300 hover:text-sky-400 transition-colors duration-200">
+                            <i class="fab fa-github text-sky-500 mr-4 text-2xl"></i>
                             GitHub: <a href="https://github.com/manojpasunoori" target="_blank" class="ml-2 font-medium hover:underline">@manojpasunoori</a>
                         </div>
                     </div>
                     <div class="flex justify-start space-x-6 text-3xl mt-8">
-                        <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors duration-200" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/manojpasunoori" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors duration-200" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="mailto:manojp0299@gmail.com" class="text-gray-400 hover:text-indigo-400 transition-colors duration-200" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="text-gray-400 hover:text-sky-400 transition-colors duration-200" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/manojpasunoori" target="_blank" class="text-gray-400 hover:text-sky-400 transition-colors duration-200" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:manojp0299@gmail.com" class="text-gray-400 hover:text-sky-400 transition-colors duration-200" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
 
@@ -487,22 +511,22 @@
                     <form action="#" method="POST" class="space-y-6">
                         <div>
                             <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600 text-white" placeholder="John Doe">
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="John Doe">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600 text-white" placeholder="john.doe@example.com">
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="john.doe@example.com">
                         </div>
                         <div>
                             <label for="subject" class="block text-gray-300 text-sm font-bold mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600 text-white" placeholder="Project Inquiry">
+                            <input type="text" id="subject" name="subject" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="Project Inquiry">
                         </div>
                         <div>
                             <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600 text-white" placeholder="Your message here..."></textarea>
+                            <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-slate-700 border-slate-600 text-white" placeholder="Your message here..."></textarea>
                         </div>
                         <div class="flex justify-center">
-                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-200 shadow-lg transform hover:scale-105">
+                            <button type="submit" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-200 shadow-lg transform hover:scale-105">
                                 Send Message <i class="fas fa-paper-plane ml-2"></i>
                             </button>
                         </div>
@@ -514,9 +538,9 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-gray-900 text-white py-10 text-center text-lg shadow-inner">
+    <footer class="bg-slate-950 text-white py-10 text-center text-lg shadow-inner">
         <p class="mb-4">&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
-        <p class="text-sm text-gray-500">Design inspired by <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/" target="_blank" class="hover:underline text-indigo-400">DevFolio by BootstrapMade</a></p>
+        <p class="text-sm text-gray-400">Design inspired by <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/" target="_blank" class="hover:underline text-sky-400">DevFolio by BootstrapMade</a></p>
     </footer>
 </body>
 </html>
