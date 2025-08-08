@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manoj Pasunoori | ML Engineer & Software Developer</title>
-  <meta name="description" content="The portfolio of Manoj Pasunoori, a Machine Learning and MLOps Engineer specializing in building end-to-end AI solutions and scalable cloud infrastructure.">
+  <title>Manoj Pasunoori | Software Engineer | AI/ML, Product Development</title>
+  <meta name="description" content="The portfolio of Manoj Pasunoori, a Software Developer and a Machine Learning and MLOps Engineer specializing in building end-to-end AI solutions and scalable cloud infrastructure.">
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- AOS (Animate on Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
   <style>
     /* Custom Tailwind Config & Base Styles */
@@ -32,7 +30,7 @@
           colors: {
             'brand-dark': '#0a0f19',    /* Deep navy background */
             'brand-card': '#111827',    /* Slightly lighter card background */
-            'brand-text': '#d1d5db',     /* Light gray for body text */
+            'brand-text': '#d1d5db',    /* Light gray for body text */
             'brand-heading': '#f9fafb', /* White for main headings */
             'accentPrimary': '#38bdf8', /* sky-400 */
             'accentSecondary': '#f472b6',/* rose-400 */
@@ -42,7 +40,7 @@
     }
 
     body {
-      background-color: #0a0f19; /* Direct CSS rule to ensure dark background */
+      background-color: #0a0f19; /* Fallback */
       @apply bg-brand-dark text-brand-text font-sans leading-relaxed;
     }
 
@@ -68,12 +66,12 @@
       border-radius: 999px;
     }
 
-    .nav-link {
+    /* Desktop nav link underline */
+    .nav-link-desktop {
       position: relative;
       transition: color 0.3s ease;
     }
     
-    /* Desktop nav link underline */
     .nav-link-desktop::after {
       content: '';
       position: absolute;
@@ -93,20 +91,31 @@
       width: 100%;
     }
 
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.8rem; /* Adjust based on pl-8 = 2rem and desired position */
-      top: 0.25rem;
-      width: 1.25rem; /* w-5 */
-      height: 1.25rem; /* h-5 */
-      background-color: #38bdf8;
-      border-radius: 9999px;
-      border: 4px solid #111827; /* Match card background */
+    /* MODIFIED: Enhanced timeline marker */
+    .timeline-item .timeline-icon {
+        position: absolute;
+        left: -3.2rem; /* Adjusted for icon alignment */
+        top: 0rem;
+        width: 2.5rem;  /* w-10 */
+        height: 2.5rem; /* h-10 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #38bdf8;
+        color: #f9fafb; /* White icon color */
+        border-radius: 9999px;
+        border: 4px solid #111827; /* Match card background */
+        font-size: 1.125rem; /* text-lg */
     }
     
-    .badge {
-        @apply bg-sky-900/50 text-sky-300 text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 hover:bg-sky-900/80 hover:text-white;
+    /* NEW: Styling for project tech tags */
+    .tech-tag {
+        @apply bg-sky-900/60 text-sky-300 text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-300;
+    }
+
+    /* NEW: Styling for skills badges */
+    .skill-badge {
+        @apply bg-slate-800 text-slate-300 text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-accentPrimary hover:text-white transform hover:-translate-y-1;
     }
     
     .section-container {
@@ -116,19 +125,15 @@
   </style>
 </head>
 
-<body class="selection:bg-accentPrimary/40 selection:text-white bg-brand-dark">
+<body class="selection:bg-accentPrimary/40 selection:text-white">
 
-  <!-- Sticky Navigation -->
   <nav class="sticky top-0 bg-brand-dark/70 backdrop-blur-lg z-50 shadow-lg shadow-black/20">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
-            <!-- Logo -->
             <a href="#" class="text-3xl font-bold text-white transition hover:text-accentPrimary">Manoj Pasunoori</a>
 
-            <!-- Desktop Menu -->
             <div class="hidden md:block">
-                <!-- Nav link color updated to white -->
-                <ul class="flex items-center space-x-8 text-lg font-medium text-white">
+                <ul class="flex items-center space-x-8 text-lg font-medium text-brand-heading">
                     <li><a href="#about" class="nav-link nav-link-desktop">About</a></li>
                     <li><a href="#experience" class="nav-link nav-link-desktop">Experience</a></li>
                     <li><a href="#education" class="nav-link nav-link-desktop">Education</a></li>
@@ -138,7 +143,6 @@
                 </ul>
             </div>
 
-            <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars text-2xl"></i>
@@ -147,7 +151,6 @@
         </div>
     </div>
 
-    <!-- Mobile Menu (toggled by JS) -->
     <div id="mobile-menu" class="hidden md:hidden">
         <ul class="px-4 pt-2 pb-4 space-y-2">
             <li><a href="#about" class="nav-link block text-center text-white bg-brand-card hover:bg-slate-700 p-3 rounded-lg transition-colors">About</a></li>
@@ -160,18 +163,16 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Static Background -->
-  <header id="home" class="relative min-h-screen flex items-center bg-cover bg-no-repeat" style="background-image: url('./assets/images/Student_Senate.png'); background-position: center 30%;">
-    <!-- Dark overlay -->
+  <header id="home" class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat" style="background-image: url('./assets/images/Student_Senate.png');">
     <div class="absolute inset-0 bg-brand-dark/80"></div>
     <div class="relative z-10 text-left max-w-7xl w-full mx-auto px-6">
       <div class="max-w-4xl">
         <p class="text-xl md:text-2xl font-bold italic text-accentPrimary mb-2" data-aos="fade-right">Hello, I am</p>
         <h1 class="text-5xl md:text-7xl font-extrabold text-brand-heading mb-4" data-aos="fade-right" data-aos-delay="100">Manoj Pasunoori</h1>
-        <h2 class="text-3xl md:text-4xl font-bold text-brand-heading mb-8" data-aos="fade-right" data-aos-delay="200">
-            <span class="bg-gradient-to-r from-accentPrimary to-accentSecondary bg-clip-text text-transparent">MLOps</span> &amp; Software Development Engineer
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-heading mb-8 h-20 md:h-12" data-aos="fade-right" data-aos-delay="200">
+            I am a <span id="typed-text" class="bg-gradient-to-r from-accentPrimary to-accentSecondary bg-clip-text text-transparent"></span>
         </h2>
-        <p class="text-lg max-w-2xl mb-12 font-bold text-brand-heading" data-aos="fade-right" data-aos-delay="300">
+        <p class="text-lg max-w-2xl mb-12 font-medium text-brand-text" data-aos="fade-right" data-aos-delay="300">
             I specialize in building end-to-end AI solutions, architecting scalable cloud infrastructure, and turning complex data into impactful, real-world results.
         </p>
         <div class="flex flex-wrap justify-start gap-6" data-aos="fade-up" data-aos-delay="400">
@@ -187,10 +188,9 @@
   </header>
 
   <main class="max-w-7xl mx-auto px-6 space-y-24 my-24">
-    <!-- About -->
     <section id="about" data-aos="fade-up">
         <div class="section-container">
-            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading text-white">About Me</h2>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">About Me</h2>
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4 flex justify-center">
                     <div class="relative w-64 h-64">
@@ -198,7 +198,7 @@
                         <img src="./assets/images/Manoj.png" loading="lazy" alt="Manoj Pasunoori" class="relative w-full h-full object-cover rounded-full border-4 border-slate-700 shadow-2xl">
                     </div>
                 </div>
-                <div class="md:col-span-8 space-y-5 text-xl text-white">
+                <div class="md:col-span-8 space-y-5 text-lg text-brand-text">
                     <p>I'm a <strong class="text-accentPrimary font-semibold">Machine Learning Engineer</strong> with over <strong class="text-accentPrimary font-semibold">4 years of hands-on experience</strong>, currently advancing my knowledge by pursuing a Master’s degree in Information Systems.</p>
                     <p>My expertise is in architecting robust <strong class="text-accentPrimary font-semibold">end-to-end ML pipelines</strong>, deploying models into production, and managing <strong class="text-accentPrimary font-semibold">scalable cloud infrastructure</strong>. I thrive on transforming complex datasets into actionable insights and building intelligent AI solutions that deliver tangible, real-world impact.</p>
                     <p>Let's connect and build something amazing together.</p>
@@ -207,22 +207,22 @@
         </div>
     </section>
 
-    <!-- Experience -->
     <section id="experience" data-aos="fade-up">
         <div class="section-container">
-            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading text-white">Experience</h2>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Experience</h2>
             <div class="max-w-3xl mx-auto">
                 <div class="relative border-l-2 border-slate-700 pl-8 space-y-16">
                     <div class="timeline-item relative">
+                        <div class="timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="flex items-start gap-4 mb-4">
                             <img src="./assets/images/tcslogo.png" alt="TCS Logo" class="w-16 h-16 bg-white p-1 rounded-md mt-1">
                             <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-white">Systems Engineer</h3>
-                                <p class="text-lg text-gray-200 font-medium">Tata Consultancy Services – Hyderabad, IN</p>
+                                <h3 class="text-2xl font-bold">Systems Engineer</h3>
+                                <p class="text-lg text-brand-text font-medium">Tata Consultancy Services – Hyderabad, IN</p>
                                 <p class="text-gray-400 text-base">Nov 2020 – Aug 2023</p>
                             </div>
                         </div>
-                        <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-gray-200">
+                        <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-brand-text">
                             <li><strong class="text-accentPrimary">Led</strong> feature development for Ericsson’s COM platform, focusing on data-driven diagnostics in <strong>FCAPS modules</strong>.</li>
                             <li><strong class="text-accentPrimary">Automated</strong> large-scale data workflows with <strong>Python & SQL</strong>, cutting manual effort by 40%.</li>
                             <li><strong class="text-accentPrimary">Designed & deployed</strong> scalable <strong>CI/CD pipelines</strong> using Jenkins & Azure DevOps.</li>
@@ -234,20 +234,21 @@
         </div>
     </section>
 
-    <!-- Education -->
     <section id="education" data-aos="fade-up">
         <div class="section-container">
-            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading text-white">Education</h2>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Education</h2>
             <div class="max-w-3xl mx-auto">
                 <div class="relative border-l-2 border-slate-700 pl-8 space-y-16">
                     <div class="timeline-item relative">
-                        <h3 class="text-xl font-bold text-white">Master of Science in Information Systems</h3>
-                        <p class="text-gray-200">University of Texas at Arlington, TX</p>
+                         <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="text-xl font-bold">Master of Science in Information Systems</h3>
+                        <p class="text-brand-text">University of Texas at Arlington, TX</p>
                         <p class="text-gray-400">2023 – 2025</p>
                     </div>
                     <div class="timeline-item relative">
-                        <h3 class="text-xl font-bold text-white">Bachelor of Technology</h3>
-                        <p class="text-gray-200">JNTU Hyderabad, India</p>
+                        <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="text-xl font-bold">Bachelor of Technology</h3>
+                        <p class="text-brand-text">JNTU Hyderabad, India</p>
                         <p class="text-gray-400">2016 – 2020</p>
                     </div>
                 </div>
@@ -255,102 +256,102 @@
         </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects" data-aos="fade-up">
         <div class="section-container">
-            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading text-white">Projects</h2>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="group bg-brand-dark rounded-2xl overflow-hidden shadow-lg border border-slate-800 hover:border-accentPrimary transition-all duration-300 transform hover:-translate-y-2">
-                    <img src="./assets/images/Project1.png" loading="lazy" alt="Accident Severity Prediction" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                <article class="group bg-brand-dark rounded-2xl overflow-hidden shadow-lg border border-slate-800 hover:border-accentPrimary/50 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="overflow-hidden">
+                        <img src="./assets/images/Project1.png" loading="lazy" alt="Accident Severity Prediction" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">Accident Severity Prediction</h3>
-                        <p class="text-gray-200 mb-4 min-h-[4.5rem]">Engineered an MLOps pipeline to predict accident severity, achieving 92% accuracy and 30% latency reduction.</p>
+                        <h3 class="text-xl font-bold mb-2">Accident Severity Prediction</h3>
+                        <p class="text-brand-text mb-4 min-h-[4.5rem]">Engineered an MLOps pipeline to predict accident severity, achieving 92% accuracy and 30% latency reduction.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">SHAP</span>
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">MLflow</span>
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">FastAPI</span>
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Docker</span>
+                            <span class="tech-tag">SHAP</span>
+                            <span class="tech-tag">MLflow</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Docker</span>
                         </div>
                         <div class="flex justify-end gap-4 text-gray-400">
                             <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="GitHub for Accident Severity Prediction"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="Live demo for Accident Severity Prediction"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
+                            </div>
                     </div>
                 </article>
-                <article class="group bg-brand-dark rounded-2xl overflow-hidden shadow-lg border border-slate-800 hover:border-accentPrimary transition-all duration-300 transform hover:-translate-y-2">
-                    <img src="./assets/images/Project2.png" loading="lazy" alt="Fake Job Posting Detector" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                <article class="group bg-brand-dark rounded-2xl overflow-hidden shadow-lg border border-slate-800 hover:border-accentPrimary/50 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="overflow-hidden">
+                        <img src="./assets/images/Project2.png" loading="lazy" alt="Fake Job Posting Detector" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">Fake Job Posting Detector</h3>
-                        <p class="text-gray-200 mb-4 min-h-[4.5rem]">Developed an NLP model to identify fraudulent job postings, leveraging SMOTE and TF-IDF to reduce false positives by 25%.</p>
+                        <h3 class="text-xl font-bold mb-2">Fake Job Posting Detector</h3>
+                        <p class="text-brand-text mb-4 min-h-[4.5rem]">Developed an NLP model to identify fraudulent job postings, leveraging SMOTE and TF-IDF to reduce false positives by 25%.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">NLP</span>
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">XGBoost</span>
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">SMOTE</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">XGBoost</span>
+                            <span class="tech-tag">SMOTE</span>
                         </div>
                         <div class="flex justify-end gap-4 text-gray-400">
                             <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="GitHub for Fake Job Posting Detector"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="Live demo for Fake Job Posting Detector"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
+                            </div>
                     </div>
                 </article>
-                <article class="group bg-brand-dark rounded-2xl overflow-hidden shadow-lg border border-slate-800 hover:border-accentPrimary transition-all duration-300 transform hover:-translate-y-2">
-                    <img src="./assets/images/Project3.png" loading="lazy" alt="Superstore Profit Optimization" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                <article class="group bg-brand-dark rounded-2xl overflow-hidden shadow-lg border border-slate-800 hover:border-accentPrimary/50 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="overflow-hidden">
+                        <img src="./assets/images/Project3.png" loading="lazy" alt="Superstore Profit Optimization" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">Superstore Profit Optimization</h3>
-                        <p class="text-gray-200 mb-4 min-h-[4.5rem]">Conducted in-depth EDA to identify key profit drivers and weak areas, providing insights projected to boost annual profit by 15%.</p>
+                        <h3 class="text-xl font-bold mb-2">Superstore Profit Optimization</h3>
+                        <p class="text-brand-text mb-4 min-h-[4.5rem]">Conducted in-depth EDA to identify key profit drivers and weak areas, providing insights projected to boost annual profit by 15%.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">EDA</span>
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Pandas</span>
-                            <span class="bg-slate-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Tableau</span>
+                            <span class="tech-tag">EDA</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Tableau</span>
                         </div>
                         <div class="flex justify-end gap-4 text-gray-400">
                             <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="GitHub for Superstore Profit Optimization"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank" class="hover:text-accentPrimary transition-colors text-2xl" aria-label="Live demo for Superstore Profit Optimization"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
+                            </div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" data-aos="fade-up">
         <div class="section-container">
-            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading text-white">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"><i class="fas fa-code text-accentPrimary mr-3"></i>Languages</h3>
-                    <div class="flex flex-wrap gap-3 text-white"><span class="badge">Python</span><span class="badge">Java</span><span class="badge">C++</span><span class="badge">SQL</span><span class="badge">Bash/Shell</span></div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
+                    <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-code text-accentPrimary text-2xl w-8 text-center"></i>Languages</h3>
+                    <div class="flex flex-wrap gap-3"><span class="skill-badge">Python</span><span class="skill-badge">Java</span><span class="skill-badge">C++</span><span class="skill-badge">SQL</span><span class="skill-badge">Bash/Shell</span></div>
                 </div>
-                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"><i class="fas fa-database text-accentPrimary mr-3"></i>ML & Data Science</h3>
-                    <div class="flex flex-wrap gap-3 text-white"><span class="badge">Scikit-learn</span><span class="badge">TensorFlow</span><span class="badge">PyTorch</span><span class="badge">Pandas</span><span class="badge">NumPy</span></div>
+                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
+                    <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-robot text-accentPrimary text-2xl w-8 text-center"></i>ML & Data Science</h3>
+                    <div class="flex flex-wrap gap-3"><span class="skill-badge">Scikit-learn</span><span class="skill-badge">TensorFlow</span><span class="skill-badge">PyTorch</span><span class="skill-badge">Pandas</span><span class="skill-badge">NumPy</span></div>
                 </div>
-                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"><i class="fas fa-tools text-accentPrimary mr-3"></i>MLOps & DevOps</h3>
-                    <div class="flex flex-wrap gap-3 text-white"><span class="badge">Docker</span><span class="badge">Kubernetes</span><span class="badge">Jenkins</span><span class="badge">Git</span><span class="badge">MLflow</span></div>
+                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
+                    <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-screwdriver-wrench text-accentPrimary text-2xl w-8 text-center"></i>MLOps & DevOps</h3>
+                    <div class="flex flex-wrap gap-3"><span class="skill-badge">Docker</span><span class="skill-badge">Kubernetes</span><span class="skill-badge">Jenkins</span><span class="skill-badge">Git</span><span class="skill-badge">MLflow</span></div>
                 </div>
-                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"><i class="fas fa-cloud text-accentPrimary mr-3"></i>Cloud Platforms</h3>
-                    <div class="flex flex-wrap gap-3 text-white"><span class="badge">AWS</span><span class="badge">GCP</span><span class="badge">OpenStack</span><span class="badge">Terraform</span></div>
+                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
+                    <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-cloud text-accentPrimary text-2xl w-8 text-center"></i>Cloud & Infra</h3>
+                    <div class="flex flex-wrap gap-3"><span class="skill-badge">AWS</span><span class="skill-badge">GCP</span><span class="skill-badge">OpenStack</span><span class="skill-badge">Terraform</span></div>
                 </div>
-                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"><i class="fas fa-cogs text-accentPrimary mr-3"></i>Concepts & Methodologies</h3>
-                    <div class="flex flex-wrap gap-3 text-white"><span class="badge">Agile</span><span class="badge">DevOps</span><span class="badge">Machine Learning</span><span class="badge">CI/CD</span></div>
+                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
+                    <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-gears text-accentPrimary text-2xl w-8 text-center"></i>Methodologies</h3>
+                    <div class="flex flex-wrap gap-3"><span class="skill-badge">Agile</span><span class="skill-badge">DevOps</span><span class="skill-badge">Machine Learning</span><span class="skill-badge">CI/CD</span></div>
                 </div>
-                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800">
-                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"><i class="fas fa-vial-circle-check text-accentPrimary mr-3"></i>Software Testing</h3>
-                    <div class="flex flex-wrap gap-3 text-white"><span class="badge">Unit Testing</span><span class="badge">Integration Testing</span><span class="badge">Functional Testing</span><span class="badge">Performance Testing</span></div>
+                <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
+                    <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-vial-circle-check text-accentPrimary text-2xl w-8 text-center"></i>Software Testing</h3>
+                    <div class="flex flex-wrap gap-3"><span class="skill-badge">Unit Testing</span><span class="skill-badge">Integration Testing</span><span class="skill-badge">Functional Testing</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" data-aos="fade-up">
         <div class="section-container text-center">
-            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-6 section-heading text-white">Get In Touch</h2>
-            <p class="text-lg text-white max-w-2xl mx-auto mb-10">I’m actively seeking new opportunities and enjoy collaborating on innovative projects. My inbox is always open, so please feel free to reach out. Let's connect!</p>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-6 section-heading">Get In Touch</h2>
+            <p class="text-lg text-brand-text max-w-2xl mx-auto mb-10">I’m actively seeking new opportunities and enjoy collaborating on innovative projects. My inbox is always open, so please feel free to reach out. Let's connect!</p>
             <a href="mailto:manojp0299@gmail.com" class="inline-block bg-gradient-to-r from-accentPrimary to-blue-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-accentPrimary/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-accentPrimary/30 mb-12">
                 Say Hello <i class="fas fa-paper-plane ml-2"></i>
             </a>
@@ -363,15 +364,12 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-brand-dark border-t border-slate-800 text-gray-500 py-6 text-center">
     <p>&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
   </footer>
 
-  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   
-  <!-- Custom Scripts -->
   <script>
     // Initialize Animate on Scroll
     AOS.init({ 
@@ -379,6 +377,19 @@
       once: true, 
       easing: 'ease-in-out',
       offset: 100 
+    });
+
+    // NEW: Typed.js animation for Hero Section
+    document.addEventListener('DOMContentLoaded', function() {
+        var options = {
+            strings: ['MLOps Engineer.', 'Software Developer.', 'Cloud Architect.'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            startDelay: 500,
+            loop: true,
+        };
+        var typed = new Typed('#typed-text', options);
     });
 
     // Mobile Menu Toggle
