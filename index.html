@@ -1,412 +1,242 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manoj Pasunoori | Software Engineer | AI/ML, Product Development</title>
-  <meta name="description" content="Portfolio of Manoj Pasunoori, Software Developer & MLOps Engineer.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            'sans': ['Inter', 'sans-serif'],
-            'display': ['Poppins', 'sans-serif'],
-          },
-          colors: {
-            'brand-bg': '#f8fafc',
-            'brand-card': '#ffffff',
-            'brand-text': '#1e293b',
-            'brand-heading': '#0f172a',
-            'accentPrimary': '#0ea5e9',
-            'accentSecondary': '#e11d48',
-          },
-        }
-      }
-    }
-    body {
-      @apply bg-brand-bg text-brand-text font-sans;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      @apply font-display text-brand-heading;
-    }
-    .section-heading::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50%;
-      height: 3px;
-      background: linear-gradient(to right, #0ea5e9, #e11d48);
-      border-radius: 999px;
-    }
-    .nav-link-desktop:hover,
-    .nav-link-desktop.active {
-      @apply text-accentPrimary;
-    }
-    .nav-link-desktop::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #0ea5e9;
-      transition: width 0.3s ease;
-    }
-    .nav-link-desktop:hover::after,
-    .nav-link-desktop.active::after {
-      width: 100%;
-    }
-    .timeline-icon {
-      background-color: #0ea5e9;
-      color: #ffffff;
-    }
-    .tech-tag {
-      @apply bg-sky-100 text-sky-600;
-    }
-    .skill-badge {
-      @apply bg-slate-100 text-slate-800 hover:bg-accentPrimary hover:text-white;
-    }
-    .section-container {
-      @apply bg-brand-card border border-slate-200 rounded-2xl p-8 md:p-12 shadow-xl;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manojflix | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="selection:bg-accentPrimary/30 selection:text-white">
-<!-- Navbar -->
-  <nav class="sticky top-0 bg-white/90 backdrop-blur-lg z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-between h-20">
-        <a href="#" class="text-3xl font-bold text-brand-heading hover:text-accentPrimary transition">Manoj Pasunoori</a>
-        <div class="hidden md:block">
-          <ul class="flex items-center space-x-8 text-lg font-medium text-brand-heading">
-            <li><a href="#about" class="nav-link nav-link-desktop">About</a></li>
-            <li><a href="#experience" class="nav-link nav-link-desktop">Experience</a></li>
-            <li><a href="#education" class="nav-link nav-link-desktop">Education</a></li>
-            <li><a href="#projects" class="nav-link nav-link-desktop">Projects</a></li>
-            <li><a href="#skills" class="nav-link nav-link-desktop">Skills</a></li>
-            <li><a href="#contact" class="nav-link nav-link-desktop">Contact</a></li>
-          </ul>
-        </div>
-        <div class="md:hidden">
-          <button id="mobile-menu-button" class="text-brand-heading focus:outline-none" aria-label="Toggle mobile menu">
-            <i class="fas fa-bars text-2xl"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden">
-      <ul class="px-4 pt-2 pb-4 space-y-2">
-        <li><a href="#about" class="nav-link block text-center text-brand-heading bg-white hover:bg-slate-100 p-3 rounded-lg">About</a></li>
-        <li><a href="#experience" class="nav-link block text-center text-brand-heading bg-white hover:bg-slate-100 p-3 rounded-lg">Experience</a></li>
-        <li><a href="#education" class="nav-link block text-center text-brand-heading bg-white hover:bg-slate-100 p-3 rounded-lg">Education</a></li>
-        <li><a href="#projects" class="nav-link block text-center text-brand-heading bg-white hover:bg-slate-100 p-3 rounded-lg">Projects</a></li>
-        <li><a href="#skills" class="nav-link block text-center text-brand-heading bg-white hover:bg-slate-100 p-3 rounded-lg">Skills</a></li>
-        <li><a href="#contact" class="nav-link block text-center text-brand-heading bg-white hover:bg-slate-100 p-3 rounded-lg">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <header id="home" class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat" style="background-image: url('./assets/images/Student_Senate.png');">
-    <div class="absolute inset-0 bg-white/80"></div>
-    <div class="relative z-10 text-left max-w-7xl w-full mx-auto px-6">
-      <div class="max-w-4xl">
-        <p class="text-xl md:text-2xl font-bold italic text-accentPrimary mb-2" data-aos="fade-right">Hello, I am</p>
-        <h1 class="text-5xl md:text-7xl font-extrabold text-brand-heading mb-4" data-aos="fade-right" data-aos-delay="100">Manoj Pasunoori</h1>
-        <h2 class="text-3xl md:text-4xl font-bold text-brand-heading mb-8 h-20 md:h-12">
-          I am a <span id="typed-text" class="text-accentPrimary"></span>
-        </h2>
-
-        <p class="text-lg max-w-2xl mb-12 font-medium text-brand-text" data-aos="fade-right" data-aos-delay="300">
-          I specialize in building end-to-end AI solutions, architecting scalable cloud infrastructure, and turning complex data into impactful, real-world results.
-        </p>
-        <div class="flex flex-wrap justify-start gap-6">
-          <a href="#projects"
-             class="inline-block bg-accentPrimary text-white font-bold text-lg px-8 py-4 rounded-xl shadow-md hover:-translate-y-1 transition-transform">
-             View My Work <i class="fas fa-arrow-down ml-2"></i>
-          </a>
-          <a href="./assets/Manoj_Pasunoori_Resume.pdf" target="_blank"
-             class="inline-block border-2 border-accentSecondary text-accentSecondary font-bold text-lg px-8 py-4 rounded-xl shadow-md hover:bg-accentSecondary hover:text-white transition-transform hover:-translate-y-1">
-             Download CV <i class="fas fa-download ml-2"></i>
-          </a>
-        </div>
-      </div>
-    </div>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">MANOJFLIX</div>
+    <nav class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" class="resume-link">Resume</a>
+    </nav>
   </header>
-<main class="max-w-7xl mx-auto px-6 space-y-24 my-24">
 
-  <!-- About -->
-  <section id="about" data-aos="fade-up">
-    <div class="section-container">
-      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">About Me</h2>
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-        <div class="md:col-span-4 flex justify-center">
-          <div class="relative w-64 h-64">
-            <div class="absolute inset-0 bg-gradient-to-br from-accentPrimary to-accentSecondary rounded-full blur-xl opacity-30"></div>
-            <img src="./assets/images/Manoj.png" loading="lazy" alt="Manoj Pasunoori" class="relative w-full h-full object-cover rounded-full border-4 border-slate-200 shadow-xl">
-          </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      
+      <!-- LEFT SIDE -->
+      <div class="hero-content">
+        <h1>Hi, I'm Manoj.</h1>
+        <h2>Software Engineer • DevOps Engineer • Cloud &amp; Platform Engineer</h2>
+
+        <p>
+          I build scalable, reliable distributed systems — containerized microservices,
+          CI/CD automation, observability pipelines, and cloud-native platforms
+          on Kubernetes and AWS. I work at the intersection of Software Engineering,
+          DevOps, and AI-driven infrastructure.
+        </p>
+
+        <p>
+          Target roles: <strong>Systems Development Engineer</strong>,
+          <strong>Distributed Systems Engineer</strong>,
+          <strong>Cloud / Platform Engineer</strong>,
+          <strong>DevOps / SRE</strong> — especially in creative compute,
+          storage systems, and large-scale cloud engineering.
+        </p>
+
+        <!-- ROLE TAGS -->
+        <div class="role-tags">
+          <span>Systems Development Engineer</span>
+          <span>Distributed Systems</span>
+          <span>Cloud / Platform</span>
+          <span>DevOps / SRE</span>
+          <span>GenAI &amp; MLOps</span>
         </div>
-        <div class="md:col-span-8 space-y-5 text-lg text-brand-text">
-          <p>I'm a <strong class="text-accentPrimary font-semibold">Machine Learning Engineer</strong> with over <strong class="text-accentPrimary font-semibold">4 years of hands-on experience</strong>, currently advancing my knowledge by pursuing a Master’s degree in Information Systems.</p>
-          <p>My expertise is in architecting robust <strong class="text-accentPrimary font-semibold">end-to-end ML pipelines</strong>, deploying models into production, and managing <strong class="text-accentPrimary font-semibold">scalable cloud infrastructure</strong>. I thrive on transforming complex datasets into actionable insights and building intelligent AI solutions that deliver tangible, real-world impact.</p>
-          <p>Let's connect and build something amazing together.</p>
+
+        <!-- BUTTONS -->
+        <div class="hero-buttons">
+          <a href="resume.pdf" class="btn btn-primary" target="_blank">📄 View Resume</a>
+          <a href="#projects" class="btn btn-secondary">🎬 View Projects</a>
+          <a href="#contact" class="btn btn-ghost">✉️ Contact Me</a>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Experience -->
-  <section id="experience" data-aos="fade-up">
-    <div class="section-container">
-      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Experience</h2>
-      <div class="max-w-3xl mx-auto">
-        <div class="relative border-l-2 border-slate-200 pl-8 space-y-16">
-          <div class="timeline-item relative">
-            <div class="timeline-icon absolute -left-16 top-0 w-10 h-10 flex items-center justify-center rounded-full border-4 border-white text-white shadow-lg"><i class="fa-solid fa-briefcase"></i></div>
-            <div class="flex items-start gap-4 mb-4">
-              <img src="./assets/images/tcslogo.png" alt="TCS Logo" class="w-16 h-16 bg-white p-1 rounded-md mt-1 border border-slate-200">
-              <div class="flex-1">
-                <h3 class="text-2xl font-bold">Systems Engineer</h3>
-                <p class="text-lg text-brand-text font-medium">Tata Consultancy Services – Hyderabad, IN</p>
-                <p class="text-gray-500 text-base">Nov 2020 – Aug 2023</p>
+
+      <!-- RIGHT SIDE PROFILE CARD -->
+      <aside class="hero-profile">
+        <div class="profile-card">
+          <div class="profile-photo-wrapper">
+            <img src="assets/profile-main.jpg" alt="Manoj Photo" class="profile-photo">
+          </div>
+
+          <div class="profile-meta">
+            <span class="profile-tag">MANOJFLIX ORIGINAL</span>
+            <h3>Manoj Pasunoori</h3>
+            <p class="profile-title">Software • DevOps • Cloud • GenAI</p>
+
+            <div class="profile-stats">
+              <div>
+                <span class="stat-label">Experience</span>
+                <span class="stat-value">3+ yrs</span>
+              </div>
+              <div>
+                <span class="stat-label">Projects</span>
+                <span class="stat-value">15+</span>
+              </div>
+              <div>
+                <span class="stat-label">Location</span>
+                <span class="stat-value">Dallas, TX</span>
               </div>
             </div>
-            <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-brand-text">
-              <li><strong class="text-accentPrimary">Led</strong> feature development for Ericsson’s COM platform, focusing on data-driven diagnostics in <strong>FCAPS modules</strong>.</li>
-              <li><strong class="text-accentPrimary">Automated</strong> large-scale data workflows with <strong>Python & SQL</strong>, cutting manual effort by 40%.</li>
-              <li><strong class="text-accentPrimary">Designed & deployed</strong> scalable <strong>CI/CD pipelines</strong> using Jenkins & Azure DevOps.</li>
-              <li><strong class="text-accentPrimary">Built & validated</strong> anomaly-detection models with <strong>SHAP</strong> for full transparency.</li>
-            </ul>
+
+            <p class="profile-bottom">
+              Currently leveling up as a DevOps + GenAI Engineer — building
+              production-grade stacks, observability systems, and AI-driven tooling.
+            </p>
           </div>
         </div>
-      </div>
+      </aside>
+
     </div>
   </section>
-  <!-- Education -->
-  <section id="education" data-aos="fade-up">
-    <div class="section-container">
-      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Education</h2>
-      <div class="max-w-3xl mx-auto">
-        <div class="relative border-l-2 border-slate-200 pl-8 space-y-16">
-          <div class="timeline-item relative">
-            <div class="timeline-icon absolute -left-16 top-0 w-10 h-10 flex items-center justify-center rounded-full border-4 border-white text-white shadow-lg"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h3 class="text-xl font-bold">Master of Science in Information Systems</h3>
-            <p class="text-brand-text">University of Texas at Arlington, TX</p>
-            <p class="text-gray-500">2023 – 2025</p>
-          </div>
-          <div class="timeline-item relative">
-            <div class="timeline-icon absolute -left-16 top-0 w-10 h-10 flex items-center justify-center rounded-full border-4 border-white text-white shadow-lg"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h3 class="text-xl font-bold">Bachelor of Technology</h3>
-            <p class="text-brand-text">JNTU Hyderabad, India</p>
-            <p class="text-gray-500">2016 – 2020</p>
-          </div>
-        </div>
-      </div>
+
+  <!-- NETFLIX-STYLE HIGHLIGHT STRIP -->
+  <section class="highlight-strip">
+    <div class="highlight-item">
+      <span class="highlight-label">Featured</span>
+      <span class="highlight-value">FastAPI + Kubernetes Observability Stack</span>
+    </div>
+    <div class="highlight-item">
+      <span class="highlight-label">Tech Stack</span>
+      <span class="highlight-value">Python • Docker • Kubernetes • AWS • GitHub Actions</span>
+    </div>
+    <div class="highlight-item">
+      <span class="highlight-label">Now Streaming</span>
+      <span class="highlight-value">DevOps + GenAI Roadmap (6-month intensive)</span>
     </div>
   </section>
-  <!-- Education -->
-  <section id="education" data-aos="fade-up">
-    <div class="section-container">
-      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Education</h2>
-      <div class="max-w-3xl mx-auto">
-        <div class="relative border-l-2 border-slate-200 pl-8 space-y-16">
-          <div class="timeline-item relative">
-            <div class="timeline-icon absolute -left-16 top-0 w-10 h-10 flex items-center justify-center rounded-full border-4 border-white text-white shadow-lg"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h3 class="text-xl font-bold">Master of Science in Information Systems</h3>
-            <p class="text-brand-text">University of Texas at Arlington, TX</p>
-            <p class="text-gray-500">2023 – 2025</p>
-          </div>
-          <div class="timeline-item relative">
-            <div class="timeline-icon absolute -left-16 top-0 w-10 h-10 flex items-center justify-center rounded-full border-4 border-white text-white shadow-lg"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h3 class="text-xl font-bold">Bachelor of Technology</h3>
-            <p class="text-brand-text">JNTU Hyderabad, India</p>
-            <p class="text-gray-500">2016 – 2020</p>
-          </div>
+
+  <!-- PROJECTS -->
+  <main>
+    <section id="projects" class="section">
+      <h2 class="section-title">Featured Projects</h2>
+
+      <div class="row">
+        <h3 class="row-title">DevOps & Cloud</h3>
+        <div class="row-cards">
+          
+          <article class="card">
+            <h4>FastAPI + Kubernetes Observability Stack</h4>
+            <p>Production-grade microservice with Prometheus, Grafana, Helm, and GitHub Actions CI/CD.</p>
+            <a href="https://github.com/manojpasunoori" target="_blank">View Project</a>
+          </article>
+
+          <article class="card">
+            <h4>CI/CD with GitHub Actions</h4>
+            <p>Automated Docker builds, tests, and Kubernetes deployments with reusable workflows.</p>
+            <a href="https://github.com/manojpasunoori" target="_blank">View Pipeline</a>
+          </article>
+
+          <article class="card">
+            <h4>SafeDrive AI</h4>
+            <p>Real-time accident risk prediction using the US Accidents dataset + ML API deployment.</p>
+            <a href="https://github.com/manojpasunoori" target="_blank">View Repo</a>
+          </article>
+
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Projects -->
-  <section id="projects" data-aos="fade-up">
-    <div class="section-container">
-      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project 1 -->
-        <article class="group bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200 hover:border-accentPrimary/50 transition-all transform hover:-translate-y-2">
-          <img src="./assets/images/Project1.png" loading="lazy" alt="Accident Severity Prediction" class="w-full h-48 object-cover transition-transform group-hover:scale-105">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Accident Severity Prediction</h3>
-            <p class="text-brand-text mb-4 min-h-[4.5rem]">Engineered an MLOps pipeline to predict accident severity, achieving 92% accuracy and 30% latency reduction.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tech-tag">SHAP</span>
-              <span class="tech-tag">MLflow</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Docker</span>
-            </div>
-            <div class="flex justify-end text-2xl text-gray-500 hover:text-accentPrimary">
-              <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-        </article>
 
-        <!-- Project 2 -->
-        <article class="group bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200 hover:border-accentPrimary/50 transition-all transform hover:-translate-y-2">
-          <img src="./assets/images/Project2.png" loading="lazy" alt="Fake Job Posting Detector" class="w-full h-48 object-cover transition-transform group-hover:scale-105">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Fake Job Posting Detector</h3>
-            <p class="text-brand-text mb-4 min-h-[4.5rem]">Developed an NLP model to identify fraudulent job postings, leveraging SMOTE and TF-IDF to reduce false positives by 25%.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tech-tag">NLP</span>
-              <span class="tech-tag">XGBoost</span>
-              <span class="tech-tag">SMOTE</span>
-            </div>
-            <div class="flex justify-end text-2xl text-gray-500 hover:text-accentPrimary">
-              <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-        </article>
+      <div class="row">
+        <h3 class="row-title">ML & GenAI</h3>
+        <div class="row-cards">
 
-        <!-- Project 3 -->
-        <article class="group bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200 hover:border-accentPrimary/50 transition-all transform hover:-translate-y-2">
-          <img src="./assets/images/Project3.png" loading="lazy" alt="Superstore Profit Optimization" class="w-full h-48 object-cover transition-transform group-hover:scale-105">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Superstore Profit Optimization</h3>
-            <p class="text-brand-text mb-4 min-h-[4.5rem]">Conducted in-depth EDA to identify key profit drivers and weak areas, providing insights projected to boost annual profit by 15%.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tech-tag">EDA</span>
-              <span class="tech-tag">Pandas</span>
-              <span class="tech-tag">Tableau</span>
-            </div>
-            <div class="flex justify-end text-2xl text-gray-500 hover:text-accentPrimary">
-              <a href="https://github.com/manojpasunoori/Super-Store-Data-Analysis" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-        </article>
+          <article class="card">
+            <h4>Fake Job Posting Detection</h4>
+            <p>End-to-end ML pipeline for detecting fraudulent job posts with explainability.</p>
+            <a href="https://github.com/manojpasunoori" target="_blank">View Repo</a>
+          </article>
+
+          <article class="card">
+            <h4>Patent Text Analysis</h4>
+            <p>NLP classification + LDA topic modeling for telecom patents dataset.</p>
+            <a href="https://github.com/manojpasunoori" target="_blank">View Repo</a>
+          </article>
+
+          <article class="card">
+            <h4>GenAI RAG Demo</h4>
+            <p>Retrieval-Augmented Generation system with vector search and LLMs.</p>
+            <a href="https://github.com/manojpasunoori" target="_blank">View Repo</a>
+          </article>
+
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Skills -->
-  <section id="skills" data-aos="fade-up">
-    <div class="section-container">
-      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 section-heading">Technical Skills</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    </section>
 
-        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 space-y-4">
-          <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-code text-accentPrimary text-2xl w-8 text-center"></i>Languages</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="skill-badge">Python</span><span class="skill-badge">Java</span><span class="skill-badge">C++</span><span class="skill-badge">SQL</span><span class="skill-badge">Bash/Shell</span>
-          </div>
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-column">
+          <h3>Languages</h3>
+          <p>Python, Java, SQL, Bash</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 space-y-4">
-          <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-robot text-accentPrimary text-2xl w-8 text-center"></i>ML & Data Science</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="skill-badge">Scikit-learn</span><span class="skill-badge">TensorFlow</span><span class="skill-badge">PyTorch</span><span class="skill-badge">Pandas</span><span class="skill-badge">NumPy</span>
-          </div>
+        <div class="skill-column">
+          <h3>DevOps & Cloud</h3>
+          <p>Docker, Kubernetes, Helm, GitHub Actions, Prometheus, Grafana, AWS</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 space-y-4">
-          <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-screwdriver-wrench text-accentPrimary text-2xl w-8 text-center"></i>MLOps & DevOps</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="skill-badge">Docker</span><span class="skill-badge">Kubernetes</span><span class="skill-badge">Jenkins</span><span class="skill-badge">Git</span><span class="skill-badge">MLflow</span>
-          </div>
+        <div class="skill-column">
+          <h3>ML & AI</h3>
+          <p>PyTorch, Scikit-learn, FastAPI, NLP, RAG, MLOps</p>
         </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 space-y-4">
-          <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-cloud text-accentPrimary text-2xl w-8 text-center"></i>Cloud & Infra</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="skill-badge">AWS</span><span class="skill-badge">GCP</span><span class="skill-badge">OpenStack</span><span class="skill-badge">Terraform</span>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 space-y-4">
-          <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-gears text-accentPrimary text-2xl w-8 text-center"></i>Methodologies</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="skill-badge">Agile</span><span class="skill-badge">DevOps</span><span class="skill-badge">Machine Learning</span><span class="skill-badge">CI/CD</span>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 space-y-4">
-          <h3 class="text-xl font-bold flex items-center gap-3"><i class="fa-solid fa-vial-circle-check text-accentPrimary text-2xl w-8 text-center"></i>Software Testing</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="skill-badge">Unit Testing</span><span class="skill-badge">Integration Testing</span><span class="skill-badge">Functional Testing</span>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
-  <!-- Contact -->
-  <section id="contact" data-aos="fade-up">
-    <div class="section-container text-center">
-      <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-6 section-heading">Get In Touch</h2>
-      <p class="text-lg text-brand-text max-w-2xl mx-auto mb-10">
-        I’m actively seeking new opportunities and enjoy collaborating on innovative projects. My inbox is always open, so feel free to reach out. Let's connect!
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Software Engineer Intern — DoJoGa</h3>
+          <p>Built backend services and contributed to AI-driven features.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Systems Engineer — Tata Consultancy Services</h3>
+          <p>Worked on Ericsson COM platform, server automation, and distributed systems support.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>MS in Information Systems — University of Texas at Arlington</h3>
+          <p>Focused on Data Science, ML, Cloud, and DevOps.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-text">
+        Open to Software Engineering, Cloud / Platform Engineering,
+        DevOps, and Systems Development Engineering roles.
       </p>
-      <a href="mailto:manojp0299@gmail.com" class="inline-block bg-gradient-to-r from-accentPrimary to-blue-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:-translate-y-1 transition-transform">
-        Say Hello <i class="fas fa-paper-plane ml-2"></i>
-      </a>
-      <div class="flex justify-center space-x-8 text-4xl text-gray-500 mt-12">
-        <a href="https://linkedin.com/in/manoj-pasunoori-b5673a190" target="_blank" class="hover:text-accentPrimary transition" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/manojpasunoori" target="_blank" class="hover:text-accentPrimary transition" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:manojp0299@gmail.com" class="hover:text-accentPrimary transition" aria-label="Email"><i class="fas fa-envelope"></i></a>
+
+      <div class="contact-links">
+        <a href="mailto:manojpasunoori@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/manojpasunoori" target="_blank">LinkedIn</a>
+        <a href="https://github.com/manojpasunoori" target="_blank">GitHub</a>
       </div>
-    </div>
-  </section>
-  <!-- Footer -->
-  <footer class="bg-white border-t border-slate-200 text-gray-500 py-6 text-center">
-    <p>&copy; 2025 Manoj Pasunoori. All rights reserved.</p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Manoj Pasunoori • Inspired by Netflix UI</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true, easing: 'ease-in-out', offset: 100 });
-
-    document.addEventListener('DOMContentLoaded', function () {
-      new Typed('#typed-text', {
-        strings: ['MLOps Engineer.', 'Software Developer.', 'Cloud Architect.'],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        startDelay: 500,
-        loop: true,
-      });
-    });
-
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksDesktop = document.querySelectorAll('.nav-link-desktop');
-    window.addEventListener('scroll', () => {
-      let current = 'home';
-      sections.forEach(sec => {
-        const sectionTop = sec.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
-          current = sec.getAttribute('id');
-        }
-      });
-      navLinksDesktop.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
-        }
-      });
-    });
-  </script>
-</main>
 </body>
 </html>
