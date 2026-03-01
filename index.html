@@ -3,295 +3,275 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manojflix | Portfolio</title>
+  <meta name="description" content="Manoj Pasunoori portfolio — ML Engineer, MLOps Engineer, Backend Software Engineer, and Cloud DevOps Engineer with experience at DoJoGa and TCS." />
+  <meta name="keywords" content="Manoj Pasunoori, MLOps Engineer, Machine Learning Engineer, Backend Engineer, Cloud DevOps, AWS, Kubernetes, Python" />
+  <meta name="author" content="Manoj Pasunoori" />
+  <title>Manoj P | Neon Orbit Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="logo">MANOJFLIX</div>
-    <nav class="nav-links">
+  <canvas id="particle-field" aria-hidden="true"></canvas>
+
+  <header class="glass nav-wrap">
+    <a href="#top" class="brand">MANOJ<span>.AI</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#proof">Proof Wall</a>
+      <a href="#crazy">Crazy Lab</a>
       <a href="#contact">Contact</a>
-      <a href="resume.pdf" target="_blank" class="resume-link">Resume</a>
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-inner">
-      
-      <!-- LEFT SIDE -->
-      <div class="hero-content">
-        <h1>Hi, I'm Manoj Pasunoori.</h1>
-        <h2>Software Engineer (DevOps) | Backend & Cloud | Python • Java • C++ | AWS • Docker • Kubernetes • Distributed Systems | MS Information Systems @ UTA | Ex-TCS</h2>
-
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-content glass">
+        <p class="eyebrow">UTA MSIS • SOFTWARE ENGINEER • ML + CLOUD</p>
+        <h1>Hi, I’m <span>Manoj Pasunoori</span> —
+          I architect backend systems that think, scale, and self-heal.</h1>
         <p>
-          I build scalable, reliable distributed systems — containerized microservices,
-          CI/CD automation, observability pipelines, and cloud-native platforms
-          on Kubernetes and AWS. I work at the intersection of Software Engineering,
-          DevOps, and AI-driven infrastructure.
+          Current Software Engineer at <strong>DoJoGa</strong>, former engineer at <strong>TCS</strong>,
+          and a University of Texas at Arlington Master's graduate in Information Systems.
+          I blend backend engineering, MLOps, and cloud DevOps into production-ready systems.
         </p>
-
-        <p>
-          Target roles: <strong>Systems Development Engineer</strong>,
-          <strong>Distributed Systems Engineer</strong>,
-          <strong>Cloud / Platform Engineer</strong>,
-          <strong>DevOps / SRE</strong> — especially in creative compute,
-          storage systems, and large-scale cloud engineering.
-        </p>
-
-        <!-- ROLE TAGS -->
-        <div class="role-tags">
-          <span>Systems Development Engineer</span>
-          <span>Distributed Systems</span>
-          <span>Cloud / Platform</span>
-          <span>DevOps / SRE</span>
-          <span>GenAI &amp; MLOps</span>
+        <div class="cta-row">
+          <a class="btn primary" href="#projects">Launch Projects</a>
+          <a class="btn ghost" href="assets/Manoj_Pasunoori_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
         </div>
-
-        <!-- BUTTONS -->
-        <div class="hero-buttons">
-          <a href="resume.pdf" class="btn btn-primary" target="_blank">📄 View Resume</a>
-          <a href="#projects" class="btn btn-secondary">🎬 View Projects</a>
-          <a href="#contact" class="btn btn-ghost">✉️ Contact Me</a>
+        <div class="target-roles">
+          <span>Machine Learning Engineer</span>
+          <span>MLOps Engineer</span>
+          <span>Backend Software Engineer</span>
+          <span>Cloud DevOps Engineer</span>
         </div>
       </div>
-
-      <!-- RIGHT SIDE PROFILE CARD -->
-      <aside class="hero-profile">
-        <div class="profile-card">
-          <div class="profile-photo-wrapper">
-            <img src="assets/profile-main.jpg" alt="Manoj Photo" class="profile-photo">
-          </div>
-
-          <div class="profile-meta">
-            <span class="profile-tag">MANOJFLIX ORIGINAL</span>
-            <h3>Manoj Pasunoori</h3>
-            <p class="profile-title">Software • DevOps • Cloud • GenAI</p>
-
-            <div class="profile-stats">
-              <div>
-                <span class="stat-label">Experience</span>
-                <span class="stat-value">4+ yrs</span>
-              </div>
-              <div>
-                <span class="stat-label">Projects</span>
-                <span class="stat-value">15+</span>
-              </div>
-              <div>
-                <span class="stat-label">Location</span>
-                <span class="stat-value">Dallas, TX</span>
-              </div>
-            </div>
-
-            <p class="profile-bottom">
-              Currently leveling up as a DevOps + GenAI Engineer — building
-              production-grade stacks, observability systems, and AI-driven tooling.
-            </p>
-          </div>
-        </div>
+      <aside class="hero-card glass">
+        <img src="assets/profile-main.jpg" alt="Portrait of Manoj Pasunoori" />
+        <h2>Mission Snapshot</h2>
+        <ul>
+          <li>📍 Arlington / Grand Prairie, Texas</li>
+          <li>☁️ AWS + Docker + Kubernetes</li>
+          <li>🧠 ML, MLOps, AI analytics enthusiast</li>
+          <li>🎓 Student Senator, College of Business @ UTA</li>
+          <li>🏆 Star Performer of the Month awardee</li>
+        </ul>
       </aside>
-
-    </div>
-  </section>
-
-  <!-- NETFLIX-STYLE HIGHLIGHT STRIP -->
-  <section class="highlight-strip">
-    <div class="highlight-item">
-      <span class="highlight-label">Featured</span>
-      <span class="highlight-value">FastAPI + Kubernetes Observability Stack</span>
-    </div>
-    <div class="highlight-item">
-      <span class="highlight-label">Tech Stack</span>
-      <span class="highlight-value">Python • Docker • Kubernetes • AWS • GitHub Actions</span>
-    </div>
-    <div class="highlight-item">
-      <span class="highlight-label">Now Streaming</span>
-      <span class="highlight-value">DevOps + GenAI Roadmap (6-month intensive)</span>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <main>
-    <section id="projects" class="section">
-      <h2 class="section-title">Featured Projects</h2>
-
-  <!-- DevOps & Cloud -->
-      <div class="row">
-        <h3 class="row-title">DevOps &amp; Cloud</h3>
-        <div class="row-cards">
-      
-          <article class="card">
-            <h4>FastAPI + Kubernetes Observability Stack</h4>
-            <p>
-            Production-grade microservice platform with Prometheus, Grafana, Helm,
-            and hardened container images for secure, observable deployments.
-            </p>
-            <a href="https://github.com/manojpasunoori/Secure-k8s-microservice-platform" target="_blank">
-            View Project
-            </a>
-          </article>
-
-          <article class="card">
-            <h4>CI/CD with GitHub Actions</h4>
-            <p>
-            Automated Docker builds, tests, and Kubernetes deployments using
-            reusable GitHub Actions workflows and environment-specific pipelines.
-            </p>
-            <a href="https://github.com/manojpasunoori/devops-genai-journey" target="_blank">
-            View Pipeline
-            </a>
-          </article>
-
-          <article class="card">
-            <h4>SafeDrive AI</h4>
-            <p>
-            Real-time accident risk prediction using the US Accidents dataset,
-            served via an API and integrated into a mobile app experience.
-            </p>
-            <a href="https://github.com/manojpasunoori/SafeDriveAI" target="_blank">
-            View Repo
-            </a>
-          </article>
-
-        </div>
-      </div>
-
-  <!-- ML & GenAI -->
-      <div class="row">
-        <h3 class="row-title">ML &amp; GenAI</h3>
-        <div class="row-cards">
-
-          <article class="card">
-            <h4>Fake Job Posting Detection</h4>
-            <p>
-            End-to-end NLP pipeline that detects fraudulent job posts using
-            feature engineering, ML classifiers, and explainability methods.
-            </p>
-            <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank">
-            View Repo
-            </a>
-          </article>
-
-          <article class="card">
-            <h4>Traffic Severity AI</h4>
-            <p>
-              Weather-centric traffic accident severity prediction using the US
-              Accidents dataset, focusing on feature engineering and model tuning.
-            </p>
-            <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank">
-            View Repo
-            </a>
-          </article>
-
-          <article class="card">
-            <h4>GenAI RAG Demo</h4>
-           <p>
-              Retrieval-Augmented Generation experiments combining vector search,
-              prompt engineering, and LLMs as part of my DevOps + GenAI journey.
-            </p>
-            <a href="https://github.com/manojpasunoori/devops-genai-journey" target="_blank">
-              View Repo
-           </a>
-          </article>
-
-        </div>
-      </div>
     </section>
 
-
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <h2 class="section-title">Skills</h2>
-
-      <div class="skills-grid">
-        <div class="skill-column">
-          <h3>Languages</h3>
-          <p>Python,C++, Java, SQL, Bash, Shell</p>
-        </div>
-
-        <div class="skill-column">
-          <h3>DevOps & Cloud</h3>
-          <p>Docker, Kubernetes, Helm, GitHub Actions,Gerrit, Jenkins, Terraform, Prometheus, Grafana, AWS</p>
-        </div>
-
-        <div class="skill-column">
-          <h3>ML & AI</h3>
-          <p>PyTorch, Scikit-learn, FastAPI, NLP, RAG, MLOps</p>
-        </div>
-
-        <div class="skill-column">
-          <h3>Other Skills</h3>
-          <p>Confluence, Git, JIRA, AWS, Shared Target Cloud, Graduate in Business Analytics, Artifactory</p>
-        </div>
-      </div>
+    <section id="about" class="section glass">
+      <h2>About Me</h2>
+      <p>
+        I’m the kind of engineer who loves hard problems: distributed systems, high-availability Linux workloads,
+        cloud architecture, and ML systems that move from notebook experiments to reliable pipelines.
+        I’ve worked on backend/cloud systems at DoJoGa, engineered CI/CD and software workflows at Tata Consultancy Services,
+        and constantly build side projects across AI, analytics, and modern DevOps.
+      </p>
+      <p>
+        I actively participate in tech communities and events including AI-focused symposiums and hands-on innovation forums.
+        My goal is to build impact-heavy, intelligent platforms that are both developer-friendly and business-ready.
+      </p>
+      <p>
+        Recent participation includes events and symposiums hosted by <strong>The University of Texas at Arlington</strong>,
+        <strong>Microsoft AI Tour</strong>, and <strong>Dallas AI community meetups</strong>.
+      </p>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience" class="section">
-      <h2 class="section-title">Experience</h2>
-
+      <h2>Experience Timeline</h2>
       <div class="timeline">
-        <div class="timeline-item">
-          <h3>Software Engineer — DoJoGa (June 2025 - Present) </h3>
-          <p>Design and Develop Blockchain and web 3.o applications. Built backend services and contributed to AI-driven features.</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>Systems Engineer — Tata Consultancy Services (November 2020 - Aug 2023) </h3>
-          <p>Worked on Ericsson COM product development (Component based Architecture for 5G Network Service), Migration to cloud, CI/CD, Development (design and Development), server automation, and distributed systems support.</p>
-        </div>
+        <article class="timeline-item glass reveal" tabindex="0">
+          <h3>Software Engineer — DoJoGa <span>(Current)</span></h3>
+          <p>
+            Designing and shipping backend-first software systems that are cloud-native, reliable, and production-ready.
+            I build Python/Java services, optimize APIs, containerize workloads with Docker, and deploy to Kubernetes/AWS.
+            My focus is software engineering excellence: scalable architecture, clean code, testability, observability,
+            and AI-assisted development practices for faster and safer release cycles.
+          </p>
+        </article>
+        <article class="timeline-item glass reveal" tabindex="0">
+          <h3>Systems Engineer — Tata Consultancy Services, Hyderabad <span>(2020–2023)</span></h3>
+          <p>
+            Contributed across the SDLC in enterprise engineering teams: requirement understanding, design, implementation,
+            testing, CI/CD automation, release support, and production reliability. Built and maintained developer workflows
+            with GitHub Actions, worked in distributed Linux environments, and collaborated on cloud migration and system modernization.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- Education -->
-    <section id="Education" class="section">
-      <h2 class="section-title">Education</h2>
+    <section id="projects" class="section">
+      <h2>Project Galaxy</h2>
+      <p class="section-lead">A curated set of projects from my GitHub portfolio (ML, MLOps, backend, and cloud engineering).</p>
+      <div class="project-grid">
+        <article class="project-card glass reveal">
+          <h3>Secure K8s Microservice Platform</h3>
+          <p>FastAPI + Kubernetes + observability stack with production-style deployment and security hardening.</p>
+          <a href="https://github.com/manojpasunoori/Secure-k8s-microservice-platform" target="_blank" rel="noopener">Open Repository ↗</a>
+        </article>
+        <article class="project-card glass reveal">
+          <h3>DevOps + GenAI Journey</h3>
+          <p>CI/CD workflows, infrastructure automation, and GenAI experiments documenting practical engineering learnings.</p>
+          <a href="https://github.com/manojpasunoori/devops-genai-journey" target="_blank" rel="noopener">Open Repository ↗</a>
+        </article>
+        <article class="project-card glass reveal">
+          <h3>SafeDrive AI</h3>
+          <p>Accident risk prediction pipeline with real-world data and API integration for predictive mobility insights.</p>
+          <a href="https://github.com/manojpasunoori/SafeDriveAI" target="_blank" rel="noopener">Open Repository ↗</a>
+        </article>
+        <article class="project-card glass reveal">
+          <h3>Fake Job Posting Detection</h3>
+          <p>NLP and ML pipeline to classify fraudulent job posts with robust data preprocessing and model evaluation.</p>
+          <a href="https://github.com/manojpasunoori/Fake-Job-Posting-Prediction" target="_blank" rel="noopener">Open Repository ↗</a>
+        </article>
+        <article class="project-card glass reveal">
+          <h3>Traffic Severity ML</h3>
+          <p>Weather-informed predictive analytics for traffic severity using feature engineering and ML optimization.</p>
+          <a href="https://github.com/manojpasunoori/Traffic-severity-ML" target="_blank" rel="noopener">Open Repository ↗</a>
+        </article>
+      </div>
+      <p class="more-projects">Explore more builds on <a href="https://github.com/manojpasunoori" target="_blank" rel="noopener">my full GitHub profile ↗</a>.</p>
+    </section>
 
-        <div class="timeline-item">
-          <h3>MS in Information Systems — University of Texas at Arlington (Aug 2023 - May 2025)</h3>
-          <p>Focused on Python Programming, SQL, Data Mining, Data Science, ML, Cloud, and DevOps.</p>
-        </div>
+    <section id="skills" class="section glass">
+      <h2>Software Engineer Skill Matrix (Click to Power Up)</h2>
+      <p class="section-lead">End-to-end software engineering capabilities across frontend, backend, cloud, SDLC, and AI-driven delivery.</p>
+      <div class="chips" id="skillChips">
+        <button>Frontend</button><button>Backend</button><button>Cloud Engineering</button><button>SDLC</button><button>Java</button>
+        <button>C++</button><button>Spring Boot</button><button>Python</button><button>Data Science</button><button>Machine Learning</button>
+        <button>AI-Driven Development</button><button>Test-Driven Development</button><button>Docker</button><button>Kubernetes</button><button>AWS</button>
+      </div>
+      <p class="xp">Career XP: <span id="xpCounter">0</span> ⚡</p>
 
-        <div class="timeline-item">
-          <h3>Bachelor of Technology in Electronics and Instrumentation Engineering — Jawaharlal Nehru Technological University (Aug 2016 - May 2020) </h3>
-          <p>Focused on C++ Programming, Java Programming, SQL, Computer Networks, Cloud, and Project Management.</p>
-        </div>
+      <div class="skill-categories">
+        <article>
+          <h3>Frontend Engineering</h3>
+          <p>Responsive UI architecture, component-based design, accessibility-first UX, performance-focused rendering, and modern JavaScript workflows.</p>
+        </article>
+        <article>
+          <h3>Backend Engineering</h3>
+          <p>API design, microservices, distributed systems, Java/Spring Boot services, Python backends, database integration, caching, and secure service communication.</p>
+        </article>
+        <article>
+          <h3>Cloud & DevOps</h3>
+          <p>AWS, Docker, Kubernetes, Terraform, CI/CD pipelines, GitHub Actions, observability, and high-availability Linux operations.</p>
+        </article>
+        <article>
+          <h3>SDLC & Quality</h3>
+          <p>Requirement analysis, architecture, coding standards, code reviews, test-driven development (TDD), release management, and continuous improvement.</p>
+        </article>
+        <article>
+          <h3>Data, ML & AI</h3>
+          <p>Data science workflows, feature engineering, machine learning modeling, MLOps fundamentals, AI analytics, and AI-driven development accelerators.</p>
+        </article>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section" id="contact">
-      <h2 class="section-title">Contact</h2>
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="edu-grid">
+        <article class="glass reveal">
+          <h3>Master’s in Information Systems</h3>
+          <p>The University of Texas at Arlington (UTA)</p>
+        </article>
+        <article class="glass reveal">
+          <h3>Bachelor of Technology</h3>
+          <p>Electronics and Instrumentation Engineering</p>
+        </article>
+      </div>
+    </section>
 
-  	<p class="contact-text">
-    	Open to <strong>Software Engineering</strong>,
-    	<strong>Cloud / Platform Engineering</strong>,
-    	<strong>DevOps / SRE</strong>, and
-   	<strong>Systems Development Engineer</strong> roles.
-   	<br />
-    	The best way to reach me is by email or LinkedIn.
- 	</p>
+    <section id="achievements" class="section glass">
+      <h2>Achievements & Leadership</h2>
+      <div class="achievement-grid">
+        <article>
+          <h3>🏛️ Student Senator — UTA College of Business</h3>
+          <p>Represented student voices, contributed to campus initiatives, and supported student-success programs.</p>
+        </article>
+        <article>
+          <h3>🌟 Star Performer of the Month</h3>
+          <p>Recognized multiple times in 2022 at TCS for high-impact delivery, ownership, and engineering excellence.</p>
+        </article>
+        <article>
+          <h3>📜 HackerRank Certifications</h3>
+          <p>Earned the HackerRank Software Engineer role certification (issued Jan 18, 2026), demonstrating strong coding fundamentals.</p>
+        </article>
+        <article>
+          <h3>🎤 AI & Analytics Symposium Participation</h3>
+          <p>Attended UTA symposiums, Microsoft AI Tour, and Dallas AI events to stay ahead in AI/ML innovation.</p>
+        </article>
+      </div>
+    </section>
 
+    <section id="proof" class="section">
+      <h2>Proof Wall 📸</h2>
+      <p class="section-lead">Real snapshots from awards, leadership, graduation, and AI/analytics events.</p>
+      <div class="proof-grid">
+        <figure class="proof-card glass reveal">
+          <img src="assets/senator.jpeg" alt="Manoj Pasunoori sworn in as Student Senator at UTA College of Business" loading="lazy" />
+          <figcaption>Student Senator swearing-in moment at UTA College of Business.</figcaption>
+        </figure>
+        <figure class="proof-card glass reveal">
+          <img src="assets/graduation.jpeg" alt="Manoj Pasunoori at UTA graduation ceremony" loading="lazy" />
+          <figcaption>MS Information Systems graduation milestone — UTA.</figcaption>
+        </figure>
+        <figure class="proof-card glass reveal">
+          <img src="assets/grad.jpeg" alt="Manoj Pasunoori with UTA degree folder" loading="lazy" />
+          <figcaption>Graduation portrait with UTA degree folder.</figcaption>
+        </figure>
+        <figure class="proof-card glass reveal">
+          <img src="assets/profile-alt.jpg" alt="Manoj Pasunoori professional profile image" loading="lazy" />
+          <figcaption>Professional snapshot used across event and portfolio branding.</figcaption>
+        </figure>
+      </div>
+      <p class="proof-note">Certificates and event snapshots are integrated to validate achievements, leadership, and active community participation.</p>
+    </section>
+
+    <section id="crazy" class="section">
+      <h2>Crazy Lab 🚀</h2>
+      <div class="crazy-grid">
+        <article class="glass ml-sim">
+          <h3>Interactive ML Risk Simulator</h3>
+          <label>Traffic Density <input id="density" type="range" min="0" max="100" value="35"></label>
+          <label>Rain Intensity <input id="rain" type="range" min="0" max="100" value="20"></label>
+          <label>Visibility Loss <input id="visibility" type="range" min="0" max="100" value="15"></label>
+          <p>Predicted Accident Risk Score: <span id="riskScore">0.00</span></p>
+          <div class="risk-bar"><div id="riskFill"></div></div>
+        </article>
+
+        <article class="glass chat-bot">
+          <h3>Ask ManojBot</h3>
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+          <div class="chat-input-row">
+            <input id="chatInput" type="text" placeholder="Ask about experience, skills, or goals..." />
+            <button id="sendChat">Send</button>
+          </div>
+        </article>
+      </div>
+      <p class="easter">Easter Egg: try the Konami code ↑ ↑ ↓ ↓ ← → ← → b a</p>
+    </section>
+
+    <section id="contact" class="section glass contact">
+      <h2>Contact</h2>
+      <p>Let’s build something unforgettable in ML, backend engineering, or cloud DevOps.</p>
       <div class="contact-links">
-        <a href="mailto:manojpasunoori@gmail.com">✉️ Email: manojpasunoori@gmail.com</a>
-   	<a href="https://www.linkedin.com/in/manoj-pasunoori-b5673a190/" target="_blank">🔗 LinkedIn: /in/manojpasunoori</a>
-   	<a href="https://github.com/manojpasunoori" target="_blank">💻 GitHub: @manojpasunoori</a>
+        <a href="mailto:manojpasunoori@gmail.com">✉️ manojpasunoori@gmail.com</a>
+        <a href="https://www.linkedin.com/in/manoj-pasunoori-b5673a190/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <a href="https://github.com/manojpasunoori" target="_blank" rel="noopener">💻 GitHub</a>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© 2025 Manoj Pasunoori • Inspired by Netflix UI</p>
+  <footer>
+    <p>© 2026 Manoj Pasunoori — Engineered with caffeine, curiosity, and controlled chaos.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
