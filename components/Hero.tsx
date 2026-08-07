@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="grid items-start gap-10 md:grid-cols-[3fr_2fr]">
         {/* Left: text */}
         <div>
-          <p className="eyebrow">Aerospace software engineering</p>
+          <p className="eyebrow">Software engineering</p>
           <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-semibold leading-tight tracking-tight text-deep-space sm:text-5xl">
             Hi, I&rsquo;m Manoj Pasunoori.
           </h1>
