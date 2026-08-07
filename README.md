@@ -33,8 +33,8 @@ Search the project for these and replace:
 
 | Placeholder | Files |
 |---|---|
-| `your.email@example.com` | `components/Hero.tsx`, `components/Footer.tsx` |
-| `linkedin.com/in/your-handle` | `components/Hero.tsx`, `components/Footer.tsx` |
+| `manojp0299@gmail.com` | `components/Hero.tsx`, `components/Footer.tsx` |
+| `linkedin.com/in/manojpasunoori` | `components/Hero.tsx`, `components/Footer.tsx` |
 
 The GitHub link already points to `github.com/manojpasunoori`.
 
