@@ -14,12 +14,12 @@ type EventItem = {
 const events: EventItem[] = [
   {
     img: "/images/event-rag-keynote.jpg",
-    alt: "Keynote session with slides on vector databases and RAG",
-    title: "Industry Keynote on Data & AI",
-    desc: "Attending a keynote session focused on the convergence of vector databases and Retrieval-Augmented Generation (RAG).",
+    alt: "Graduation - Masters in Information Systems",
+    title: "Graduation - Masters in Information Systems",
+    desc: "Graduated from UT Arlington",
     place: "Dallas–Fort Worth, TX",
     when: "2024",
-    kind: "Conference",
+    kind: "Grad Ceremony",
   },
   {
     img: "/images/event-materials-lab.jpg",
