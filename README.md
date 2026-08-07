@@ -1,4 +1,4 @@
-# Manoj Pasunoori — Aerospace Software Portfolio
+# Manoj Pasunoori — Software Portfolio
 
 A single-page portfolio built with **Next.js 15 (App Router) + TypeScript + Tailwind CSS 4 + lucide-react**, statically exported for GitHub Pages.
 
